@@ -7,25 +7,42 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#f3ede2',
-        'paper-dark': '#e2d7c5',
-        'paper-aged': '#cbbfa8',
-        ink: '#0a0a0a',
-        'ink-light': '#1c1b18',
-        oxblood: '#881313',
-        'oxblood-bright': '#ad1717',
-        'stamp-red': '#b91c1c'
+        black: '#101010',
+        charcoal: '#1A1A1A',
+        white: '#FFFFFF',
+        'soft-white': '#F6F5F2',
+        gray: {
+          light: '#F0EFEA',
+          DEFAULT: '#777777',
+          muted: '#8A8A8A',
+          dark: '#333333'
+        },
+        border: {
+          light: '#E5E5E5',
+          dark: '#262626',
+          subtle: '#EEEEEE'
+        },
+        crimson: {
+          DEFAULT: '#C62032',
+          hover: '#A51A28',
+          subtle: '#FAF0F1'
+        }
       },
       fontFamily: {
-        poster: ['"Bebas Neue"', 'Impact', 'sans-serif'],
-        typewriter: ['"Special Elite"', 'Courier New', 'monospace'],
-        sans: ['"Space Grotesk"', 'sans-serif'],
-        body: ['Inter', 'sans-serif']
+        sans: ['"Space Grotesk"', 'Manrope', 'Inter', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        mono: ['"JetBrains Mono"', 'monospace']
+      },
+      letterSpacing: {
+        tighter: '-0.04em',
+        tight: '-0.02em',
+        editorial: '0.15em',
+        widest: '0.25em'
       },
       boxShadow: {
-        'brutal': '4px 4px 0px 0px #0a0a0a',
-        'brutal-lg': '8px 8px 0px 0px #0a0a0a',
-        'brutal-oxblood': '6px 6px 0px 0px #881313'
+        'fine': '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+        'editorial': '0 20px 40px -15px rgba(16, 16, 16, 0.08)',
+        'crimson': '0 8px 24px -4px rgba(198, 32, 50, 0.25)'
       }
     },
   },

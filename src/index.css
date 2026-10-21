@@ -2,25 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-black: #101010;
+  --color-charcoal: #1A1A1A;
+  --color-white: #FFFFFF;
+  --color-soft-white: #F6F5F2;
+  --color-gray: #777777;
+  --color-border: #E5E5E5;
+  --color-border-dark: #262626;
+  --color-crimson: #C62032;
+}
+
 body {
-  background-color: #0d0c0a;
-  color: #0a0a0a;
-  min-height: 100vh;
+  background-color: var(--color-soft-white);
+  color: var(--color-black);
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-.paper-texture {
-  background-color: #f4eee2;
+::selection {
+  background-color: #C62032;
+  color: #FFFFFF;
 }
 
-.rubber-stamp {
-  display: inline-block;
+.badge-crimson {
+  background-color: #C62032;
+  color: #FFFFFF;
+  font-size: 10px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-family: 'Special Elite', monospace;
-  border: 3px solid #b91c1c;
-  color: #b91c1c;
-  padding: 3px 10px;
-  transform: rotate(-4deg);
-  border-radius: 3px;
-  letter-spacing: 0.1em;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 3px 8px;
 }
