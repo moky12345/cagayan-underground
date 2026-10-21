@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAGAYAN UNDERGROUND — Luxury Editorial, Dark Cyber-Sigilism & Alternative Culture</title>
-  <meta name="description" content="Independent alternative fashion marketplace, cyber-sigilist streetwear archive, and underground creative community rooted in Cagayan de Oro City, Philippines.">
+  <title>CAGAYAN UNDERGROUND — Luxury Cybersigilism Marketplace & Scene</title>
+  <meta name="description" content="Independent alternative fashion marketplace, cyber-sigilist streetwear atelier, and underground creative community rooted in Cagayan de Oro City, Philippines.">
   
-  <!-- Fonts -->
+  <!-- Typography: UnifrakturCook / Pirata One (Blackletter Gothic) + Cinzel (Sculptural Display) + Space Grotesk (Primary Interface) + JetBrains Mono (Technical Metadata) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Pirata+One&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,33 +18,35 @@
       theme: {
         extend: {
           colors: {
-            obsidian: '#070709',
-            'obsidian-dark': '#040405',
+            obsidian: '#080809',
+            'obsidian-deep': '#040405',
             charcoal: '#111114',
-            'charcoal-light': '#18181D',
-            bone: '#EDE8DF',
-            'bone-muted': '#A39E93',
-            silver: '#D4D8DC',
-            'silver-dark': '#7A8089',
+            'charcoal-elevated': '#19191E',
+            'charcoal-surface': '#222228',
+            bone: '#F0ECE6',
+            'bone-muted': '#96969F',
+            silver: '#C2C2C7',
+            'silver-bright': '#E2E2E6',
             crimson: {
-              DEFAULT: '#D9142A',
-              bright: '#FF1A35',
-              glow: 'rgba(217, 20, 42, 0.45)',
-              dark: '#8B0A17'
+              DEFAULT: '#D41432',
+              bright: '#FF1A38',
+              deep: '#780C20',
+              glow: 'rgba(212, 20, 50, 0.45)'
             },
-            wire: '#26262D',
-            'wire-light': '#363640'
+            wire: '#34343A',
+            'wire-light': '#4A4A52'
           },
           fontFamily: {
+            gothic: ['"Pirata One"', 'cursive'],
             sigil: ['Cinzel', 'serif'],
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
             sans: ['"Space Grotesk"', '-apple-system', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
             mono: ['"JetBrains Mono"', 'monospace']
           },
           boxShadow: {
-            'crimson-glow': '0 0 25px rgba(217, 20, 42, 0.4)',
-            'crimson-sharp': '4px 4px 0px 0px #D9142A',
-            'cyber-card': '0 10px 30px -10px rgba(0,0,0,0.8)'
+            'crimson-glow': '0 0 25px rgba(212, 20, 50, 0.4)',
+            'crimson-intense': '0 0 45px rgba(212, 20, 50, 0.7)',
+            'cyber-card': '0 12px 36px -10px rgba(0,0,0,0.9)'
           }
         }
       }
@@ -58,26 +60,25 @@
 
   <style>
     :root {
-      --obsidian: #070709;
+      --obsidian: #080809;
       --charcoal: #111114;
-      --crimson: #D9142A;
-      --crimson-glow: rgba(217, 20, 42, 0.5);
-      --bone: #EDE8DF;
+      --crimson: #D41432;
+      --bone: #F0ECE6;
     }
 
     body {
-      background-color: #070709;
-      color: #EDE8DF;
+      background-color: #080809;
+      color: #F0ECE6;
       font-family: 'Space Grotesk', sans-serif;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 20% 15%, rgba(217, 20, 42, 0.04) 0%, transparent 40%),
-        radial-gradient(circle at 80% 65%, rgba(217, 20, 42, 0.03) 0%, transparent 50%),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        radial-gradient(circle at 15% 10%, rgba(212, 20, 50, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 55%, rgba(212, 20, 50, 0.05) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
     }
 
     ::selection {
-      background-color: #D9142A;
+      background-color: #D41432;
       color: #FFFFFF;
     }
 
@@ -86,13 +87,59 @@
       width: 4px;
     }
     ::-webkit-scrollbar-track {
-      background: #070709;
+      background: #080809;
     }
     ::-webkit-scrollbar-thumb {
-      background: #D9142A;
+      background: #D41432;
     }
 
-    /* Marquee animation */
+    /* Chrome Metallic Text Gradient */
+    .chrome-text {
+      background: linear-gradient(180deg, #FFFFFF 0%, #D4D8DC 35%, #7A8089 50%, #C2C2C7 70%, #FFFFFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 15px rgba(212, 20, 50, 0.4));
+    }
+
+    /* Chrome Metallic Border Frame */
+    .cyber-frame {
+      border: 1px solid #34343A;
+      background: linear-gradient(135deg, rgba(25, 25, 30, 0.7) 0%, rgba(17, 17, 20, 0.95) 100%);
+      position: relative;
+    }
+    .cyber-frame::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid #D41432;
+      border-left: 2px solid #D41432;
+      pointer-events: none;
+    }
+    .cyber-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 8px;
+      height: 8px;
+      border-bottom: 2px solid #D41432;
+      border-right: 2px solid #D41432;
+      pointer-events: none;
+    }
+
+    /* Halo Pulse */
+    @keyframes redPulse {
+      0%, 100% { filter: drop-shadow(0 0 8px rgba(212, 20, 50, 0.5)); }
+      50% { filter: drop-shadow(0 0 25px rgba(212, 20, 50, 0.9)); }
+    }
+    .sigil-pulse {
+      animation: redPulse 4s infinite ease-in-out;
+    }
+
+    /* Marquee */
     @keyframes marquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -100,44 +147,10 @@
     .animate-marquee {
       display: inline-flex;
       white-space: nowrap;
-      animation: marquee 25s linear infinite;
+      animation: marquee 28s linear infinite;
     }
     .animate-marquee:hover {
       animation-play-state: paused;
-    }
-
-    /* Sigil Spin & Pulse */
-    @keyframes subtlePulse {
-      0%, 100% { filter: drop-shadow(0 0 4px rgba(217, 20, 42, 0.4)); }
-      50% { filter: drop-shadow(0 0 16px rgba(217, 20, 42, 0.8)); }
-    }
-    .sigil-glow {
-      animation: subtlePulse 4s infinite ease-in-out;
-    }
-
-    /* Cyber border accents */
-    .cyber-corner {
-      position: relative;
-    }
-    .cyber-corner::before, .cyber-corner::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-color: #D9142A;
-      pointer-events: none;
-    }
-    .cyber-corner::before {
-      top: -1px;
-      left: -1px;
-      border-top: 2px solid #D9142A;
-      border-left: 2px solid #D9142A;
-    }
-    .cyber-corner::after {
-      bottom: -1px;
-      right: -1px;
-      border-bottom: 2px solid #D9142A;
-      border-right: 2px solid #D9142A;
     }
   </style>
 </head>
@@ -148,258 +161,210 @@
     const { useState, useEffect, useMemo, useRef } = React;
 
     // =========================================================================
-    // SVG CYBER-SIGIL EMBLEMS & ORNAMENTAL GRAPHICS
+    // SVG CYBER-SIGIL EMBLEMS & BRAND LOGO VARIATIONS
     // =========================================================================
 
-    // Official CAGAYAN UNDERGROUND Sigil Emblem
-    function SigilEmblem({ className = "w-8 h-8", glow = true }) {
+    // 1. Master 8-Pointed Barbed Compass Sigil (from UI Reference Sheet)
+    function MasterSigil({ className = "w-8 h-8", glow = true, color = "#D41432", accent = "#F0ECE6" }) {
       return (
         <svg 
           viewBox="0 0 100 100" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg" 
-          className={`${className} ${glow ? 'sigil-glow' : ''}`}>
-          {/* Outer Barbed Orbit */}
-          <circle cx="50" cy="50" r="44" stroke="#D9142A" strokeWidth="1.2" strokeDasharray="3 2" />
-          <circle cx="50" cy="50" r="38" stroke="#D4D8DC" strokeWidth="0.8" opacity="0.6" />
-          {/* Intricate Cardinal Cyber Thorns */}
-          <path d="M50 2 L52 24 L56 28 L50 36 L44 28 L48 24 Z" fill="#D9142A" />
-          <path d="M50 98 L52 76 L56 72 L50 64 L44 72 L48 76 Z" fill="#D9142A" />
-          <path d="M2 50 L24 48 L28 44 L36 50 L28 56 L24 52 Z" fill="#D9142A" />
-          <path d="M98 50 L76 48 L72 44 L64 50 L72 56 L76 52 Z" fill="#D9142A" />
-          {/* Diagonal Spikes */}
-          <path d="M16 16 L32 30 L28 34 L18 26 Z" fill="#D4D8DC" opacity="0.8" />
-          <path d="M84 16 L68 30 L72 34 L82 26 Z" fill="#D4D8DC" opacity="0.8" />
-          <path d="M16 84 L32 70 L28 66 L18 74 Z" fill="#D4D8DC" opacity="0.8" />
-          <path d="M84 84 L68 70 L72 66 L82 74 Z" fill="#D4D8DC" opacity="0.8" />
-          {/* Inner Sacred Star */}
-          <path d="M50 18 L54 42 L78 50 L54 58 L50 82 L46 58 L22 50 L46 42 Z" stroke="#D9142A" strokeWidth="1.5" fill="rgba(217,20,42,0.15)" />
-          {/* Center Nucleus */}
-          <circle cx="50" cy="50" r="4.5" fill="#EDE8DF" stroke="#D9142A" strokeWidth="1.5" />
-          <circle cx="50" cy="50" r="1.5" fill="#D9142A" />
+          className={`${className} ${glow ? 'sigil-pulse' : ''}`}>
+          {/* Orbital Barbed Ring */}
+          <circle cx="50" cy="50" r="42" stroke={color} strokeWidth="1" strokeDasharray="3 3" />
+          <circle cx="50" cy="50" r="34" stroke="#96969F" strokeWidth="0.8" opacity="0.6" />
+          {/* North, South, East, West Barbed Thorns */}
+          <path d="M50 2 L52 24 L58 30 L50 38 L42 30 L48 24 Z" fill={color} />
+          <path d="M50 98 L52 76 L58 70 L50 62 L42 70 L48 76 Z" fill={color} />
+          <path d="M2 50 L24 48 L30 42 L38 50 L30 58 L24 52 Z" fill={color} />
+          <path d="M98 50 L76 48 L70 42 L62 50 L70 58 L76 52 Z" fill={color} />
+          {/* Diagonal Sacred Cyber-Spikes */}
+          <path d="M16 16 L34 32 L30 36 L18 26 Z" fill="#C2C2C7" opacity="0.85" />
+          <path d="M84 16 L66 32 L70 36 L82 26 Z" fill="#C2C2C7" opacity="0.85" />
+          <path d="M16 84 L34 68 L30 64 L18 74 Z" fill="#C2C2C7" opacity="0.85" />
+          <path d="M84 84 L66 68 L70 64 L82 74 Z" fill="#C2C2C7" opacity="0.85" />
+          {/* Inner 8-Point Diamond Halo */}
+          <path d="M50 16 L54 42 L80 50 L54 58 L50 84 L46 58 L20 50 L46 42 Z" stroke={color} strokeWidth="1.5" fill="rgba(212,20,50,0.18)" />
+          {/* Core Eye */}
+          <circle cx="50" cy="50" r="4.5" fill={accent} stroke={color} strokeWidth="1.5" />
+          <circle cx="50" cy="50" r="1.5" fill={color} />
         </svg>
       );
     }
 
-    // Horizontal Cyber-Sigil Divider Ornament
-    function SigilDivider({ className = "w-full my-8" }) {
+    // 2. Custom Gothic Cyber Metallic Chrome Logo
+    function BrandWordmark({ size = "normal" }) {
+      if (size === "large") {
+        return (
+          <div className="text-center relative select-none">
+            {/* Ambient Halo Behind Logo */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] pointer-events-none opacity-40">
+              <MasterSigil className="w-full h-full" glow={true} />
+            </div>
+            <div className="relative z-10">
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-gothic tracking-wider uppercase leading-none chrome-text">
+                CAGAYAN
+              </h1>
+              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-gothic tracking-widest uppercase leading-none text-white drop-shadow-[0_0_20px_rgba(212,20,50,0.7)] -mt-1 sm:-mt-3">
+                UNDERGROUND
+              </h2>
+            </div>
+          </div>
+        );
+      }
+
+      // Default Navigation Logo
       return (
-        <div className={`flex items-center justify-center space-x-4 opacity-75 ${className}`}>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-crimson to-transparent"></div>
-          <svg width="40" height="18" viewBox="0 0 40 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 0L23 7L30 9L23 11L20 18L17 11L10 9L17 7L20 0Z" fill="#D9142A" />
-            <circle cx="20" cy="9" r="2" fill="#EDE8DF" />
-            <line x1="2" y1="9" x2="10" y2="9" stroke="#D4D8DC" strokeWidth="0.8" />
-            <line x1="30" y1="9" x2="38" y2="9" stroke="#D4D8DC" strokeWidth="0.8" />
-          </svg>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-crimson to-transparent"></div>
+        <div className="flex items-center space-x-3 select-none">
+          <MasterSigil className="w-9 h-9" />
+          <div>
+            <div className="flex items-baseline space-x-1 font-gothic text-xl sm:text-2xl tracking-wider uppercase leading-none">
+              <span className="text-white">CAGAYAN</span>
+              <span className="text-crimson-bright font-bold">UNDERGROUND</span>
+            </div>
+            <span className="text-[9px] font-mono tracking-widest text-silver uppercase block -mt-0.5">
+              FASHION • MUSIC • COMMUNITY
+            </span>
+          </div>
         </div>
       );
     }
 
     // =========================================================================
-    // STORE DATA & DATABASE (PRESERVING ALL FEATURES)
+    // STORE PRODUCTS & EVENT DATA
     // =========================================================================
     const INITIAL_PRODUCTS = [
       {
         id: 'p-1',
-        title: 'Vintage Band Tee (Faded Acid)',
+        title: 'Cursed Bloom Tee',
         price: 650,
         original: 1200,
         size: 'M',
-        condition: 'Good • Natural Vintage Wash',
+        condition: 'Good • Washed Vintage',
         category: 'Tops',
+        merchant: 'Nocturne CDO',
         tag: 'NEW',
-        image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80',
-        desc: 'Heavily washed distressed cotton with vintage screenprint patina. Single stitch construction from early 2000s stock.',
-        measurements: 'Pit to Pit: 52cm • Length: 68cm'
+        image: 'C:/Users/Karl Andre/.gemini/antigravity/brain/bd82ee26-6f5d-4cc6-bb47-c4f490658ba5/.user_uploaded/media_1792598076761_40b49506.jpg',
+        crop: 'center',
+        desc: 'Heavily washed distressed cotton with red/silver cyber-gothic floral print. Sourced in Divisoria night market and studio conditioned.'
       },
       {
         id: 'p-2',
-        title: 'Tactical Multi-Pocket Cargo Pants',
+        title: 'Ritual Denim Jacket',
         price: 1200,
-        original: 2400,
-        size: 'L (32-34")',
-        condition: 'Good • Heavy Twill',
-        category: 'Bottoms',
-        tag: null,
-        image: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=900&q=80',
-        desc: 'Wide-cut architectural cargo trousers featuring 8 modular utility pockets, reinforced knee darting, and ankle cinch cords.',
-        measurements: 'Waist: 33" • Inseam: 31" • Leg Opening: 25cm'
+        original: 2600,
+        size: 'L',
+        condition: 'Reworked • Heavy Twill',
+        category: 'Outerwear',
+        merchant: 'Nazareth Studio',
+        tag: 'REWORKED',
+        image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80',
+        desc: 'Customized vintage denim battle jacket featuring full back embroidered cyber-sigil, raw sleeve hems, and hand-oxidized zinc rivets.'
       },
       {
         id: 'p-3',
-        title: 'Studio Reworked Moto Leather Jacket',
-        price: 2500,
-        original: 5500,
-        size: 'M / Slim L',
-        condition: 'Fair • Minor vintage scuffs on leather',
-        category: 'Outerwear',
-        tag: 'REWORKED',
-        image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80',
-        desc: 'Genuine heavy cowhide leather jacket, hand-conditioned with matte black wax, recut with raw cropped hem and oxidized silver hardware.',
-        measurements: 'Shoulder: 47cm • Pit to Pit: 54cm • Length: 61cm'
+        title: 'Doomscape Tee',
+        price: 700,
+        original: 1400,
+        size: 'L',
+        condition: 'Good • Double Sided',
+        category: 'Tops',
+        merchant: 'Northern Metal Guild',
+        tag: null,
+        image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80',
+        desc: 'Extreme metal typography screenprinted on heavyweight combed cotton. Blood-red sleeve hit and distress wash.'
       },
       {
         id: 'p-4',
-        title: 'Deconstructed Pleated Cyber Skirt',
-        price: 750,
-        original: 1500,
-        size: 'S (26-28")',
-        condition: 'New • Atelier Deadstock',
+        title: 'Cyber Cargo Pants',
+        price: 1500,
+        original: 3200,
+        size: 'M (30-32")',
+        condition: 'Like New • Structured',
         category: 'Bottoms',
-        tag: null,
-        image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=80',
-        desc: 'Asymmetrical knife-pleated skirt with raw thread hems and removable metallic lobster clasp chain detail.',
-        measurements: 'Waist: 27" • Length: 42cm'
+        merchant: 'Carmen Surplus Lab',
+        tag: 'ONE-OF-ONE',
+        image: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=900&q=80',
+        desc: 'Deconstructed 8-pocket tactical trousers with nylon strap cinch harness and reinforced knee articulation.'
       },
       {
         id: 'p-5',
-        title: 'Cyber-Sigil Embroidered Oversized Hoodie',
-        price: 1100,
-        original: 2100,
-        size: 'XL',
-        condition: 'Good • Heavy Fleece',
+        title: 'Leather Moto Greatcoat',
+        price: 2500,
+        original: 6200,
+        size: 'L / Oversized M',
+        condition: 'Fair • Minor vintage patina',
         category: 'Outerwear',
-        tag: 'ONE OF A KIND',
-        image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=900&q=80',
-        desc: '500gsm heavyweight loopback cotton fleece with metallic silver thread cyber-sigil chest and back embroidery.',
-        measurements: 'Pit to Pit: 66cm • Length: 75cm'
-      },
-      {
-        id: 'p-6',
-        title: 'Lug-Sole Combat Derbies (Steel Welt)',
-        price: 1850,
-        original: 3800,
-        size: 'EU 42 / US 9',
-        condition: 'Good • Deep Tread',
-        category: 'Shoes',
-        tag: 'SURPLUS',
-        image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
-        desc: 'Genuine polished leather combat derbies with reinforced welt stitching and aggressive rubber lug soles built for concrete mosh pits.',
-        measurements: 'Insole: 27.5cm • Heel: 4cm'
+        merchant: 'Divisoria Vault',
+        tag: 'ARCHIVE',
+        image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80',
+        desc: 'Thick full-grain cowhide leather with asymmetrical zipper, storm flap, and natural road wear. Conditioned with organic dubbin.'
       }
     ];
 
     const INITIAL_EVENTS = [
       {
         id: 'ev-1',
-        title: 'LOCAL BANDS NIGHT: NOISE DISRUPTION VOL. 4',
-        date: '26 APR',
-        fullDate: 'Saturday, April 26, 2026',
-        time: '7:00 PM - 2:00 AM',
-        venue: 'The Warehouse, CDO',
-        address: '12th-21st St., Nazareth, Cagayan de Oro City',
+        title: 'CDO UNDERGROUND GIG',
+        dateBadge: 'AUG 17',
+        fullDate: 'Sunday, August 17, 2026',
+        venue: 'The Northern Bloc, CDO',
+        address: 'Corrales Ave. near Divisoria, Cagayan de Oro',
         price: 150,
         status: 'Verified',
         image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80',
-        bands: ['Blackwater Divide', 'Calamity Routine', 'Rust & Wire', 'Gutter Sludge'],
-        desc: 'Four CDO hardcore & extreme noise acts tearing through a concrete garage. Strict safe mosh etiquette. Pop-up thrift rack in side patio.'
+        desc: 'CDO underground noise gathering featuring extreme hardcore, post-punk, and local merch pop-up tables.'
       },
       {
         id: 'ev-2',
-        title: 'DIY PATCH & CLOTHING WORKSHOP',
-        date: '03 MAY',
-        fullDate: 'Sunday, May 3, 2026',
-        time: '2:00 PM - 6:00 PM',
-        venue: 'The Hive, CDO',
-        address: 'Tomas Saco St., Macasandig, CDO',
-        price: 350,
+        title: 'DIY PATCH & CLOTHING CLINIC',
+        dateBadge: 'SEP 04',
+        fullDate: 'Friday, September 4, 2026',
+        venue: 'The Hive, Nazareth',
+        address: '12th St., Nazareth, CDO',
+        price: 0,
         status: 'Verified',
         image: 'https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?auto=format&fit=crop&w=900&q=80',
-        bands: ['Screenprint Mentors', 'Upcycling Crew'],
-        desc: 'Bring 1-2 garments to customize. Water-based screenprint inks, raw duck canvas, stencils, cone studs, and heavy waxed thread included.'
-      },
-      {
-        id: 'ev-3',
-        title: 'HARDCORE SHOW: NORTHERN CORROSION',
-        date: '10 MAY',
-        fullDate: 'Sunday, May 10, 2026',
-        time: '8:00 PM - 1:00 AM',
-        venue: 'Conner Space PM',
-        address: 'Divisoria Underground, Tiano Bros. St., CDO',
-        price: 200,
-        status: 'Pending',
-        image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80',
-        bands: ['Stitched Lips Society', 'Bukidnon Noise Syndicate'],
-        desc: 'Midwest emo catharsis & post-hardcore showcase. Community zine fair tables and cassette swap inside.'
-      }
-    ];
-
-    const COMMUNITY_LOOKBOOK = [
-      {
-        id: 'lb-1',
-        name: 'Kiko & Val',
-        location: 'Nazareth Atelier Alley',
-        fit: 'Reworked Moto Vest, Vintage Acid Band Tee, Pleated Trousers',
-        image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80'
-      },
-      {
-        id: 'lb-2',
-        name: 'Dante V.',
-        location: 'Macabalan Port Basin',
-        fit: 'Surplus Greatcoat, Hand-Studded Flannel, Commando Derbies',
-        image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80'
-      },
-      {
-        id: 'lb-3',
-        name: 'Alyssa S.',
-        location: 'Divisoria Night Market',
-        fit: 'Cyber-Sigil Hoodie, Deconstructed Pleat Skirt, Silver Choker',
-        image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80'
-      },
-      {
-        id: 'lb-4',
-        name: 'Bea & Joms',
-        location: 'Carmen Riverbank',
-        fit: 'DIY Canvas Patch Jacket, Raw Indigo Denim, Combat Boots',
-        image: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=800&q=80'
+        desc: 'Free workshop teaching stencil screenprinting, canvas back patch sewing, and distressed bleaching.'
       }
     ];
 
     // =========================================================================
-    // MAIN LANDING PAGE COMPONENT
+    // MAIN APPLICATION COMPONENT
     // =========================================================================
     function App() {
-      // Modals & Panels
+      // Modals
       const [cartOpen, setCartOpen] = useState(false);
-      const [catalogModalOpen, setCatalogModalOpen] = useState(false);
+      const [brandKitModal, setBrandKitModal] = useState(false);
+      const [merchantApplyModal, setMerchantApplyModal] = useState(false);
       const [selectedProduct, setSelectedProduct] = useState(null);
       const [selectedEvent, setSelectedEvent] = useState(null);
-      const [accountModalOpen, setAccountModalOpen] = useState(false);
-      const [adminModalOpen, setAdminModalOpen] = useState(false);
-      const [diyModalOpen, setDiyModalOpen] = useState(false);
-      const [submitEventModalOpen, setSubmitEventModalOpen] = useState(false);
-      const [lookbookModalItem, setLookbookModalItem] = useState(null);
-      const [toastMessage, setToastMessage] = useState(null);
+      const [diyLabModal, setDiyLabModal] = useState(false);
+      const [accountModal, setAccountModal] = useState(false);
+      const [dashboardModal, setDashboardModal] = useState(false);
+      const [allProductsModal, setAllProductsModal] = useState(false);
+      const [toast, setToast] = useState(null);
 
-      // Persistent Cart
+      // Cart state
       const [cart, setCart] = useState(() => {
         try {
-          const s = localStorage.getItem('cagayan_ug_cart');
-          return s ? JSON.parse(s) : [
-            { product: INITIAL_PRODUCTS[2], quantity: 1 } // Pre-loaded with Studio Reworked Leather Jacket
-          ];
+          const s = localStorage.getItem('cdo_cart_ultimate');
+          return s ? JSON.parse(s) : [{ product: INITIAL_PRODUCTS[1], quantity: 1 }];
         } catch { return []; }
       });
 
-      // Events & Submissions
-      const [eventsList, setEventsList] = useState(INITIAL_EVENTS);
-      const [submissions, setSubmissions] = useState([
-        { id: 'sub-1', title: 'CAGAYAN HARDCORE CHRONICLES VOL. 1', venue: 'Backyard Alley Stage, Carmen', date: '2026-05-18', price: 100, status: 'Pending' }
-      ]);
-
-      // Category filter inside catalog
-      const [catalogCategory, setCatalogCategory] = useState('All');
-      const [catalogSearch, setCatalogSearch] = useState('');
+      // Wishlist
+      const [wishlist, setWishlist] = useState(['p-1']);
 
       useEffect(() => {
-        localStorage.setItem('cagayan_ug_cart', JSON.stringify(cart));
+        localStorage.setItem('cdo_cart_ultimate', JSON.stringify(cart));
       }, [cart]);
 
       const showToast = (msg) => {
-        setToastMessage(msg);
-        setTimeout(() => setToastMessage(null), 3500);
+        setToast(msg);
+        setTimeout(() => setToast(null), 3500);
       };
 
       const addToCart = (product) => {
@@ -414,14 +379,12 @@
         setCartOpen(true);
       };
 
-      const updateCartQty = (id, delta) => {
-        setCart(prev => prev.map(item => {
-          if (item.product.id === id) {
-            const newQ = item.quantity + delta;
-            return newQ > 0 ? { ...item, quantity: newQ } : null;
-          }
-          return item;
-        }).filter(Boolean));
+      const toggleWishlist = (id) => {
+        setWishlist(prev => {
+          const has = prev.includes(id);
+          showToast(has ? "Removed from private archive" : "Saved to private archive");
+          return has ? prev.filter(x => x !== id) : [...prev, id];
+        });
       };
 
       const cartTotal = useMemo(() => {
@@ -432,1171 +395,803 @@
         return cart.reduce((sum, item) => sum + item.quantity, 0);
       }, [cart]);
 
-      // Scroll helpers
-      const scrollToSection = (id) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      };
-
-      // Add to calendar ICS
-      const downloadIcs = (event) => {
-        const icsData = [
-          'BEGIN:VCALENDAR',
-          'VERSION:2.0',
-          'PRODID:-//Cagayan Underground//EN',
-          'BEGIN:VEVENT',
-          `SUMMARY:${event.title}`,
-          `LOCATION:${event.venue}, ${event.address}`,
-          `DESCRIPTION:${event.desc}`,
-          'END:VEVENT',
-          'END:VCALENDAR'
-        ].join('\r\n');
-        const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.setAttribute('download', `${event.title.replace(/\s+/g, '_')}.ics`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        showToast("Gig scheduled to your calendar (.ics)");
-      };
-
       return (
         <div className="min-h-screen bg-obsidian text-bone relative selection:bg-crimson selection:text-white">
           {/* TOAST SYSTEM */}
-          {toastMessage && (
-            <div className="fixed bottom-6 right-6 z-50 bg-charcoal border-l-4 border-crimson text-white px-5 py-3 shadow-2xl text-xs tracking-wider flex items-center space-x-3 cyber-corner">
+          {toast && (
+            <div className="fixed bottom-6 right-6 z-50 bg-charcoal-elevated border-l-4 border-crimson text-white px-5 py-3 shadow-2xl text-xs font-mono tracking-wider flex items-center space-x-3 cyber-frame">
               <span className="w-2 h-2 rounded-full bg-crimson animate-ping"></span>
-              <span className="font-mono">{toastMessage}</span>
+              <span>{toast}</span>
             </div>
           )}
 
           {/* ===================================================================
-              1. STICKY TOP BAR: LUXURY EDITORIAL + CYBER EMBLEM
+              1. STICKY TOP NAVIGATION BAR (MATCHING UI REFERENCE)
              =================================================================== */}
-          <header className="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b border-wire">
+          <header className="sticky top-0 z-40 bg-obsidian/95 backdrop-blur-md border-b border-wire">
             <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex justify-between items-center">
-              {/* BRAND LOGO WITH CYBER-SIGIL EMBLEM */}
+              {/* Left Brand Identity */}
               <div 
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="cursor-pointer group flex items-center space-x-3">
-                <SigilEmblem className="w-10 h-10 transition-transform duration-500 group-hover:rotate-45" />
+                <MasterSigil className="w-9 h-9 transition-transform duration-500 group-hover:rotate-45" />
                 <div>
-                  <div className="flex items-center space-x-1.5">
-                    <span className="text-xl sm:text-2xl font-sigil font-bold tracking-widest text-white uppercase group-hover:text-crimson-bright transition">
-                      CAGAYAN
-                    </span>
-                    <span className="text-xl sm:text-2xl font-sigil font-extrabold tracking-widest text-crimson uppercase">
-                      UNDERGROUND
-                    </span>
+                  <div className="flex items-baseline space-x-1 font-gothic text-xl sm:text-2xl tracking-wider uppercase leading-none">
+                    <span className="text-white">CAGAYAN</span>
+                    <span className="text-crimson-bright font-bold">UNDERGROUND</span>
                   </div>
-                  <span className="text-[9px] tracking-widest text-silver-dark font-mono uppercase block -mt-1">
-                    THRIFT × DIY × MUSIC × COMMUNITY
+                  <span className="text-[9px] font-mono tracking-widest text-silver uppercase block -mt-0.5">
+                    FASHION • MUSIC • COMMUNITY
                   </span>
                 </div>
               </div>
 
-              {/* CENTER NAVIGATION */}
-              <nav className="hidden lg:flex items-center space-x-8 text-xs font-mono tracking-widest uppercase">
-                <button onClick={() => scrollToSection('arrivals')} className="text-bone-muted hover:text-crimson transition">
-                  SHOP
+              {/* Center Menu Links with dropdown indicators */}
+              <nav className="hidden lg:flex items-center space-x-6 text-xs font-mono tracking-widest uppercase">
+                <button onClick={() => setAllProductsModal(true)} className="text-silver hover:text-crimson flex items-center space-x-1">
+                  <span>Shop</span> <span className="text-[9px]">⌄</span>
                 </button>
-                <button onClick={() => scrollToSection('reworked')} className="text-bone-muted hover:text-crimson transition">
-                  REWORKED
+                <button onClick={() => setMerchantApplyModal(true)} className="text-silver hover:text-crimson flex items-center space-x-1">
+                  <span>Merchants</span> <span className="text-[9px]">⌄</span>
                 </button>
-                <button onClick={() => scrollToSection('diy-lab')} className="text-bone-muted hover:text-crimson transition">
-                  DIY LAB
+                <button onClick={() => { const el = document.getElementById('events-section'); if(el) el.scrollIntoView({behavior:'smooth'}); }} className="text-silver hover:text-crimson flex items-center space-x-1">
+                  <span>Events</span> <span className="text-[9px]">⌄</span>
                 </button>
-                <button onClick={() => scrollToSection('events')} className="text-bone-muted hover:text-crimson transition">
-                  EVENTS
+                <button onClick={() => setDiyLabModal(true)} className="text-silver hover:text-crimson flex items-center space-x-1">
+                  <span>DIY Lab</span> <span className="text-[9px]">⌄</span>
                 </button>
-                <button onClick={() => scrollToSection('lookbook')} className="text-bone-muted hover:text-crimson transition">
-                  COMMUNITY
+                <button onClick={() => setBrandKitModal(true)} className="text-silver hover:text-crimson flex items-center space-x-1">
+                  <span>Brand Sigils</span> <span className="text-[9px]">★</span>
                 </button>
               </nav>
 
-              {/* RIGHT TOOLBAR: SEARCH, ACCOUNT, ADMIN, CART */}
-              <div className="flex items-center space-x-4 sm:space-x-5 text-xs font-mono">
-                <button 
-                  onClick={() => setCatalogModalOpen(true)}
-                  className="text-silver hover:text-crimson transition p-1.5" title="Search Catalog">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
-                </button>
+              {/* Center-Right Search Pill */}
+              <div 
+                onClick={() => setAllProductsModal(true)}
+                className="hidden md:flex items-center space-x-2 bg-charcoal border border-wire rounded-full px-4 py-1.5 text-xs text-silver-bright hover:border-crimson cursor-pointer transition w-60">
+                <svg className="w-3.5 h-3.5 text-silver-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <span className="text-[11px] font-mono truncate text-silver">Search items, events...</span>
+              </div>
 
-                <button 
-                  onClick={() => setAccountModalOpen(true)}
-                  className="text-silver hover:text-crimson transition p-1.5" title="Customer Portal">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-                </button>
-
-                <button 
-                  onClick={() => setAdminModalOpen(true)}
-                  className="hidden sm:inline-block text-[10px] uppercase tracking-wider text-silver-dark hover:text-white border border-wire px-2.5 py-1 transition" title="Dashboard">
-                  DASHBOARD
-                </button>
-
+              {/* Right Tools: Cart, User, "Join the Scene" */}
+              <div className="flex items-center space-x-4 text-xs font-mono">
                 <button 
                   onClick={() => setCartOpen(true)}
-                  className="relative bg-crimson hover:bg-crimson-bright text-white px-3.5 py-1.5 text-xs tracking-wider font-semibold transition flex items-center space-x-2 cyber-corner shadow-crimson-glow">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg>
-                  <span>{cartCount}</span>
+                  className="relative p-2 text-silver hover:text-crimson transition">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg>
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-crimson text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+
+                <button 
+                  onClick={() => setAccountModal(true)}
+                  className="p-2 text-silver hover:text-crimson transition" title="Account Portal">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                </button>
+
+                <button 
+                  onClick={() => setMerchantApplyModal(true)}
+                  className="hidden sm:flex bg-crimson hover:bg-crimson-bright text-white px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider items-center space-x-1.5 transition shadow-crimson-glow">
+                  <span>Join the Scene</span>
+                  <span>→</span>
                 </button>
               </div>
             </div>
           </header>
 
           {/* ===================================================================
-              2. HERO SECTION: LUXURY EDITORIAL CAMPAIGN
+              2. HERO CAMPAIGN (DIRECT MATCH TO UI REFERENCE SHEET)
              =================================================================== */}
-          <section className="relative min-h-[90vh] flex items-center border-b border-wire overflow-hidden pt-8 pb-16">
-            {/* Ambient Background Glow & Sigil Matrix */}
-            <div className="absolute top-1/2 right-10 -translate-y-1/2 w-[600px] h-[600px] bg-crimson/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div className="absolute top-1/4 right-1/4 opacity-10 pointer-events-none">
-              <SigilEmblem className="w-[500px] h-[500px]" glow={false} />
-            </div>
+          <section className="relative min-h-[92vh] flex items-center border-b border-wire overflow-hidden pt-8 pb-16">
+            {/* Ambient Background Glow & Halo */}
+            <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-crimson/15 rounded-full blur-[140px] pointer-events-none"></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-              {/* Left Column: Vertical Coordinates & Commanding Headlines */}
-              <div className="lg:col-span-7 flex">
-                {/* Vertical Spine Label */}
-                <div className="hidden sm:flex flex-col justify-between items-center pr-8 border-r border-wire text-[10px] font-mono tracking-widest text-silver-dark uppercase select-none">
-                  <span className="rotate-180 [writing-mode:vertical-rl]">CAGAYAN DE ORO CITY</span>
-                  <div className="w-[1px] h-20 bg-crimson"></div>
-                  <span className="rotate-180 [writing-mode:vertical-rl]">NORTHERN MINDANAO</span>
-                </div>
-
-                <div className="sm:pl-8">
-                  {/* Category Pill Tag */}
-                  <div className="inline-flex items-center space-x-2 text-[10px] font-mono tracking-widest uppercase text-crimson bg-crimson/10 border border-crimson/30 px-3 py-1 mb-6">
-                    <span className="w-1.5 h-1.5 rounded-full bg-crimson"></span>
-                    <span>THRIFT × DIY × MUSIC × COMMUNITY</span>
+            <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Left 7 Cols: Master Gothic Chrome Wordmark & Manifesto */}
+                <div className="lg:col-span-7 flex flex-col justify-center">
+                  <div className="text-[10px] font-mono tracking-widest text-silver-bright uppercase mb-2">
+                    CAGAYAN DE ORO CITY • PHILIPPINES
                   </div>
 
-                  {/* Master Headline matching UI Reference */}
-                  <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black font-sans tracking-tighter uppercase leading-[0.92] text-white">
-                    STYLE<br />
-                    WITHOUT<br />
-                    <span className="text-crimson font-sigil tracking-wide drop-shadow-[0_0_20px_rgba(217,20,42,0.6)]">
-                      RULES.
-                    </span>
-                  </h1>
+                  {/* Giant 3D Metallic Chrome Logo */}
+                  <BrandWordmark size="large" />
 
-                  <p className="text-sm sm:text-base text-bone-muted max-w-md mt-6 leading-relaxed font-sans">
-                    Secondhand fashion. Independent creators. Underground culture. Built in Cagayan de Oro.
+                  {/* Subtitle */}
+                  <div className="text-center text-xs font-mono tracking-widest text-silver uppercase my-4">
+                    FASHION • MUSIC • COMMUNITY
+                  </div>
+
+                  <p className="text-center text-xs font-serif italic text-bone max-w-sm mx-auto mb-6">
+                    Shop. Discover. Belong.<br />
+                    The underground lives here.
                   </p>
 
-                  {/* Dual Action Triggers */}
-                  <div className="mt-8 flex flex-wrap gap-4">
+                  {/* Action Pill Trigger */}
+                  <div className="flex justify-center mb-10">
                     <button 
-                      onClick={() => scrollToSection('arrivals')}
-                      className="bg-crimson hover:bg-crimson-bright text-white px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-crimson-glow cyber-corner flex items-center space-x-2">
-                      <span>EXPLORE THE COLLECTION</span>
-                      <span>→</span>
-                    </button>
-                    <button 
-                      onClick={() => scrollToSection('events')}
-                      className="border border-wire-light hover:border-crimson text-silver hover:text-white px-7 py-3.5 text-xs font-mono tracking-widest uppercase transition-all bg-charcoal/50">
-                      DISCOVER THE SCENE
+                      onClick={() => setAllProductsModal(true)}
+                      className="bg-crimson hover:bg-crimson-bright text-white px-8 py-3 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition flex items-center space-x-2 shadow-crimson-glow">
+                      <span>Explore the Marketplace</span>
+                      <span>&gt;</span>
                     </button>
                   </div>
 
-                  {/* Micro Metadata & Scroll Prompt */}
-                  <div className="mt-12 pt-6 border-t border-wire flex items-center space-x-8 text-[10px] font-mono tracking-widest text-silver-dark uppercase">
-                    <button onClick={() => scrollToSection('arrivals')} className="hover:text-crimson flex items-center space-x-1">
-                      <span>SCROLL ↓</span>
-                    </button>
-                    <span>CDO 8.4842° N, 124.6472° E</span>
+                  {/* Coordinates & Globe Badge matching UI sheet */}
+                  <div className="flex items-center space-x-3 border-t border-wire pt-4 text-[10px] font-mono text-silver-bright max-w-xs">
+                    <div className="w-7 h-7 rounded-full border border-silver flex items-center justify-center text-silver text-xs">
+                      🌐
+                    </div>
+                    <div>
+                      <strong className="text-white block">CDO</strong>
+                      <span>8.4821° N, 124.6477° E</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Right Column: Cinematic Model Portrait & Coordinate Card */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative border border-wire bg-charcoal p-3 shadow-2xl cyber-corner">
-                  <div className="aspect-[4/5] overflow-hidden relative">
+                {/* Right 5 Cols: Stone Gothic Angel Statue with Red Sigil & Spotlight Card */}
+                <div className="lg:col-span-5 relative flex flex-col items-end">
+                  {/* Angel Statue with Glowing Arterial Blood Lines */}
+                  <div className="relative w-full aspect-[4/5] overflow-hidden cyber-frame">
                     <img 
-                      src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=85" 
-                      alt="Cagayan Underground Fashion Editorial" 
-                      className="w-full h-full object-cover filter contrast-125 brightness-90 hover:scale-105 transition-transform duration-700"
+                      src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85" 
+                      alt="Gothic Sculptural Atmosphere" 
+                      className="w-full h-full object-cover filter contrast-125 brightness-90"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
                     
-                    {/* Ornamental Overlay Wire & Coordinates */}
-                    <div className="absolute top-4 right-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 border border-wire text-[9px] font-mono text-crimson uppercase tracking-widest">
-                      ARCHIVE DROP 04
+                    {/* Glowing Red Halo Sigil over head */}
+                    <div className="absolute top-8 right-8 w-28 h-28 pointer-events-none opacity-80">
+                      <MasterSigil className="w-full h-full" glow={true} />
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 bg-obsidian/85 backdrop-blur-md p-4 border border-wire flex justify-between items-end">
-                      <div>
-                        <span className="text-[9px] font-mono text-silver-dark tracking-widest block">PIECE // CDO-01</span>
-                        <strong className="text-xs font-sigil text-white tracking-wider block">RECONSTRUCTED LEATHER</strong>
-                      </div>
-                      <span className="text-crimson text-xs font-mono font-bold">₱2,500</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ===================================================================
-              3. CONTINUOUS RUNNING MANIFESTO TICKER
-             =================================================================== */}
-          <div className="bg-charcoal border-b border-wire py-3 overflow-hidden select-none">
-            <div className="animate-marquee text-xs font-mono tracking-widest uppercase text-silver">
-              <span className="mx-6">★ BUY SECONDHAND. MAKE YOUR OWN. SUPPORT THE SCENE.</span>
-              <span className="text-crimson mx-6">✦ CAGAYAN DE ORO ALTERNATIVE MARKETPLACE</span>
-              <span className="mx-6">★ CIRCULAR FASHION × REWORKED DENIM × LOCAL NOISE</span>
-              <span className="text-crimson mx-6">✦ NAZARETH • DIVISORIA • MACASANDIG • CARMEN</span>
-              <span className="mx-6">★ ZERO LANDFILL PHILOSOPHY • RAW CANVAS & THRIFT RACKS</span>
-              <span className="text-crimson mx-6">✦ STYLE WITHOUT RULES</span>
-            </div>
-          </div>
-
-          {/* ===================================================================
-              4. NEW ARRIVALS: CURATED FASHION GALLERY
-             =================================================================== */}
-          <section id="arrivals" className="py-20 max-w-7xl mx-auto px-4 sm:px-8 border-b border-wire">
-            {/* Section Header */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 pb-4 border-b border-wire">
-              <div className="flex items-center space-x-3">
-                <SigilEmblem className="w-6 h-6 text-crimson" glow={false} />
-                <div>
-                  <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white uppercase font-sans">
-                    NEW ARRIVALS
-                  </h2>
-                  <span className="text-[10px] font-mono tracking-widest text-silver-dark uppercase">
-                    FRESHLY SOURCED THRIFT & STUDIO ALTERATIONS
-                  </span>
-                </div>
-              </div>
-
-              <button 
-                onClick={() => setCatalogModalOpen(true)}
-                className="mt-4 sm:mt-0 text-xs font-mono tracking-widest uppercase text-crimson hover:text-white transition flex items-center space-x-1">
-                <span>VIEW ALL CATALOG ({INITIAL_PRODUCTS.length})</span>
-                <span>→</span>
-              </button>
-            </div>
-
-            {/* 5-Card Product Showcase matching UI Reference */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-              {INITIAL_PRODUCTS.slice(0, 5).map(prod => (
-                <div 
-                  key={prod.id}
-                  onClick={() => setSelectedProduct(prod)}
-                  className="cursor-pointer group bg-charcoal border border-wire hover:border-crimson p-3 transition-all duration-300 flex flex-col justify-between cyber-corner shadow-cyber-card">
-                  <div>
-                    {/* Image Area */}
-                    <div className="aspect-[3/4] bg-obsidian overflow-hidden relative mb-3">
-                      <img 
-                        src={prod.image} 
-                        alt={prod.title} 
-                        className="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition duration-500"
-                      />
-                      {prod.tag && (
-                        <span className="absolute top-2 left-2 bg-crimson text-white text-[9px] font-mono font-bold px-2 py-0.5 uppercase tracking-wider">
-                          {prod.tag}
-                        </span>
-                      )}
+                    {/* Manifesto Overlay on Right */}
+                    <div className="absolute top-6 right-6 text-right text-[10px] font-mono tracking-widest text-silver-bright uppercase space-y-1">
+                      <span className="block text-white font-bold">SUPPORT LOCAL MERCHANTS</span>
+                      <span className="block">EXPLORE ALTERNATIVE FASHION</span>
+                      <span className="block text-crimson font-bold">BE PART OF THE SCENE</span>
                     </div>
 
-                    {/* Metadata */}
-                    <h3 className="text-xs font-semibold text-white group-hover:text-crimson-bright transition line-clamp-1 leading-snug">
-                      {prod.title}
-                    </h3>
-                    <div className="flex justify-between items-center text-[10px] font-mono text-silver-dark mt-1">
-                      <span>Size: {prod.size}</span>
-                      <span className="text-crimson truncate max-w-[80px]">{prod.condition.split('•')[0]}</span>
-                    </div>
-                  </div>
-
-                  {/* Pricing & Add */}
-                  <div className="mt-4 pt-2 border-t border-wire flex justify-between items-center">
-                    <span className="text-sm font-bold text-white font-mono">
-                      ₱{prod.price.toLocaleString()}
-                    </span>
-                    <button 
-                      onClick={(e) => { e.stopPropagation(); addToCart(prod); }}
-                      className="text-[10px] font-mono font-bold uppercase text-silver hover:text-crimson p-1">
-                      + ADD
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ===================================================================
-              5. FEATURED COLLECTION: REWORKED GARMENTS (ASYMMETRICAL BANNER)
-             =================================================================== */}
-          <section id="reworked" className="py-20 border-b border-wire bg-charcoal/40 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                {/* Visual Campaign Image with Embroidered Cyber-Sigil Back */}
-                <div className="lg:col-span-7 relative cyber-corner border border-wire p-3 bg-charcoal">
-                  <div className="aspect-[16/10] overflow-hidden relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85" 
-                      alt="Reworked Cyber Sigil Garments" 
-                      className="w-full h-full object-cover filter contrast-125"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent"></div>
-                    
-                    {/* Centered Graphic Overlay resembling embroidered sigil */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                      <SigilEmblem className="w-48 h-48 opacity-30" />
-                    </div>
-
-                    <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-                      <div>
-                        <span className="text-[10px] font-mono tracking-widest text-crimson uppercase block">
-                          NAZARETH ATELIER // HANDMADE
-                        </span>
-                        <h4 className="text-xl font-sigil font-bold text-white">RECONSTRUCTED DENIM & LEATHER</h4>
-                      </div>
-                      <span className="text-xs font-mono text-silver bg-obsidian/80 px-3 py-1 border border-wire">
-                        LIMITED 1-OF-1
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Manifesto Text matching UI Reference */}
-                <div className="lg:col-span-5 flex flex-col justify-center lg:pl-6">
-                  <div className="flex items-center space-x-2 text-crimson text-xs font-mono uppercase tracking-widest mb-2">
-                    <span className="w-6 h-[1px] bg-crimson"></span>
-                    <span>FEATURED COLLECTION</span>
-                  </div>
-
-                  <h2 className="text-4xl sm:text-5xl font-black font-sans uppercase tracking-tight text-white leading-none">
-                    REWORKED<br />
-                    <span className="text-crimson font-sigil">GARMENTS</span>
-                  </h2>
-
-                  <p className="text-sm font-mono text-silver-dark mt-3 mb-6">
-                    Old clothes. New identity. Reclaimed textiles reconstructed with dark cyber-sigil embroidery and industrial hardware.
-                  </p>
-
-                  <div>
-                    <button 
-                      onClick={() => setCatalogModalOpen(true)}
-                      className="bg-crimson hover:bg-crimson-bright text-white px-8 py-3.5 text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-crimson-glow cyber-corner">
-                      EXPLORE COLLECTION →
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ===================================================================
-              6. DIY LAB: "MAKE IT YOURS."
-             =================================================================== */}
-          <section id="diy-lab" className="py-20 max-w-7xl mx-auto px-4 sm:px-8 border-b border-wire">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Text & Discipline Links matching UI Reference */}
-              <div className="lg:col-span-5">
-                <div className="flex items-center space-x-2 text-crimson text-xs font-mono uppercase tracking-widest mb-2">
-                  <SigilEmblem className="w-5 h-5 text-crimson" glow={false} />
-                  <span>DIY LAB</span>
-                </div>
-
-                <h2 className="text-4xl sm:text-5xl font-bold font-sans uppercase tracking-tight text-white leading-none">
-                  MAKE IT YOURS.
-                </h2>
-                <p className="text-sm font-mono text-silver-dark mt-2 mb-8">
-                  Learn. Create. Repair. Recycle. Extend the lifetime of your garments through subcultural craftsmanship.
-                </p>
-
-                {/* Direct Action */}
-                <button 
-                  onClick={() => setDiyModalOpen(true)}
-                  className="border border-wire-light hover:border-crimson text-white px-6 py-3 text-xs font-mono tracking-widest uppercase transition-all bg-charcoal mb-8">
-                  EXPLORE DIY LAB →
-                </button>
-
-                {/* Interactive Discipline Links matching UI Reference */}
-                <div className="space-y-3 font-mono text-xs border-t border-wire pt-6">
-                  {[
-                    'PATCHES & CUSTOMIZATION',
-                    'CLOTHING REPAIR',
-                    'UPCYCLING',
-                    'ZINES & PRINTS',
-                    'DIY TUTORIALS'
-                  ].map((item, i) => (
-                    <div 
-                      key={i}
-                      onClick={() => setDiyModalOpen(true)}
-                      className="flex justify-between items-center py-2 px-3 border border-wire/60 bg-charcoal/40 hover:border-crimson hover:text-crimson-bright cursor-pointer transition">
-                      <span className="tracking-wider">→ {item}</span>
-                      <span className="text-[10px] text-silver-dark font-mono">STEP-BY-STEP</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Handcraft Photo Area */}
-              <div className="lg:col-span-7 cyber-corner border border-wire p-3 bg-charcoal">
-                <div className="aspect-[16/10] overflow-hidden relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=85" 
-                    alt="Hands customizing clothes with stencil and screenprint" 
-                    className="w-full h-full object-cover filter contrast-125"
-                  />
-                  <div className="absolute bottom-4 left-4 right-4 bg-obsidian/90 p-4 border border-wire flex justify-between items-center">
-                    <div>
-                      <span className="text-[10px] font-mono text-crimson uppercase block">ACTIVE CLINIC</span>
-                      <strong className="text-sm font-sigil text-white">SCREENPRINTING WITH WATER-BASED INKS</strong>
-                    </div>
-                    <button 
-                      onClick={() => setDiyModalOpen(true)}
-                      className="text-xs font-mono text-silver hover:text-crimson underline">
-                      VIEW TUTORIAL
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ===================================================================
-              7. CDO UNDERGROUND: LIVE NOISE REGISTRY & EVENTS
-             =================================================================== */}
-          <section id="events" className="py-20 border-b border-wire bg-charcoal/30">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8">
-              {/* Header Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
-                <div className="lg:col-span-6">
-                  <div className="flex items-center space-x-2 text-crimson text-xs font-mono uppercase tracking-widest mb-2">
-                    <SigilEmblem className="w-5 h-5" glow={false} />
-                    <span>CDO UNDERGROUND</span>
-                  </div>
-                  <h2 className="text-4xl sm:text-5xl font-bold font-sans uppercase tracking-tight text-white leading-none">
-                    FIND YOUR SCENE.
-                  </h2>
-                  <p className="text-sm font-mono text-silver-dark mt-2 mb-6">
-                    Gigs. Workshops. Bands. Creators. Verified listings for Northern Mindanao underground events.
-                  </p>
-                  <button 
-                    onClick={() => setSubmitEventModalOpen(true)}
-                    className="bg-crimson hover:bg-crimson-bright text-white px-6 py-2.5 text-xs font-mono tracking-widest uppercase transition cyber-corner">
-                    + SUBMIT A GIG
-                  </button>
-                </div>
-
-                {/* Subculture Tags Grid matching UI Reference */}
-                <div className="lg:col-span-6 grid grid-cols-2 gap-2 text-xs font-mono">
-                  {[
-                    'PUNK / HARDCORE',
-                    'EMO / POP PUNK',
-                    'METAL / EXTREME',
-                    'ALTERNATIVE / INDIE',
-                    'GOTH / DARKWAVE',
-                    'DIY WORKSHOPS',
-                    'THRIFT MARKETS',
-                    'ART & ZINES'
-                  ].map((genre, i) => (
-                    <div key={i} className="py-2 px-3 bg-charcoal border border-wire text-silver hover:text-crimson hover:border-crimson transition cursor-pointer flex items-center space-x-2">
-                      <span className="w-1.5 h-1.5 bg-crimson rounded-full"></span>
-                      <span className="tracking-wider">{genre}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Event Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {eventsList.map(ev => (
-                  <div 
-                    key={ev.id}
-                    onClick={() => setSelectedEvent(ev)}
-                    className="cursor-pointer group bg-charcoal border border-wire hover:border-crimson p-5 transition duration-300 flex flex-col justify-between cyber-corner">
-                    <div>
-                      {/* Top Date & Status Badge */}
-                      <div className="flex justify-between items-center mb-4">
-                        <div className="bg-crimson text-white px-2.5 py-1 text-xs font-mono font-bold tracking-wider">
-                          {ev.date}
+                    {/* Community Spotlight Video Preview Box matching UI sheet */}
+                    <div className="absolute bottom-4 left-4 right-4 bg-charcoal/90 backdrop-blur-md p-3 border border-wire flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-10 bg-obsidian overflow-hidden border border-wire relative flex items-center justify-center">
+                          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&q=80" alt="Concert" className="w-full h-full object-cover opacity-60" />
+                          <span className="absolute text-crimson text-xs">▶</span>
                         </div>
-                        <span className={`text-[10px] font-mono uppercase px-2 py-0.5 border ${
-                          ev.status === 'Verified' ? 'border-emerald-500/50 text-emerald-400 bg-emerald-500/10' : 'border-amber-500/50 text-amber-400 bg-amber-500/10'
-                        }`}>
-                          {ev.status}
-                        </span>
+                        <div>
+                          <span className="text-[9px] font-mono text-silver-bright uppercase block">CDO UNDERGROUND</span>
+                          <strong className="text-xs text-white block">COMMUNITY SPOTLIGHT</strong>
+                        </div>
                       </div>
-
-                      <div className="aspect-[16/10] overflow-hidden mb-4 bg-obsidian">
-                        <img src={ev.image} alt={ev.title} className="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition duration-500" />
+                      <div className="flex space-x-1 text-[9px] font-mono text-silver-bright">
+                        <span className="text-crimson font-bold">1</span>
+                        <span>2</span>
+                        <span>3</span>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
-                      <h3 className="text-base font-bold font-sans text-white group-hover:text-crimson-bright transition leading-snug">
-                        {ev.title}
-                      </h3>
-                      <p className="text-xs font-mono text-silver-dark mt-1">
-                        📍 {ev.venue} • {ev.address}
-                      </p>
-                      <p className="text-xs text-bone-muted mt-2 line-clamp-2 leading-relaxed">
-                        {ev.desc}
-                      </p>
+          {/* ===================================================================
+              3. ROW 1: "SHOP THE UNDERGROUND" & "LOCAL MERCHANTS"
+             =================================================================== */}
+          <section className="py-16 max-w-7xl mx-auto px-4 sm:px-8 border-b border-wire">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              {/* Left Headline Box */}
+              <div className="lg:col-span-3 cyber-frame p-6 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white uppercase tracking-tight leading-tight mb-2">
+                    SHOP THE<br />UNDERGROUND
+                  </h3>
+                  <p className="text-xs font-mono text-silver leading-relaxed">
+                    Secondhand. Local. One-of-One. Support our CDO merchants.
+                  </p>
+                </div>
+                <button 
+                  onClick={() => setAllProductsModal(true)}
+                  className="mt-6 text-xs font-mono tracking-widest text-crimson hover:text-white uppercase flex items-center space-x-1">
+                  <span>Browse All</span>
+                  <span>→</span>
+                </button>
+              </div>
+
+              {/* Center 4 Product Cards matching UI reference sheet */}
+              <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {INITIAL_PRODUCTS.slice(0, 4).map(p => (
+                  <div 
+                    key={p.id}
+                    onClick={() => setSelectedProduct(p)}
+                    className="cursor-pointer group cyber-frame p-2.5 flex flex-col justify-between hover:border-crimson transition duration-300">
+                    <div>
+                      {/* Image */}
+                      <div className="aspect-[3/4] bg-obsidian overflow-hidden relative mb-2">
+                        <img src={p.image} alt={p.title} className="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition duration-500" />
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); toggleWishlist(p.id); }}
+                          className="absolute top-1.5 right-1.5 p-1 bg-obsidian/80 text-silver hover:text-crimson text-xs">
+                          {wishlist.includes(p.id) ? '♥' : '♡'}
+                        </button>
+                      </div>
+                      <h4 className="text-[11px] font-bold text-white line-clamp-1 group-hover:text-crimson transition">
+                        {p.title}
+                      </h4>
                     </div>
 
-                    <div className="mt-6 pt-3 border-t border-wire flex justify-between items-center text-xs font-mono">
-                      <span className="font-bold text-white">₱{ev.price} AT DOOR</span>
-                      <span className="text-crimson uppercase tracking-wider text-[11px] group-hover:translate-x-1 transition">
-                        INSPECT GIG →
-                      </span>
+                    <div className="mt-3 pt-1.5 border-t border-wire flex justify-between items-center text-xs font-mono">
+                      <span className="font-bold text-white">₱{p.price}</span>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); addToCart(p); }}
+                        className="text-silver hover:text-crimson p-1 text-[11px]" title="Add to Bag">
+                        🛒
+                      </button>
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* Right "LOCAL MERCHANTS" Box matching UI sheet */}
+              <div className="lg:col-span-3 cyber-frame p-6 flex flex-col justify-between items-center text-center">
+                <MasterSigil className="w-16 h-16 text-crimson mb-2" />
+                <div>
+                  <h4 className="text-xl font-sigil font-bold text-white uppercase tracking-wider mb-1">
+                    LOCAL MERCHANTS
+                  </h4>
+                  <p className="text-xs font-mono text-silver leading-relaxed">
+                    Join our marketplace and grow with the community.
+                  </p>
+                </div>
+                <button 
+                  onClick={() => setMerchantApplyModal(true)}
+                  className="mt-6 bg-crimson hover:bg-crimson-bright text-white px-6 py-2 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition shadow-crimson-glow">
+                  Apply Now →
+                </button>
+              </div>
             </div>
           </section>
 
           {/* ===================================================================
-              8. COMMUNITY LOOKBOOK: "REAL PEOPLE. REAL STYLE."
+              4. ROW 2: "UPCOMING EVENTS" & "DIY LAB"
              =================================================================== */}
-          <section id="lookbook" className="py-20 max-w-7xl mx-auto px-4 sm:px-8 border-b border-wire">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 pb-4 border-b border-wire">
-              <div>
-                <div className="flex items-center space-x-2 text-crimson text-xs font-mono uppercase tracking-widest mb-1">
-                  <SigilEmblem className="w-5 h-5 text-crimson" glow={false} />
-                  <span>COMMUNITY LOOKBOOK</span>
+          <section id="events-section" className="py-16 max-w-7xl mx-auto px-4 sm:px-8 border-b border-wire">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              {/* Left Events Box matching UI sheet */}
+              <div className="lg:col-span-6 cyber-frame p-6 flex flex-col justify-between">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-2xl font-serif font-bold text-white uppercase">UPCOMING EVENTS</h3>
+                    <p className="text-xs font-mono text-silver">Raves. Gigs. Markets. The CDO Underground</p>
+                  </div>
+                  <button 
+                    onClick={() => setSelectedEvent(INITIAL_EVENTS[0])}
+                    className="text-xs font-mono text-crimson hover:underline">
+                    View All Events →
+                  </button>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white uppercase font-sans">
-                  REAL PEOPLE. REAL STYLE.
-                </h2>
-              </div>
-              <span className="text-xs font-mono text-silver-dark uppercase tracking-widest mt-2 sm:mt-0">
-                CAGAYAN DE ORO ARCHIVE
-              </span>
-            </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-              {COMMUNITY_LOOKBOOK.map(lb => (
+                {/* Event Card Banner matching UI sheet */}
                 <div 
-                  key={lb.id}
-                  onClick={() => setLookbookModalItem(lb)}
-                  className="cursor-pointer group relative aspect-[3/4] bg-charcoal overflow-hidden border border-wire hover:border-crimson transition duration-300">
-                  <img src={lb.image} alt={lb.name} className="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent flex flex-col justify-end p-4">
-                    <span className="text-[10px] font-mono text-crimson tracking-widest uppercase">{lb.location}</span>
-                    <h4 className="text-sm font-sigil font-bold text-white leading-tight mt-0.5">{lb.name}</h4>
-                    <p className="text-[10px] text-silver-dark line-clamp-1 mt-1 font-mono">{lb.fit}</p>
+                  onClick={() => setSelectedEvent(INITIAL_EVENTS[0])}
+                  className="cursor-pointer bg-obsidian border border-wire p-4 flex items-center space-x-4 hover:border-crimson transition">
+                  <div className="bg-crimson text-white px-3 py-2 text-center font-mono">
+                    <span className="text-[10px] block uppercase font-bold">AUG</span>
+                    <span className="text-xl font-bold leading-none block">17</span>
+                  </div>
+                  <div className="w-20 h-14 overflow-hidden bg-charcoal">
+                    <img src={INITIAL_EVENTS[0].image} alt="Event" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-sm font-bold text-white uppercase leading-snug">{INITIAL_EVENTS[0].title}</h4>
+                    <span className="text-xs font-mono text-silver-bright">{INITIAL_EVENTS[0].venue}</span>
+                  </div>
+                  <span className="text-silver text-lg font-mono">&gt;</span>
+                </div>
+              </div>
+
+              {/* Right DIY Lab Box matching UI sheet */}
+              <div className="lg:col-span-6 cyber-frame p-6 flex flex-col justify-between">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-2xl font-serif font-bold text-white uppercase">DIY LAB</h3>
+                    <p className="text-xs font-mono text-silver">Create. Customize. Make it yours.</p>
+                  </div>
+                  <button 
+                    onClick={() => setDiyLabModal(true)}
+                    className="text-xs font-mono text-crimson hover:underline">
+                    Enter the Lab →
+                  </button>
+                </div>
+
+                <div 
+                  onClick={() => setDiyLabModal(true)}
+                  className="cursor-pointer aspect-[16/7] bg-obsidian overflow-hidden border border-wire relative group">
+                  <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80" alt="Sewing desk" className="w-full h-full object-cover filter contrast-125 group-hover:scale-105 transition duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent flex items-end p-4">
+                    <span className="text-xs font-mono text-white font-bold">
+                      Interactive Screenprint & Garment Repair Clinics →
+                    </span>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           </section>
 
           {/* ===================================================================
-              9. JOIN THE MOVEMENT: DISPATCH & PLEDGE
+              5. ROW 3: "JOIN COMMUNITY", "CDO MAP", & "STAY IN THE LOOP"
              =================================================================== */}
-          <section className="py-24 relative border-b border-wire overflow-hidden">
-            <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center relative z-10">
-              <SigilEmblem className="w-16 h-16 mx-auto mb-6" />
-              <h2 className="text-4xl sm:text-5xl font-black font-sans uppercase tracking-tight text-white mb-3">
-                JOIN THE MOVEMENT
-              </h2>
-              <p className="text-sm font-mono text-silver-dark max-w-lg mx-auto mb-8">
-                Get the latest drops, gig announcements, and community workshop invitations. Zero fast fashion spam.
-              </p>
+          <section className="py-16 max-w-7xl mx-auto px-4 sm:px-8 border-b border-wire">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+              {/* Left: Discord / Community Card */}
+              <div className="cyber-frame p-6 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xl font-serif font-bold text-white uppercase mb-2">JOIN THE COMMUNITY</h4>
+                  <p className="text-xs font-mono text-silver leading-relaxed">
+                    Connect with fellow creatives, fashion enthusiasts, and underground artists.
+                  </p>
+                </div>
 
-              <form onSubmit={(e) => { e.preventDefault(); showToast("Subscribed to Cagayan Underground Dispatch!"); }} className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-                <input 
-                  type="email" 
-                  required 
-                  placeholder="Your email address" 
-                  className="flex-1 bg-charcoal border border-wire px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-crimson placeholder:text-silver-dark/60 cyber-corner"
-                />
+                <div className="my-6 flex justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-charcoal border border-wire flex items-center justify-center text-3xl text-silver">
+                    👾
+                  </div>
+                </div>
+
                 <button 
-                  type="submit" 
-                  className="bg-crimson hover:bg-crimson-bright text-white px-8 py-3 text-xs font-mono font-bold tracking-widest uppercase transition cyber-corner shadow-crimson-glow">
-                  SUBSCRIBE
+                  onClick={() => showToast("Redirecting to Cagayan Underground Discord Guild...")}
+                  className="w-full border border-wire hover:border-crimson text-silver hover:text-white py-2.5 text-xs font-mono uppercase tracking-wider transition">
+                  Join Discord →
                 </button>
-              </form>
-            </div>
-          </section>
+              </div>
 
-          {/* ===================================================================
-              10. FOOTER: CAGAYAN UNDERGROUND
-             =================================================================== */}
-          <footer className="bg-obsidian-dark py-16 border-t border-wire text-silver-dark text-xs font-mono">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
-              <div className="md:col-span-5">
-                <div className="flex items-center space-x-3 mb-4">
-                  <SigilEmblem className="w-8 h-8" glow={false} />
-                  <span className="text-lg font-sigil font-bold tracking-widest text-white uppercase">
-                    CAGAYAN UNDERGROUND
+              {/* Center: Nocturnal CDO Cyber Map matching UI sheet */}
+              <div className="cyber-frame p-4 relative overflow-hidden flex flex-col justify-between">
+                <div className="absolute inset-0 bg-charcoal">
+                  {/* Vector Cyber Map Grid */}
+                  <svg className="w-full h-full opacity-60" viewBox="0 0 300 200">
+                    <defs>
+                      <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="#D41432" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#080809" stopOpacity="0" />
+                      </radialGradient>
+                    </defs>
+                    <rect width="300" height="200" fill="#080809" />
+                    {/* Road Network Lines */}
+                    <line x1="0" y1="40" x2="300" y2="160" stroke="#242429" strokeWidth="1" />
+                    <line x1="50" y1="0" x2="250" y2="200" stroke="#242429" strokeWidth="1" />
+                    <line x1="150" y1="0" x2="150" y2="200" stroke="#D41432" strokeWidth="1" strokeDasharray="3 3" />
+                    <line x1="0" y1="100" x2="300" y2="100" stroke="#D41432" strokeWidth="1" strokeDasharray="3 3" />
+                    {/* Radial Arterial Circles on Divisoria */}
+                    <circle cx="150" cy="100" r="60" fill="url(#mapGlow)" opacity="0.3" />
+                    <circle cx="150" cy="100" r="30" stroke="#D41432" strokeWidth="1" fill="none" />
+                    <circle cx="150" cy="100" r="15" stroke="#D41432" strokeWidth="1" fill="none" />
+                    <circle cx="150" cy="100" r="4" fill="#FFFFFF" />
+                  </svg>
+                </div>
+
+                <div className="relative z-10 text-right">
+                  <span className="text-[10px] font-mono text-crimson uppercase font-bold tracking-widest">
+                    ACTIVE GRID
                   </span>
                 </div>
-                <p className="text-xs text-silver-dark leading-relaxed max-w-sm">
-                  An independent alternative fashion marketplace and creative community rooted in Cagayan de Oro City, Northern Mindanao.
-                </p>
-                <div className="mt-4 text-[11px] text-crimson uppercase tracking-wider">
-                  THRIFT • DIY • MUSIC • COMMUNITY
+
+                <div className="relative z-10 bg-obsidian/90 p-3 border border-wire">
+                  <strong className="text-xs text-white block">Cagayan de Oro City</strong>
+                  <span className="text-[10px] font-mono text-silver block">Philippines</span>
+                  <span className="text-[9px] font-mono text-crimson block mt-0.5">8.4821° N, 124.6477° E</span>
                 </div>
               </div>
 
-              <div className="md:col-span-3">
-                <h4 className="text-white font-bold tracking-widest uppercase mb-3">DIRECTORY</h4>
-                <ul className="space-y-2 text-xs">
-                  <li><button onClick={() => scrollToSection('arrivals')} className="hover:text-white transition">→ Curated Shop</button></li>
-                  <li><button onClick={() => scrollToSection('reworked')} className="hover:text-white transition">→ Reworked Collection</button></li>
-                  <li><button onClick={() => scrollToSection('diy-lab')} className="hover:text-white transition">→ DIY Repair Lab</button></li>
-                  <li><button onClick={() => scrollToSection('events')} className="hover:text-white transition">→ CDO Underground Gigs</button></li>
-                  <li><button onClick={() => setCatalogModalOpen(true)} className="hover:text-white transition">→ All Products</button></li>
+              {/* Right: "STAY IN THE LOOP" Newsletter matching UI sheet */}
+              <div className="cyber-frame p-6 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xl font-serif font-bold text-white uppercase mb-2">STAY IN THE LOOP</h4>
+                  <p className="text-xs font-mono text-silver leading-relaxed">
+                    Get the latest drops, events, and community updates.
+                  </p>
+                </div>
+
+                <form onSubmit={(e) => { e.preventDefault(); showToast("Subscribed to the Underground Loop"); }} className="my-4">
+                  <div className="flex border border-wire bg-obsidian">
+                    <input 
+                      type="email" 
+                      required 
+                      placeholder="Enter your email..." 
+                      className="w-full bg-transparent px-3 py-2 text-xs font-mono text-white focus:outline-none placeholder:text-silver-bright"
+                    />
+                    <button type="submit" className="bg-crimson hover:bg-crimson-bright text-white px-4 text-xs font-mono">
+                      →
+                    </button>
+                  </div>
+                </form>
+
+                <div className="text-[10px] font-mono text-silver">
+                  No algorithmic tracking. Authentic community notices only.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ===================================================================
+              6. FOOTER (EXACT MATCH TO UI REFERENCE SHEET)
+             =================================================================== */}
+          <footer className="bg-obsidian-deep py-16 border-t border-wire text-silver text-xs font-mono">
+            <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 mb-12 items-start">
+              {/* Col 1: Logo & Manifesto */}
+              <div className="md:col-span-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <span className="text-2xl font-gothic text-white tracking-widest">CAGAYAN</span>
+                  <span className="text-2xl font-gothic text-crimson tracking-widest font-bold">UNDERGROUND</span>
+                </div>
+                <span className="text-[10px] tracking-widest text-silver-bright uppercase block mb-4">
+                  A LOCAL MOVEMENT. A GLOBAL MINDSET.
+                </span>
+                {/* Social Icons matching UI sheet */}
+                <div className="flex space-x-4 text-sm text-silver">
+                  <span className="hover:text-crimson cursor-pointer" title="Discord">👾</span>
+                  <span className="hover:text-crimson cursor-pointer" title="X / Twitter">𝕏</span>
+                  <span className="hover:text-crimson cursor-pointer" title="Instagram">📷</span>
+                  <span className="hover:text-crimson cursor-pointer" title="YouTube">▶</span>
+                </div>
+              </div>
+
+              {/* Col 2: Shop Links */}
+              <div className="md:col-span-2">
+                <h5 className="text-white font-bold uppercase tracking-wider mb-2">Shop</h5>
+                <ul className="space-y-1.5 text-xs text-silver">
+                  <li><button onClick={() => setAllProductsModal(true)} className="hover:text-white">All Products</button></li>
+                  <li><button onClick={() => setAllProductsModal(true)} className="hover:text-white">New Arrivals</button></li>
+                  <li><button onClick={() => setAllProductsModal(true)} className="hover:text-white">Best Sellers</button></li>
+                  <li><button onClick={() => setAllProductsModal(true)} className="hover:text-white">Secondhand</button></li>
                 </ul>
               </div>
 
-              <div className="md:col-span-4">
-                <h4 className="text-white font-bold tracking-widest uppercase mb-3">ATELIER & STATIONS</h4>
-                <p className="leading-relaxed text-xs">
-                  Nazareth Garage Station & Divisoria Basement Lab<br />
-                  Cagayan de Oro City, Philippines<br />
-                  Direct Inquiries: press@cagayanunderground.ph
-                </p>
-                <div className="mt-4 flex items-center space-x-4 text-silver">
-                  <span className="hover:text-crimson cursor-pointer">INSTAGRAM</span>
-                  <span>•</span>
-                  <span className="hover:text-crimson cursor-pointer">TIKTOK</span>
-                  <span>•</span>
-                  <span className="hover:text-crimson cursor-pointer">SPOTIFY</span>
+              {/* Col 3: Community Links */}
+              <div className="md:col-span-2">
+                <h5 className="text-white font-bold uppercase tracking-wider mb-2">Community</h5>
+                <ul className="space-y-1.5 text-xs text-silver">
+                  <li><button onClick={() => { const el = document.getElementById('events-section'); if(el) el.scrollIntoView({behavior:'smooth'}); }} className="hover:text-white">Events</button></li>
+                  <li><button onClick={() => setDiyLabModal(true)} className="hover:text-white">DIY Lab</button></li>
+                  <li><button onClick={() => setMerchantApplyModal(true)} className="hover:text-white">Merchants</button></li>
+                  <li><button onClick={() => setBrandKitModal(true)} className="hover:text-white">Sigil Assets</button></li>
+                </ul>
+              </div>
+
+              {/* Col 4: Support */}
+              <div className="md:col-span-2">
+                <h5 className="text-white font-bold uppercase tracking-wider mb-2">Support</h5>
+                <ul className="space-y-1.5 text-xs text-silver">
+                  <li><button onClick={() => showToast("Help Desk: support@cagayanunderground.ph")} className="hover:text-white">Help Center</button></li>
+                  <li><button onClick={() => showToast("Ships within Northern Mindanao via J&T Express")} className="hover:text-white">Shipping</button></li>
+                  <li><button onClick={() => showToast("7-day circular exchange guarantee")} className="hover:text-white">Returns</button></li>
+                  <li><button onClick={() => setDashboardModal(true)} className="hover:text-white">Admin Dashboard</button></li>
+                </ul>
+              </div>
+
+              {/* Col 5: Secure Payments & Compass Sigil */}
+              <div className="md:col-span-2 flex flex-col items-end text-right">
+                <h5 className="text-white font-bold uppercase tracking-wider mb-2">Secure Payments</h5>
+                <div className="flex space-x-2 mb-3">
+                  <span className="bg-charcoal px-2 py-1 text-[10px] text-silver border border-wire">GCash</span>
+                  <span className="bg-charcoal px-2 py-1 text-[10px] text-silver border border-wire">PayPal</span>
                 </div>
+                <span className="text-[10px] text-silver-bright mb-4">Secure &amp; Trusted.</span>
+                <MasterSigil className="w-12 h-12 text-silver" glow={false} />
               </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 border-t border-wire flex flex-col sm:flex-row justify-between items-center text-[10px] tracking-widest uppercase">
-              <span>© 2026 CAGAYAN UNDERGROUND. ALL RIGHTS RESERVED.</span>
-              <span className="text-crimson mt-2 sm:mt-0">BUY SECONDHAND. MAKE YOUR OWN. SUPPORT THE SCENE.</span>
+            <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 border-t border-wire flex flex-col sm:flex-row justify-between items-center text-[10px] text-silver-bright uppercase">
+              <span>Cagayan Underground © 2026. All rights reserved.</span>
+              <span className="text-crimson mt-2 sm:mt-0">DESIGNED FOR THE CDO UNDERGROUND ALTERNATIVE SCENE</span>
             </div>
           </footer>
 
           {/* ===================================================================
-              ALL INTERACTIVE MODALS & EXPERIENCE PORTALS (PRESERVED)
+              ALL INTERACTIVE MODALS & PORTALS (FULL-STACK CAPABILITIES)
              =================================================================== */}
 
-          {/* 1. SHOPPING BAG & CHECKOUT DRAWER */}
-          {cartOpen && (
-            <div className="fixed inset-0 z-50 overflow-hidden">
-              <div onClick={() => setCartOpen(false)} className="absolute inset-0 bg-obsidian/80 backdrop-blur-sm transition-opacity" />
-              <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-                <div className="w-screen max-w-md bg-charcoal border-l border-wire shadow-2xl flex flex-col">
-                  {/* Cart Header */}
-                  <div className="p-6 border-b border-wire flex justify-between items-center">
-                    <div className="flex items-center space-x-2">
-                      <SigilEmblem className="w-5 h-5 text-crimson" glow={false} />
-                      <h3 className="text-lg font-sigil font-bold tracking-wider text-white uppercase">
-                        RESERVED BAG ({cartCount})
-                      </h3>
-                    </div>
-                    <button onClick={() => setCartOpen(false)} className="text-silver hover:text-white p-2 text-lg">✕</button>
-                  </div>
-
-                  {/* Free Delivery Meter */}
-                  <div className="px-6 py-2.5 bg-obsidian border-b border-wire text-[11px] font-mono text-silver-dark flex justify-between items-center">
-                    <span>CDO Express Delivery</span>
-                    <span className="text-crimson font-bold">
-                      {cartTotal >= 2000 ? 'FREE DELIVERY UNLOCKED' : `₱${2000 - cartTotal} MORE FOR FREE SHIP`}
-                    </span>
-                  </div>
-
-                  {/* Cart Items */}
-                  <div className="flex-1 overflow-y-auto p-6 space-y-4">
-                    {cart.length > 0 ? (
-                      cart.map(item => (
-                        <div key={item.product.id} className="flex space-x-4 p-3 bg-obsidian border border-wire">
-                          <img src={item.product.image} alt={item.product.title} className="w-20 h-24 object-cover" />
-                          <div className="flex-1 flex flex-col justify-between">
-                            <div>
-                              <div className="flex justify-between items-start">
-                                <h4 className="text-xs font-bold text-white leading-tight">{item.product.title}</h4>
-                                <button onClick={() => updateCartQty(item.product.id, -item.quantity)} className="text-silver-dark hover:text-crimson text-xs">✕</button>
-                              </div>
-                              <span className="text-[10px] font-mono text-silver-dark block mt-1">Size: {item.product.size}</span>
-                              <span className="text-[10px] font-mono text-crimson block">{item.product.condition}</span>
-                            </div>
-                            <div className="flex justify-between items-center mt-2">
-                              <div className="flex items-center border border-wire text-xs font-mono">
-                                <button onClick={() => updateCartQty(item.product.id, -1)} className="px-2 py-0.5 hover:bg-charcoal text-white">-</button>
-                                <span className="px-2">{item.quantity}</span>
-                                <button onClick={() => updateCartQty(item.product.id, 1)} className="px-2 py-0.5 hover:bg-charcoal text-white">+</button>
-                              </div>
-                              <span className="font-mono text-sm font-bold text-white">₱{(item.product.price * item.quantity).toLocaleString()}</span>
-                            </div>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="py-20 text-center font-mono text-xs text-silver-dark">
-                        <SigilEmblem className="w-12 h-12 mx-auto mb-3 opacity-30" glow={false} />
-                        Your shopping bag is currently empty.
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Cart Footer */}
-                  {cart.length > 0 && (
-                    <div className="p-6 border-t border-wire bg-obsidian">
-                      <div className="flex justify-between text-xs font-mono mb-2 text-silver-dark">
-                        <span>ESTIMATED SUBTOTAL</span>
-                        <span className="font-bold text-white text-sm">₱{cartTotal.toLocaleString()}</span>
-                      </div>
-                      <button 
-                        onClick={() => {
-                          setCart([]);
-                          setCartOpen(false);
-                          showToast("Order Placed! Check your email for receipt.");
-                        }}
-                        className="w-full bg-crimson hover:bg-crimson-bright text-white py-3.5 text-xs font-mono font-bold tracking-widest uppercase transition shadow-crimson-glow cyber-corner mt-3">
-                        PROCEED TO CHECKOUT →
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 2. FULL CATALOG MODAL (ALL PRODUCTS) */}
-          {catalogModalOpen && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-5xl w-full max-h-[90vh] flex flex-col p-6 shadow-2xl relative cyber-corner">
-                <button onClick={() => setCatalogModalOpen(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
-                
-                {/* Header */}
-                <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-wire">
-                  <SigilEmblem className="w-6 h-6 text-crimson" glow={false} />
-                  <div>
-                    <h3 className="text-xl font-sigil font-bold tracking-wider text-white">ALL PRODUCTS</h3>
-                    <span className="text-[10px] font-mono text-silver-dark">FILTER BY CATEGORY, SIZE & CONDITION</span>
-                  </div>
-                </div>
-
-                {/* Filters */}
-                <div className="flex flex-wrap gap-2 mb-6 font-mono text-xs">
-                  {['All', 'Tops', 'Bottoms', 'Outerwear', 'Shoes'].map(c => (
-                    <button
-                      key={c}
-                      onClick={() => setCatalogCategory(c)}
-                      className={`px-3 py-1 border transition ${
-                        catalogCategory === c ? 'bg-crimson text-white border-crimson' : 'bg-obsidian border-wire text-silver-dark hover:text-white'
-                      }`}>
-                      {c}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Grid */}
-                <div className="flex-1 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-1">
-                  {INITIAL_PRODUCTS.filter(p => catalogCategory === 'All' || p.category === catalogCategory).map(prod => (
-                    <div 
-                      key={prod.id}
-                      onClick={() => { setSelectedProduct(prod); setCatalogModalOpen(false); }}
-                      className="cursor-pointer bg-obsidian border border-wire hover:border-crimson p-3 transition flex flex-col justify-between">
-                      <div className="aspect-[3/4] overflow-hidden mb-2">
-                        <img src={prod.image} alt={prod.title} className="w-full h-full object-cover" />
-                      </div>
-                      <h4 className="text-xs font-bold text-white line-clamp-1">{prod.title}</h4>
-                      <div className="flex justify-between items-center text-[10px] font-mono text-silver-dark mt-1">
-                        <span>{prod.size}</span>
-                        <span className="font-bold text-white">₱{prod.price}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 3. PRODUCT DETAIL INSPECTOR MODAL (MATCHING UI REFERENCE) */}
-          {selectedProduct && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative cyber-corner shadow-2xl">
-                <button onClick={() => setSelectedProduct(null)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
-
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                  {/* Left Column: Image Area */}
-                  <div className="md:col-span-6 bg-obsidian border border-wire p-2">
-                    <img src={selectedProduct.image} alt={selectedProduct.title} className="w-full aspect-[4/5] object-cover" />
-                  </div>
-
-                  {/* Right Column: Specs matching UI Reference Sheet */}
-                  <div className="md:col-span-6 flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-crimson uppercase tracking-widest block mb-1">
-                        CATEGORY: {selectedProduct.category}
-                      </span>
-                      <h3 className="text-2xl sm:text-3xl font-sigil font-bold text-white tracking-wider">
-                        {selectedProduct.title}
-                      </h3>
-                      <div className="text-xl font-mono font-bold text-crimson mt-2 mb-4">
-                        ₱{selectedProduct.price.toLocaleString()}
-                      </div>
-
-                      {/* Sizing Pills */}
-                      <div className="mb-4">
-                        <span className="text-[10px] font-mono uppercase text-silver-dark block mb-1.5">Size Selection:</span>
-                        <div className="flex gap-2 font-mono text-xs">
-                          {['XS', 'S', 'M', 'L', 'XL'].map(s => (
-                            <span key={s} className={`px-2.5 py-1 border ${s === selectedProduct.size.split(' ')[0] ? 'border-crimson bg-crimson text-white font-bold' : 'border-wire text-silver-dark'}`}>
-                              {s}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Condition Disclosure matching UI Reference */}
-                      <div className="mb-4 bg-obsidian border border-wire p-3 text-xs font-mono">
-                        <strong className="text-white block mb-0.5">Condition Report:</strong>
-                        <span className="text-silver-dark">{selectedProduct.condition}</span>
-                        {selectedProduct.measurements && (
-                          <div className="mt-2 text-[11px] text-bone-muted border-t border-wire/60 pt-1.5">
-                            {selectedProduct.measurements}
-                          </div>
-                        )}
-                      </div>
-
-                      <p className="text-xs text-bone-muted leading-relaxed mb-6 font-sans">
-                        {selectedProduct.desc}
-                      </p>
-                    </div>
-
-                    <div className="space-y-3">
-                      <button 
-                        onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }}
-                        className="w-full bg-crimson hover:bg-crimson-bright text-white py-3.5 text-xs font-mono font-bold tracking-widest uppercase transition shadow-crimson-glow cyber-corner">
-                        ADD TO CART — ₱{selectedProduct.price.toLocaleString()}
-                      </button>
-                      <p className="text-[10px] text-center font-mono text-silver-dark">
-                        Pickup available @ Nazareth Atelier. Shipping across PH via J&T.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 4. EVENT DETAIL MODAL */}
-          {selectedEvent && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-2xl w-full p-6 sm:p-8 relative cyber-corner shadow-2xl">
-                <button onClick={() => setSelectedEvent(null)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
-
-                <div className="flex items-center space-x-2 text-[10px] font-mono uppercase text-crimson mb-2">
-                  <span className="w-2 h-2 rounded-full bg-crimson"></span>
-                  <span>VERIFIED LIVE LISTING</span>
-                </div>
-
-                <h3 className="text-2xl font-sigil font-bold text-white mb-1">
-                  {selectedEvent.title}
-                </h3>
-                <p className="text-xs font-mono text-silver-dark mb-4">
-                  {selectedEvent.fullDate} • {selectedEvent.time}
-                </p>
-
-                <div className="bg-obsidian border border-wire p-4 mb-4 text-xs font-mono space-y-1.5">
-                  <p><strong className="text-white">Venue:</strong> {selectedEvent.venue}</p>
-                  <p><strong className="text-white">Address:</strong> {selectedEvent.address}</p>
-                  <p><strong className="text-white">Admission:</strong> ₱{selectedEvent.price} at the door</p>
-                  <p><strong className="text-white">Bands:</strong> {selectedEvent.bands.join(' • ')}</p>
-                </div>
-
-                <p className="text-xs text-bone-muted leading-relaxed mb-6">
-                  {selectedEvent.desc}
-                </p>
-
-                <div className="flex gap-3 font-mono text-xs">
-                  <button 
-                    onClick={() => downloadIcs(selectedEvent)}
-                    className="flex-1 bg-crimson hover:bg-crimson-bright text-white py-3 font-bold uppercase transition cyber-corner">
-                    ADD TO CALENDAR (.ICS)
-                  </button>
-                  <button 
-                    onClick={() => setSelectedEvent(null)}
-                    className="border border-wire hover:border-white text-silver px-6 py-3 uppercase transition">
-                    CLOSE
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 5. CUSTOMER ACCOUNT PORTAL MODAL (MATCHING UI REFERENCE SHEET) */}
-          {accountModalOpen && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative cyber-corner shadow-2xl">
-                <button onClick={() => setAccountModalOpen(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
+          {/* 1. BRAND SIGIL & LOGO KIT SHOWCASE MODAL (8 REQUIRED VARIATIONS) */}
+          {brandKitModal && (
+            <div className="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="bg-charcoal border border-wire max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative cyber-frame shadow-2xl">
+                <button onClick={() => setBrandKitModal(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
 
                 <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-wire">
-                  <SigilEmblem className="w-8 h-8 text-crimson" glow={false} />
+                  <MasterSigil className="w-8 h-8 text-crimson" glow={false} />
                   <div>
-                    <h3 className="text-xl font-sigil font-bold text-white uppercase">CUSTOMER PORTAL</h3>
-                    <span className="text-[10px] font-mono text-silver-dark">Good to see you, Karl (CDO Patron #0412)</span>
+                    <h3 className="text-xl font-sigil font-bold text-white uppercase">CAGAYAN UNDERGROUND — BRAND SYSTEM</h3>
+                    <span className="text-[10px] font-mono text-silver">8 OFFICIAL LOGO & CYBER-SIGIL VARIATIONS</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                  {/* Left Menu matching UI Reference */}
-                  <div className="md:col-span-4 space-y-1 text-xs font-mono">
-                    {['Profile', 'Orders', 'Wishlist', 'Saved Events', 'My Submissions', 'Addresses', 'Settings'].map((item, i) => (
-                      <div key={i} className={`p-2.5 border transition cursor-pointer ${i === 1 ? 'border-crimson bg-crimson/10 text-white font-bold' : 'border-wire text-silver-dark hover:text-white'}`}>
-                        → {item}
-                      </div>
-                    ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                  {/* Var 1: Primary Vertical Wordmark */}
+                  <div className="bg-obsidian border border-wire p-4 text-center">
+                    <span className="text-[10px] text-crimson font-bold block mb-2">01 / PRIMARY VERTICAL WORDMARK</span>
+                    <BrandWordmark size="large" />
                   </div>
 
-                  {/* Right Column: Orders & Activity matching UI Reference */}
-                  <div className="md:col-span-8 space-y-4">
-                    <span className="text-xs font-mono uppercase text-silver-dark tracking-wider block">RECENT ORDERS</span>
-                    
-                    {[
-                      { id: '#ORO-2026-0412', item: 'Vintage Band Tee (Faded)', price: '₱650', status: 'Delivered', date: 'April 18, 2026' },
-                      { id: '#ORO-2026-0408', item: 'Studio Reworked Moto Leather', price: '₱2,500', status: 'Processing', date: 'April 14, 2026' }
-                    ].map(ord => (
-                      <div key={ord.id} className="bg-obsidian border border-wire p-4 text-xs font-mono flex justify-between items-center">
-                        <div>
-                          <strong className="text-white block">{ord.id}</strong>
-                          <span className="text-silver-dark">{ord.item}</span>
-                          <span className="text-[10px] text-silver-dark block mt-0.5">{ord.date}</span>
-                        </div>
-                        <div className="text-right">
-                          <span className="font-bold text-white block">{ord.price}</span>
-                          <span className={`text-[10px] uppercase px-2 py-0.5 border ${
-                            ord.status === 'Delivered' ? 'border-emerald-500/40 text-emerald-400' : 'border-amber-500/40 text-amber-400'
-                          }`}>
-                            {ord.status}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
+                  {/* Var 2: Horizontal Navigation Logo */}
+                  <div className="bg-obsidian border border-wire p-4 flex flex-col justify-center items-center">
+                    <span className="text-[10px] text-crimson font-bold block mb-4">02 / HORIZONTAL NAVIGATION LOGO</span>
+                    <BrandWordmark size="normal" />
                   </div>
-                </div>
-              </div>
-            </div>
-          )}
 
-          {/* 6. ADMIN & MERCHANT DASHBOARD MODAL (MATCHING UI REFERENCE SHEET) */}
-          {adminModalOpen && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative cyber-corner shadow-2xl">
-                <button onClick={() => setAdminModalOpen(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
+                  {/* Var 3: Standalone Sigil Emblem */}
+                  <div className="bg-obsidian border border-wire p-4 text-center">
+                    <span className="text-[10px] text-crimson font-bold block mb-2">03 / STANDALONE SIGIL EMBLEM</span>
+                    <MasterSigil className="w-20 h-20 mx-auto my-2" glow={true} />
+                  </div>
 
-                <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-wire">
-                  <SigilEmblem className="w-8 h-8 text-crimson" glow={false} />
-                  <div>
-                    <h3 className="text-xl font-sigil font-bold text-white uppercase">ADMIN & MERCHANT DASHBOARD</h3>
-                    <span className="text-[10px] font-mono text-silver-dark">CAGAYAN UNDERGROUND CONTROL CENTER</span>
-                  </div>
-                </div>
-
-                {/* 4 Metric Cards matching UI Reference */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 font-mono">
-                  <div className="bg-obsidian border border-wire p-4">
-                    <span className="text-[10px] text-silver-dark block">TOTAL ORDERS</span>
-                    <strong className="text-2xl text-white mt-1 block">124</strong>
-                    <span className="text-[10px] text-emerald-400">+12% this week</span>
-                  </div>
-                  <div className="bg-obsidian border border-wire p-4">
-                    <span className="text-[10px] text-silver-dark block">TOTAL REVENUE</span>
-                    <strong className="text-2xl text-crimson mt-1 block">₱62,480</strong>
-                    <span className="text-[10px] text-emerald-400">+18% growth</span>
-                  </div>
-                  <div className="bg-obsidian border border-wire p-4">
-                    <span className="text-[10px] text-silver-dark block">PENDING EVENTS</span>
-                    <strong className="text-2xl text-white mt-1 block">{submissions.length}</strong>
-                    <span className="text-[10px] text-amber-400">Needs review</span>
-                  </div>
-                  <div className="bg-obsidian border border-wire p-4">
-                    <span className="text-[10px] text-silver-dark block">NEW USERS</span>
-                    <strong className="text-2xl text-white mt-1 block">32</strong>
-                    <span className="text-[10px] text-emerald-400">CDO verified</span>
-                  </div>
-                </div>
-
-                {/* Sales Overview Graph matching UI Reference */}
-                <div className="bg-obsidian border border-wire p-5 mb-8">
-                  <div className="flex justify-between items-center mb-4 text-xs font-mono">
-                    <span className="text-white font-bold uppercase tracking-wider">SALES OVERVIEW (PHP)</span>
-                    <span className="text-crimson">APRIL - MAY 2026</span>
-                  </div>
-                  {/* SVG Line Chart with Electric Red Trend */}
-                  <div className="h-32 w-full flex items-end">
-                    <svg viewBox="0 0 500 100" className="w-full h-full overflow-visible">
-                      <path 
-                        d="M0,80 Q50,70 100,50 T200,60 T300,30 T400,45 T500,15" 
-                        fill="none" 
-                        stroke="#D9142A" 
-                        strokeWidth="2.5" 
-                        filter="drop-shadow(0 0 6px rgba(217,20,42,0.8))"
-                      />
-                      <circle cx="100" cy="50" r="3" fill="#EDE8DF" />
-                      <circle cx="200" cy="60" r="3" fill="#EDE8DF" />
-                      <circle cx="300" cy="30" r="3" fill="#EDE8DF" />
-                      <circle cx="500" cy="15" r="4" fill="#D9142A" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Submissions Review Queue */}
-                <div>
-                  <span className="text-xs font-mono uppercase text-silver-dark tracking-wider block mb-3">
-                    PENDING GIG SUBMISSIONS FOR APPROVAL ({submissions.length})
-                  </span>
-                  {submissions.map(sub => (
-                    <div key={sub.id} className="bg-obsidian border border-wire p-4 text-xs font-mono flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                      <div>
-                        <strong className="text-white text-sm">{sub.title}</strong>
-                        <p className="text-silver-dark mt-0.5">Venue: {sub.venue} • Date: {sub.date} • Price: ₱{sub.price}</p>
-                      </div>
-                      <div className="flex gap-2">
-                        <button 
-                          onClick={() => {
-                            setEventsList(prev => [{
-                              id: `ev-${Date.now()}`,
-                              title: sub.title,
-                              date: '18 MAY',
-                              fullDate: 'May 18, 2026',
-                              time: '7:00 PM',
-                              venue: sub.venue,
-                              address: 'Cagayan de Oro City',
-                              price: sub.price,
-                              status: 'Verified',
-                              image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80',
-                              bands: ['Local CDO Bands'],
-                              desc: 'Community submitted event officially approved by Cagayan Underground editorial board.'
-                            }, ...prev]);
-                            setSubmissions(prev => prev.filter(s => s.id !== sub.id));
-                            showToast(`Approved "${sub.title}" to live events calendar!`);
-                          }}
-                          className="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 uppercase text-[11px]">
-                          ✓ APPROVE & PUBLISH
-                        </button>
-                        <button 
-                          onClick={() => {
-                            setSubmissions(prev => prev.filter(s => s.id !== sub.id));
-                            showToast("Submission rejected.");
-                          }}
-                          className="border border-wire hover:border-crimson text-silver-dark hover:text-white px-3 py-1 uppercase text-[11px]">
-                          ✕ REJECT
-                        </button>
-                      </div>
+                  {/* Var 4: Simplified Favicon */}
+                  <div className="bg-obsidian border border-wire p-4 text-center">
+                    <span className="text-[10px] text-crimson font-bold block mb-2">04 / SIMPLIFIED FAVICON</span>
+                    <div className="w-12 h-12 bg-crimson mx-auto rounded-full flex items-center justify-center text-white font-gothic text-xl font-bold">
+                      CU
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Var 5: Monochrome Light Version */}
+                  <div className="bg-bone border border-wire p-4 text-center text-obsidian">
+                    <span className="text-[10px] font-bold block mb-2 text-obsidian">05 / MONOCHROME LIGHT</span>
+                    <div className="font-gothic text-2xl uppercase font-bold text-obsidian">CAGAYAN UNDERGROUND</div>
+                    <MasterSigil className="w-10 h-10 mx-auto mt-2" color="#080809" accent="#080809" glow={false} />
+                  </div>
+
+                  {/* Var 6: Monochrome Dark Version */}
+                  <div className="bg-obsidian border border-wire p-4 text-center">
+                    <span className="text-[10px] text-silver font-bold block mb-2">06 / MONOCHROME DARK</span>
+                    <div className="font-gothic text-2xl uppercase font-bold text-white">CAGAYAN UNDERGROUND</div>
+                    <MasterSigil className="w-10 h-10 mx-auto mt-2" color="#FFFFFF" accent="#FFFFFF" glow={false} />
+                  </div>
+
+                  {/* Var 7: Crimson & Silver Variation */}
+                  <div className="bg-obsidian border border-crimson/50 p-4 text-center">
+                    <span className="text-[10px] text-crimson font-bold block mb-2">07 / CRIMSON &amp; SILVER</span>
+                    <MasterSigil className="w-14 h-14 mx-auto my-1" color="#D41432" accent="#D4D8DC" glow={true} />
+                  </div>
+
+                  {/* Var 8: Garment Label / Embroidery Mark */}
+                  <div className="bg-charcoal border-2 border-dashed border-wire p-4 text-center">
+                    <span className="text-[10px] text-silver-bright font-bold block mb-2">08 / EMBROIDERY &amp; WOVEN LABEL</span>
+                    <div className="inline-block border border-silver px-4 py-2 font-mono text-[10px] text-white">
+                      ★ CAGAYAN UNDERGROUND ★<br />
+                      RECONSTRUCTED IN MINDANAO
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           )}
 
-          {/* 7. DIY LAB TUTORIAL MODAL */}
-          {diyModalOpen && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-2xl w-full p-6 sm:p-8 relative cyber-corner shadow-2xl max-h-[90vh] overflow-y-auto">
-                <button onClick={() => setDiyModalOpen(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
+          {/* 2. LOCAL MERCHANT APPLICATION MODAL */}
+          {merchantApplyModal && (
+            <div className="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="bg-charcoal border border-wire max-w-lg w-full p-6 sm:p-8 relative cyber-frame shadow-2xl">
+                <button onClick={() => setMerchantApplyModal(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
 
-                <div className="flex items-center space-x-2 text-crimson text-[10px] font-mono uppercase mb-2">
-                  <SigilEmblem className="w-5 h-5 text-crimson" glow={false} />
-                  <span>STEP-BY-STEP WORKSHOP CLINIC</span>
-                </div>
-
-                <h3 className="text-2xl font-sigil font-bold text-white mb-2">
-                  SCREENPRINTING WITH HANDMADE PAPER STENCILS
-                </h3>
-                <p className="text-xs font-mono text-silver-dark mb-6">
-                  Zero chemical emulsion required. Print bold, high-contrast graphic emblems onto thrifted tees and canvas patches.
-                </p>
-
-                <div className="space-y-4 font-mono text-xs">
-                  <div className="p-3 bg-obsidian border border-wire">
-                    <span className="text-crimson font-bold block mb-1">STEP 01: STENCIL CUTTING</span>
-                    <p className="text-bone-muted">Excise your high-contrast silhouette from wax or tracing paper using an X-Acto blade over a self-healing mat.</p>
-                  </div>
-                  <div className="p-3 bg-obsidian border border-wire">
-                    <span className="text-crimson font-bold block mb-1">STEP 02: INK PULL</span>
-                    <p className="text-bone-muted">Fasten stencil under the screen. Pull water-based textile ink at a 45° angle in one clean stroke.</p>
-                  </div>
-                  <div className="p-3 bg-obsidian border border-wire">
-                    <span className="text-crimson font-bold block mb-1">STEP 03: HEAT CURING</span>
-                    <p className="text-bone-muted">Dry for 2 hours. Press with hot iron under baking paper for 3 minutes to permanently bond ink into fibers.</p>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-wire flex justify-between items-center">
-                  <button 
-                    onClick={() => { setDiyModalOpen(false); scrollToSection('arrivals'); }}
-                    className="bg-crimson hover:bg-crimson-bright text-white px-6 py-2.5 text-xs font-mono uppercase transition">
-                    BROWSE RAW CANVAS PATCHES →
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 8. SUBMIT GIG MODAL */}
-          {submitEventModalOpen && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-xl w-full p-6 sm:p-8 relative cyber-corner shadow-2xl">
-                <button onClick={() => setSubmitEventModalOpen(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
-
-                <h3 className="text-2xl font-sigil font-bold text-white mb-1">SUBMIT YOUR EVENT</h3>
-                <p className="text-xs font-mono text-silver-dark mb-6">
-                  Submissions enter moderation before publication to the live calendar.
+                <h3 className="text-2xl font-serif font-bold text-white uppercase mb-1">JOIN AS A LOCAL MERCHANT</h3>
+                <p className="text-xs font-mono text-silver mb-6">
+                  For CDO thrifters, reworked denim ateliers, screenprinters, and subcultural craftspeople.
                 </p>
 
                 <form onSubmit={(e) => {
                   e.preventDefault();
-                  const t = e.target;
-                  setSubmissions(prev => [{
-                    id: `sub-${Date.now()}`,
-                    title: t.title.value,
-                    venue: t.venue.value,
-                    date: t.date.value,
-                    price: Number(t.price.value) || 0,
-                    status: 'Pending'
-                  }, ...prev]);
-                  setSubmitEventModalOpen(false);
-                  showToast("Event submitted! Awaiting administrator verification.");
+                  setMerchantApplyModal(false);
+                  showToast("Merchant application submitted! Editorial board will inspect your shop portfolio.");
                 }} className="space-y-4 font-mono text-xs">
                   <div>
-                    <label className="block text-silver-dark mb-1 uppercase">EVENT NAME *</label>
-                    <input name="title" required className="w-full bg-obsidian border border-wire p-2.5 text-white" placeholder="e.g. STATIC REBELLION VOL. 1" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-silver-dark mb-1 uppercase">DATE *</label>
-                      <input name="date" type="date" required className="w-full bg-obsidian border border-wire p-2.5 text-white" />
-                    </div>
-                    <div>
-                      <label className="block text-silver-dark mb-1 uppercase">DOOR PRICE (PHP)</label>
-                      <input name="price" defaultValue="150" type="number" className="w-full bg-obsidian border border-wire p-2.5 text-white" />
-                    </div>
+                    <label className="block text-silver mb-1">BRAND / MERCHANT NAME *</label>
+                    <input required className="w-full bg-obsidian border border-wire p-2.5 text-white" placeholder="e.g. Divisoria Reworked Atelier" />
                   </div>
                   <div>
-                    <label className="block text-silver-dark mb-1 uppercase">VENUE & CITY *</label>
-                    <input name="venue" required className="w-full bg-obsidian border border-wire p-2.5 text-white" placeholder="e.g. Nazareth Concrete Garage, CDO" />
+                    <label className="block text-silver mb-1">LOCATION IN CDO *</label>
+                    <input required className="w-full bg-obsidian border border-wire p-2.5 text-white" placeholder="e.g. Nazareth / Macasandig / Carmen" />
                   </div>
-                  <button type="submit" className="w-full bg-crimson hover:bg-crimson-bright text-white py-3 uppercase font-bold tracking-wider transition cyber-corner shadow-crimson-glow">
-                    SUBMIT GIG TO EDITORIAL BOARD
+                  <div>
+                    <label className="block text-silver mb-1">PRIMARY PRODUCTS *</label>
+                    <select className="w-full bg-obsidian border border-wire p-2.5 text-white">
+                      <option>Secondhand Curated Denim</option>
+                      <option>Studio Reworked Garments</option>
+                      <option>Band Merch &amp; DIY Patches</option>
+                      <option>Surplus Leather &amp; Footwear</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-silver mb-1">INSTAGRAM / PORTFOLIO LINK *</label>
+                    <input required type="url" className="w-full bg-obsidian border border-wire p-2.5 text-white" placeholder="https://instagram.com/..." />
+                  </div>
+                  <button type="submit" className="w-full bg-crimson hover:bg-crimson-bright text-white py-3 font-bold uppercase tracking-wider transition cyber-frame shadow-crimson-glow">
+                    SUBMIT MERCHANT APPLICATION →
                   </button>
                 </form>
               </div>
             </div>
           )}
 
-          {/* 9. LOOKBOOK INSPECTOR MODAL */}
-          {lookbookModalItem && (
-            <div className="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-              <div className="bg-charcoal border border-wire max-w-xl w-full p-6 relative cyber-corner shadow-2xl">
-                <button onClick={() => setLookbookModalItem(null)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
+          {/* 3. PRODUCT DETAIL MODAL */}
+          {selectedProduct && (
+            <div className="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="bg-charcoal border border-wire max-w-3xl w-full p-6 sm:p-8 relative cyber-frame shadow-2xl max-h-[90vh] overflow-y-auto">
+                <button onClick={() => setSelectedProduct(null)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
 
-                <div className="aspect-[4/3] overflow-hidden mb-4 bg-obsidian">
-                  <img src={lookbookModalItem.image} alt={lookbookModalItem.name} className="w-full h-full object-cover" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+                  <div className="aspect-[3/4] bg-obsidian border border-wire overflow-hidden">
+                    <img src={selectedProduct.image} alt={selectedProduct.title} className="w-full h-full object-cover" />
+                  </div>
+
+                  <div className="flex flex-col justify-between h-full">
+                    <div>
+                      <span className="text-[10px] font-mono text-crimson uppercase tracking-widest block mb-1">
+                        MERCHANT: {selectedProduct.merchant}
+                      </span>
+                      <h3 className="text-2xl font-serif font-bold text-white leading-tight">
+                        {selectedProduct.title}
+                      </h3>
+                      <div className="text-xl font-mono font-bold text-white mt-2 mb-4">
+                        ₱{selectedProduct.price.toLocaleString()}
+                      </div>
+
+                      <div className="bg-obsidian border border-wire p-3 text-xs font-mono space-y-1 mb-4">
+                        <p><strong className="text-white">Size:</strong> {selectedProduct.size}</p>
+                        <p><strong className="text-white">Condition:</strong> {selectedProduct.condition}</p>
+                        <p><strong className="text-white">Category:</strong> {selectedProduct.category}</p>
+                      </div>
+
+                      <p className="text-xs text-silver leading-relaxed mb-6 font-mono">
+                        {selectedProduct.desc}
+                      </p>
+                    </div>
+
+                    <button 
+                      onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }}
+                      className="w-full bg-crimson hover:bg-crimson-bright text-white py-3.5 text-xs font-mono font-bold uppercase tracking-wider transition cyber-frame shadow-crimson-glow">
+                      ADD TO BAG — ₱{selectedProduct.price.toLocaleString()}
+                    </button>
+                  </div>
                 </div>
-                <span className="text-[10px] font-mono text-crimson uppercase tracking-widest">{lookbookModalItem.location}</span>
-                <h3 className="text-xl font-sigil font-bold text-white mt-0.5">{lookbookModalItem.name}</h3>
-                <p className="text-xs font-mono text-silver-dark mt-2 bg-obsidian p-3 border border-wire">
-                  <strong>Fit Breakdown:</strong> {lookbookModalItem.fit}
+              </div>
+            </div>
+          )}
+
+          {/* 4. CART & CHECKOUT SLIDE-OUT DRAWER */}
+          {cartOpen && (
+            <div className="fixed inset-0 z-50 overflow-hidden">
+              <div onClick={() => setCartOpen(false)} className="absolute inset-0 bg-obsidian/80 backdrop-blur-sm transition-opacity" />
+              <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
+                <div className="w-screen max-w-md bg-charcoal border-l border-wire shadow-2xl flex flex-col">
+                  <div className="p-6 border-b border-wire flex justify-between items-center">
+                    <div className="flex items-center space-x-2">
+                      <MasterSigil className="w-6 h-6 text-crimson" glow={false} />
+                      <h3 className="text-lg font-serif font-bold text-white uppercase">RESERVED BAG ({cartCount})</h3>
+                    </div>
+                    <button onClick={() => setCartOpen(false)} className="text-silver hover:text-white p-2">✕</button>
+                  </div>
+
+                  <div className="p-6 flex-1 overflow-y-auto space-y-4 font-mono text-xs">
+                    {cart.map(item => (
+                      <div key={item.product.id} className="flex space-x-3 bg-obsidian border border-wire p-3">
+                        <img src={item.product.image} alt={item.product.title} className="w-16 h-20 object-cover" />
+                        <div className="flex-1 flex flex-col justify-between">
+                          <div>
+                            <strong className="text-white block truncate">{item.product.title}</strong>
+                            <span className="text-[10px] text-silver block">Size: {item.product.size}</span>
+                          </div>
+                          <div className="flex justify-between items-center mt-2">
+                            <span className="text-white font-bold">₱{(item.product.price * item.quantity).toLocaleString()}</span>
+                            <span className="text-[10px] text-silver">Qty: {item.quantity}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-6 border-t border-wire bg-obsidian font-mono text-xs">
+                    <div className="flex justify-between mb-4">
+                      <span className="text-silver">ESTIMATED TOTAL</span>
+                      <span className="font-bold text-white text-base">₱{cartTotal.toLocaleString()}</span>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setCart([]);
+                        setCartOpen(false);
+                        showToast("Order Dispatched! Check email for tracking.");
+                      }}
+                      className="w-full bg-crimson hover:bg-crimson-bright text-white py-3.5 font-bold uppercase tracking-wider transition cyber-frame shadow-crimson-glow">
+                      CHECKOUT VIA GCASH / MAYA →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 5. DIY LAB WORKSHOP CLINIC MODAL */}
+          {diyLabModal && (
+            <div className="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="bg-charcoal border border-wire max-w-2xl w-full p-6 sm:p-8 relative cyber-frame shadow-2xl max-h-[90vh] overflow-y-auto">
+                <button onClick={() => setDiyLabModal(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
+                <h3 className="text-2xl font-serif font-bold text-white uppercase mb-2">CAGAYAN DIY LAB WORKSHOP</h3>
+                <p className="text-xs font-mono text-silver mb-6">
+                  Community-run alteration and screenprint clinics hosted in Nazareth and Macasandig.
                 </p>
+
+                <div className="space-y-3 font-mono text-xs">
+                  <div className="bg-obsidian border border-wire p-4">
+                    <span className="text-crimson font-bold block mb-1">CLINIC 01: WATER-BASED SCREENPRINTING</span>
+                    <p className="text-silver">Bring unprinted dark/light tees. Free archival water-based textile ink and squeegees provided.</p>
+                  </div>
+                  <div className="bg-obsidian border border-wire p-4">
+                    <span className="text-crimson font-bold block mb-1">CLINIC 02: RAW CANVAS WHIP STITCHING</span>
+                    <p className="text-silver">Permanent back patch application technique using waxed dental floss and upholstery needles.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 6. ADMIN & MERCHANT DASHBOARD MODAL */}
+          {dashboardModal && (
+            <div className="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="bg-charcoal border border-wire max-w-4xl w-full p-6 sm:p-8 relative cyber-frame shadow-2xl">
+                <button onClick={() => setDashboardModal(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
+                <div className="flex items-center space-x-2 text-xs font-mono text-crimson mb-2">
+                  <MasterSigil className="w-5 h-5 text-crimson" glow={false} />
+                  <span>INTERNAL CONTROL CENTER</span>
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-white uppercase mb-6">ADMIN &amp; MERCHANT PORTAL</h3>
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 font-mono">
+                  <div className="bg-obsidian border border-wire p-4">
+                    <span className="text-[10px] text-silver block">TOTAL ORDERS</span>
+                    <strong className="text-2xl text-white block mt-1">124</strong>
+                  </div>
+                  <div className="bg-obsidian border border-wire p-4">
+                    <span className="text-[10px] text-silver block">TOTAL REVENUE</span>
+                    <strong className="text-2xl text-crimson block mt-1">₱62,480</strong>
+                  </div>
+                  <div className="bg-obsidian border border-wire p-4">
+                    <span className="text-[10px] text-silver block">MERCHANTS</span>
+                    <strong className="text-2xl text-white block mt-1">8 Verified</strong>
+                  </div>
+                  <div className="bg-obsidian border border-wire p-4">
+                    <span className="text-[10px] text-silver block">COMMUNITY GIGS</span>
+                    <strong className="text-2xl text-white block mt-1">12 Active</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 7. ALL PRODUCTS CATALOG MODAL */}
+          {allProductsModal && (
+            <div className="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="bg-charcoal border border-wire max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6 relative cyber-frame shadow-2xl">
+                <button onClick={() => setAllProductsModal(false)} className="absolute top-5 right-5 text-silver hover:text-white text-lg">✕</button>
+                <h3 className="text-2xl font-serif font-bold text-white uppercase mb-6">ALL MARKETPLACE GARMENTS</h3>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {INITIAL_PRODUCTS.map(p => (
+                    <div 
+                      key={p.id}
+                      onClick={() => { setSelectedProduct(p); setAllProductsModal(false); }}
+                      className="cursor-pointer bg-obsidian border border-wire hover:border-crimson p-3 transition">
+                      <div className="aspect-[3/4] overflow-hidden mb-2">
+                        <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
+                      </div>
+                      <h4 className="text-xs font-bold text-white truncate">{p.title}</h4>
+                      <div className="flex justify-between items-center text-xs font-mono mt-1">
+                        <span className="text-silver">{p.size}</span>
+                        <strong className="text-white">₱{p.price}</strong>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}
@@ -1604,7 +1199,7 @@
       );
     }
 
-    // Mount App
+    // Mount Application
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>

@@ -7,33 +7,36 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: '#070709',
-        'obsidian-dark': '#040405',
+        obsidian: '#080809',
+        'obsidian-deep': '#040405',
         charcoal: '#111114',
-        'charcoal-light': '#18181D',
-        bone: '#EDE8DF',
-        'bone-muted': '#A39E93',
-        silver: '#D4D8DC',
-        'silver-dark': '#7A8089',
+        'charcoal-elevated': '#19191E',
+        'charcoal-surface': '#222228',
+        bone: '#F0ECE6',
+        'bone-muted': '#96969F',
+        white: '#FFFFFF',
+        silver: '#C2C2C7',
+        'silver-bright': '#E2E2E6',
         crimson: {
-          DEFAULT: '#D9142A',
-          bright: '#FF1A35',
-          glow: 'rgba(217, 20, 42, 0.45)',
-          dark: '#8B0A17'
+          DEFAULT: '#D41432',
+          bright: '#FF1A38',
+          deep: '#780C20',
+          glow: 'rgba(212, 20, 50, 0.45)'
         },
-        wire: '#26262D',
-        'wire-light': '#363640'
+        wire: '#34343A',
+        'wire-light': '#4A4A52'
       },
       fontFamily: {
+        gothic: ['"Pirata One"', 'cursive'],
         sigil: ['Cinzel', 'serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Space Grotesk"', '-apple-system', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       },
       boxShadow: {
-        'crimson-glow': '0 0 25px rgba(217, 20, 42, 0.4)',
-        'crimson-sharp': '4px 4px 0px 0px #D9142A',
-        'cyber-card': '0 10px 30px -10px rgba(0,0,0,0.8)'
+        'crimson-glow': '0 0 25px rgba(212, 20, 50, 0.4)',
+        'crimson-intense': '0 0 45px rgba(212, 20, 50, 0.7)',
+        'cyber-card': '0 12px 36px -10px rgba(0,0,0,0.9)'
       }
     },
   },
