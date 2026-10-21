@@ -7,42 +7,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        black: '#101010',
-        charcoal: '#1A1A1A',
-        white: '#FFFFFF',
-        'soft-white': '#F6F5F2',
-        gray: {
-          light: '#F0EFEA',
-          DEFAULT: '#777777',
-          muted: '#8A8A8A',
-          dark: '#333333'
-        },
-        border: {
-          light: '#E5E5E5',
-          dark: '#262626',
-          subtle: '#EEEEEE'
-        },
+        obsidian: '#070709',
+        'obsidian-dark': '#040405',
+        charcoal: '#111114',
+        'charcoal-light': '#18181D',
+        bone: '#EDE8DF',
+        'bone-muted': '#A39E93',
+        silver: '#D4D8DC',
+        'silver-dark': '#7A8089',
         crimson: {
-          DEFAULT: '#C62032',
-          hover: '#A51A28',
-          subtle: '#FAF0F1'
-        }
+          DEFAULT: '#D9142A',
+          bright: '#FF1A35',
+          glow: 'rgba(217, 20, 42, 0.45)',
+          dark: '#8B0A17'
+        },
+        wire: '#26262D',
+        'wire-light': '#363640'
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', 'Manrope', 'Inter', 'sans-serif'],
+        sigil: ['Cinzel', 'serif'],
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Space Grotesk"', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       },
-      letterSpacing: {
-        tighter: '-0.04em',
-        tight: '-0.02em',
-        editorial: '0.15em',
-        widest: '0.25em'
-      },
       boxShadow: {
-        'fine': '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
-        'editorial': '0 20px 40px -15px rgba(16, 16, 16, 0.08)',
-        'crimson': '0 8px 24px -4px rgba(198, 32, 50, 0.25)'
+        'crimson-glow': '0 0 25px rgba(217, 20, 42, 0.4)',
+        'crimson-sharp': '4px 4px 0px 0px #D9142A',
+        'cyber-card': '0 10px 30px -10px rgba(0,0,0,0.8)'
       }
     },
   },

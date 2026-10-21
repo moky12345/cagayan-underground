@@ -16,60 +16,70 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-soft-white text-black font-sans">
-      {/* Header */}
-      <header className="border-b border-border-light bg-white px-8 py-5 flex justify-between items-center sticky top-0 z-40">
-        <div className="flex items-center space-x-2">
-          <span className="text-2xl font-bold tracking-tighter text-black uppercase font-sans">
-            CDO<span className="text-crimson">.</span>ARCHIVE
-          </span>
-          <span className="text-[9px] tracking-editorial text-gray border-l border-border-light pl-2">
-            ALTERNATIVE EDITORIAL
-          </span>
+    <div className="min-h-screen bg-obsidian text-bone font-sans">
+      {/* Top Header */}
+      <header className="border-b border-wire bg-obsidian/90 backdrop-blur-md px-8 py-5 flex justify-between items-center sticky top-0 z-40">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 rounded-full border border-crimson flex items-center justify-center text-crimson font-sigil font-bold">
+            ✦
+          </div>
+          <div>
+            <div className="flex items-center space-x-1.5 font-sigil text-xl tracking-widest text-white uppercase font-bold">
+              <span>CAGAYAN</span>
+              <span className="text-crimson">UNDERGROUND</span>
+            </div>
+            <span className="text-[9px] font-mono tracking-widest text-silver-dark uppercase block">
+              THRIFT × DIY × MUSIC × COMMUNITY
+            </span>
+          </div>
         </div>
 
-        <nav className="hidden md:flex space-x-8 text-xs font-medium tracking-editorial uppercase">
-          <a href="#shop" className="hover:text-crimson transition">SHOP</a>
-          <a href="#diy" className="hover:text-crimson transition">DIY LAB</a>
+        <nav className="hidden lg:flex space-x-8 text-xs font-mono tracking-widest uppercase text-silver-dark">
+          <a href="#arrivals" className="hover:text-crimson transition">SHOP</a>
+          <a href="#reworked" className="hover:text-crimson transition">REWORKED</a>
+          <a href="#diy-lab" className="hover:text-crimson transition">DIY LAB</a>
           <a href="#events" className="hover:text-crimson transition">EVENTS</a>
-          <a href="#community" className="hover:text-crimson transition">COMMUNITY</a>
+          <a href="#lookbook" className="hover:text-crimson transition">COMMUNITY</a>
         </nav>
 
-        <div className="text-xs font-semibold tracking-editorial">
-          <span className="bg-black text-white px-3 py-1.5 uppercase">BAG ({cartCount})</span>
+        <div className="bg-crimson text-white px-3.5 py-1.5 text-xs font-mono font-bold tracking-wider uppercase cyber-corner">
+          BAG ({cartCount})
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-8 py-20 border-b border-border-light">
-        <span className="text-crimson text-xs tracking-editorial uppercase font-semibold">ISSUE 04 • 2026</span>
-        <h1 className="text-6xl sm:text-8xl font-bold tracking-tighter uppercase leading-[0.95] mt-3 mb-6">
-          STYLE<br />
-          WITHOUT<br />
-          <span className="text-crimson font-serif italic lowercase font-normal">rules.</span>
-        </h1>
-        <p className="text-sm text-gray max-w-lg leading-relaxed mb-8">
-          Secondhand fashion. Independent creators. Underground culture. Built in Cagayan de Oro.
-        </p>
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-8 py-24 border-b border-wire grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-7">
+          <span className="text-[10px] font-mono text-crimson uppercase tracking-widest block mb-4">
+            CAGAYAN DE ORO CITY • 8.4842° N, 124.6472° E
+          </span>
+          <h1 className="text-6xl sm:text-8xl font-black uppercase tracking-tighter text-white leading-[0.92]">
+            STYLE<br />
+            WITHOUT<br />
+            <span className="text-crimson font-sigil">RULES.</span>
+          </h1>
+          <p className="text-sm font-mono text-silver-dark max-w-md mt-6 leading-relaxed">
+            Secondhand fashion. Independent creators. Underground culture. Built in Cagayan de Oro.
+          </p>
+        </div>
       </section>
 
-      {/* Grid */}
-      <section className="max-w-7xl mx-auto px-8 py-16">
-        <h2 className="text-3xl font-bold tracking-tight uppercase mb-8">NEW ARRIVALS</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map(p => (
-            <div key={p.id} className="border border-border-light bg-white p-4">
-              <div className="aspect-[3/4] bg-soft-white overflow-hidden mb-4">
+      {/* New Arrivals Grid */}
+      <section id="arrivals" className="max-w-7xl mx-auto px-8 py-20">
+        <h2 className="text-3xl font-bold uppercase tracking-tight text-white mb-8">NEW ARRIVALS</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+          {products.slice(0, 5).map(p => (
+            <div key={p.id} className="bg-charcoal border border-wire p-3">
+              <div className="aspect-[3/4] bg-obsidian overflow-hidden mb-3">
                 <img src={p.images[0]} alt={p.title} className="w-full h-full object-cover" />
               </div>
-              <span className="text-[10px] tracking-editorial uppercase text-crimson font-medium">{p.condition}</span>
-              <h3 className="font-semibold text-sm line-clamp-1 mt-0.5">{p.title}</h3>
-              <div className="mt-3 flex justify-between items-center text-xs">
-                <strong className="text-sm">₱{p.price_php.toLocaleString()}</strong>
+              <h3 className="text-xs font-bold text-white line-clamp-1">{p.title}</h3>
+              <div className="mt-3 flex justify-between items-center text-xs font-mono">
+                <span className="text-white font-bold">₱{p.price_php.toLocaleString()}</span>
                 <button 
                   onClick={() => dbStore.addToCart(p)}
-                  className="text-[11px] font-semibold tracking-editorial uppercase hover:text-crimson">
-                  + ADD TO BAG
+                  className="text-crimson font-bold text-[10px] uppercase hover:underline">
+                  + ADD
                 </button>
               </div>
             </div>
