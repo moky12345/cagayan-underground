@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDO UNDERGROUND — Gigs, DIY Community & Secondhand Fits</title>
+  <meta name="description" content="Dedicated underground music, gig flyer archive, and DIY thrift collective for Cagayan de Oro City. Punk, Emo, Metal, Goth, and Independent Art.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Special+Elite&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#f3ede2',
+            'paper-dark': '#e2d7c5',
+            'paper-aged': '#cbbfa8',
+            ink: '#0a0a0a',
+            'ink-light': '#1c1b18',
+            oxblood: '#881313',
+            'oxblood-bright': '#ad1717',
+            'stamp-red': '#b91c1c',
+            screamer: '#dc2626',
+            tape: 'rgba(235, 225, 195, 0.75)'
+          },
+          fontFamily: {
+            poster: ['"Bebas Neue"', 'Impact', 'sans-serif'],
+            typewriter: ['"Special Elite"', 'Courier New', 'monospace'],
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            'brutal': '4px 4px 0px 0px #0a0a0a',
+            'brutal-lg': '8px 8px 0px 0px #0a0a0a',
+            'brutal-oxblood': '6px 6px 0px 0px #881313',
+            'stamp': '0 0 0 2px #b91c1c'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & React / Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    /* Grain & Photocopy Textures */
+    body {
+      background-color: #0d0c0a;
+      color: #0a0a0a;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0.95), #080808),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+      min-height: 100vh;
+    }
+
+    .halftone-overlay {
+      background-image: radial-gradient(#000000 1.2px, transparent 1.2px);
+      background-size: 5px 5px;
+    }
+
+    .paper-texture {
+      background-color: #f4eee2;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.06'/%3E%3C/svg%3E");
+    }
+
+    .torn-edge-top {
+      clip-path: polygon(0 0, 4% 8px, 8% 0, 12% 7px, 16% 0, 20% 9px, 24% 0, 28% 6px, 32% 0, 36% 8px, 40% 0, 44% 6px, 48% 0, 52% 8px, 56% 0, 60% 7px, 64% 0, 68% 8px, 72% 0, 76% 6px, 80% 0, 84% 8px, 88% 0, 92% 7px, 96% 0, 100% 8px, 100% 100%, 0 100%);
+    }
+
+    .tape-strip {
+      background: rgba(240, 230, 200, 0.78);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+      border-left: 2px dashed rgba(200, 190, 160, 0.6);
+      border-right: 2px dashed rgba(200, 190, 160, 0.6);
+      transform: rotate(-3deg);
+    }
+
+    .tape-strip-alt {
+      background: rgba(240, 230, 200, 0.78);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+      border-left: 2px dashed rgba(200, 190, 160, 0.6);
+      border-right: 2px dashed rgba(200, 190, 160, 0.6);
+      transform: rotate(4deg);
+    }
+
+    .rubber-stamp {
+      display: inline-block;
+      text-transform: uppercase;
+      font-family: 'Special Elite', monospace;
+      border: 3px solid #b91c1c;
+      color: #b91c1c;
+      padding: 3px 10px;
+      transform: rotate(-4deg);
+      border-radius: 3px;
+      mask-image: radial-gradient(circle, black 60%, rgba(0,0,0,0.4) 100%);
+      letter-spacing: 0.1em;
+      font-weight: bold;
+    }
+
+    .rubber-stamp-green {
+      border-color: #15803d;
+      color: #15803d;
+      transform: rotate(2deg);
+    }
+
+    .rubber-stamp-black {
+      border-color: #18181b;
+      color: #18181b;
+      transform: rotate(-1deg);
+    }
+
+    /* Distressed custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #141414;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #881313;
+      border-radius: 0;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b91c1c;
+    }
+  </style>
+</head>
+<body class="selection:bg-oxblood selection:text-paper font-sans antialiased">
+  <div id="root"></div>
+
+  <!-- Main Application Script (Babel compiled) -->
+  <script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // --- SEED DATA & LOCAL STORAGE BRIDGE ---
+    const STORAGE_KEY = 'cdo_underground_events_v2';
+    const SUBS_KEY = 'cdo_underground_subs_v2';
+    const SAVED_KEY = 'cdo_underground_saved_v2';
+
+    const INITIAL_EVENTS = [
+      {
+        id: 'e-1',
+        slug: 'noise-disruption-vol-4',
+        title: 'NOISE DISRUPTION VOL. 4',
+        tagline: 'Heavy guitar feedback, pit etiquette, and pure CDO hardcore energy.',
+        description: 'The fourth installment of CDO’s heaviest underground session. Five bands, zero rockstar attitudes, strict safe-space rules, and a pop-up thrift rack in the backyard alley. Bring earplugs. Respect the venue and help your fellow moshers up when they fall.',
+        event_type: 'gig',
+        genre_tags: ['Punk and Hardcore', 'Metal and Extreme Music'],
+        status: 'upcoming',
+        start_time: new Date(Date.now() + 3 * 24 * 3600 * 1000 + 5 * 3600 * 1000).toISOString(),
+        doors_open_time: '6:30 PM',
+        venue_name: 'The Concrete Garage',
+        venue_address: '12th-21st St. Corner, Nazareth',
+        city: 'Cagayan de Oro City',
+        barangay: 'Nazareth',
+        google_maps_url: 'https://maps.google.com/?q=Nazareth+Cagayan+de+Oro',
+        accessibility_info: 'Ground floor venue with roll-in ramp. Note: High volume sound, ear protection strongly advised. Quiet recovery zone in side patio.',
+        age_restriction: 'All Ages',
+        ticket_price_php: 150,
+        is_free_entry: false,
+        ticket_link: 'https://instagram.com/cdo_underground_noise',
+        poster_image_url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80',
+        poster_credit: 'Original riso flyer screenprinted by Pungko Press',
+        organizer_name_override: 'Kagay-an Underground Noise Coalition',
+        official_announcement_url: 'https://instagram.com/cdo_underground_noise',
+        is_verified: true,
+        verified_by: 'Admin (Verified via official flyer & venue confirmation)',
+        last_verified_at: '2026-10-19T14:30:00Z',
+        featured_gig_fit_ids: ['tp-1', 'tp-6', 'tp-4'],
+        lineups: [
+          { performer_name: 'Blackwater Divide', set_time: '9:30 PM', is_headliner: true },
+          { performer_name: 'Calamity Routine', set_time: '8:45 PM', is_headliner: false },
+          { performer_name: 'Rust & Wire (Iligan Hardcore)', set_time: '8:00 PM', is_headliner: false },
+          { performer_name: 'Gutter Sludge (Opening Noise)', set_time: '7:15 PM', is_headliner: false }
+        ]
+      },
+      {
+        id: 'e-2',
+        slug: 'tears-on-canvas-emo-night',
+        title: 'TEARS ON CANVAS: EMO & POST-HARDCORE NIGHT',
+        tagline: 'Screaming every lyric until our throats give out in Divisoria.',
+        description: 'A deep dive into 90s midwest emo and 2000s post-hardcore. Features live sets from Stitched Lips Society and guest selectors playing Mineral, Title Fight, Armor For Sleep, and Saosin. Community zines and secondhand band shirts available.',
+        event_type: 'gig',
+        genre_tags: ['Emo and Pop-Punk', 'Alternative and Indie'],
+        status: 'upcoming',
+        start_time: new Date(Date.now() + 6 * 24 * 3600 * 1000 + 4 * 3600 * 1000).toISOString(),
+        doors_open_time: '7:00 PM',
+        venue_name: 'Divisoria Basement Lab',
+        venue_address: 'Tiano Bros. St., near Golden Friendship Park',
+        city: 'Cagayan de Oro City',
+        barangay: 'Barangay 1',
+        google_maps_url: 'https://maps.google.com/?q=Divisoria+Cagayan+de+Oro',
+        accessibility_info: 'Basement location accessed via stairs. Staff available to assist with mobility needs.',
+        age_restriction: 'All Ages',
+        ticket_price_php: 120,
+        is_free_entry: false,
+        ticket_link: 'https://instagram.com/cdo_underground_noise',
+        poster_image_url: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80',
+        poster_credit: 'Original riso flyer by Stitched Lips Society',
+        organizer_name_override: 'Divisoria Emo Fellowship',
+        is_verified: true,
+        verified_by: 'Admin (Verified via promoter ticket desk)',
+        last_verified_at: '2026-10-18T10:15:00Z',
+        featured_gig_fit_ids: ['tp-3', 'tp-2'],
+        lineups: [
+          { performer_name: 'Stitched Lips Society', set_time: '9:15 PM', is_headliner: true },
+          { performer_name: 'Slow Fade Goodbye (Bukidnon Emo)', set_time: '8:20 PM', is_headliner: false },
+          { performer_name: 'Letters Unsent (Acoustic Emo Set)', set_time: '7:30 PM', is_headliner: false }
+        ]
+      },
+      {
+        id: 'e-3',
+        slug: 'patch-and-destroy-workshop',
+        title: 'PATCH & DESTROY: DIY CLOTHING CUSTOMIZATION LAB',
+        tagline: 'Bring your beat-up jackets, thrifts, and denim. Make them armor.',
+        description: 'Learn stencil screen-printing, heavy canvas back patch sewing, hand studding, and distressed fabric bleaching. Free fabric scraps, stencil cutting knives, and heavy nylon threads provided. Bring 1-2 garments you want to customize.',
+        event_type: 'diy_workshop',
+        genre_tags: ['DIY Workshops and Customization', 'Thrift Markets and Clothing Swaps'],
+        status: 'upcoming',
+        start_time: new Date(Date.now() + 10 * 24 * 3600 * 1000 - 3 * 3600 * 1000).toISOString(),
+        doors_open_time: '2:00 PM',
+        venue_name: 'Thrift Hub Yard & Atelier',
+        venue_address: 'Lane 10, Macasandig Riverside',
+        city: 'Cagayan de Oro City',
+        barangay: 'Macasandig',
+        google_maps_url: 'https://maps.google.com/?q=Macasandig+Cagayan+de+Oro',
+        accessibility_info: 'Ground floor open-air pavilion. Family friendly and wheelchair accessible.',
+        age_restriction: 'All Ages (Kids under 12 must be accompanied for knife handling)',
+        ticket_price_php: 0,
+        is_free_entry: true,
+        poster_image_url: 'https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?auto=format&fit=crop&w=900&q=80',
+        poster_credit: 'Photo courtesy of Thread & Resist DIY Collective',
+        organizer_name_override: 'Thread & Resist DIY Lab',
+        is_verified: true,
+        verified_by: 'Admin (Verified via studio schedule)',
+        last_verified_at: '2026-10-20T08:00:00Z',
+        featured_gig_fit_ids: ['tp-1', 'tp-4'],
+        lineups: [
+          { performer_name: 'Ate Bea (Screen-print mentor)', set_time: '2:30 PM', is_headliner: false },
+          { performer_name: 'Kuya Joms (Denim repair & stud clinic)', set_time: '3:30 PM', is_headliner: false }
+        ]
+      },
+      {
+        id: 'e-4',
+        slug: 'velvet-shadows-darkwave-gathering',
+        title: 'VELVET SHADOWS: COLDWAVE & GOTH DANCEFLOOR',
+        tagline: 'Subterranean synths, fog machines, and vintage lace in Macasandig.',
+        description: 'An evening of gothic post-punk, darkwave live electronics, and vintage lace swap meet. Dress code strictly black, Victorian romantic, deathrock, or distressed grunge. Safe environment, zero harassment policy strictly enforced.',
+        event_type: 'gig',
+        genre_tags: ['Goth and Darkwave', 'Alternative and Indie'],
+        status: 'upcoming',
+        start_time: new Date(Date.now() + 15 * 24 * 3600 * 1000).toISOString(),
+        doors_open_time: '8:00 PM',
+        venue_name: 'Black Box Studio CDO',
+        venue_address: 'Tomas Saco St., Macasandig',
+        city: 'Cagayan de Oro City',
+        barangay: 'Macasandig',
+        google_maps_url: 'https://maps.google.com/?q=Tomas+Saco+Cagayan+de+Oro',
+        accessibility_info: 'Low lighting and flashing strobe effects during DJ sets. Earplugs free at the door.',
+        age_restriction: '18+',
+        ticket_price_php: 200,
+        is_free_entry: false,
+        ticket_link: 'https://instagram.com/velvetcrypt',
+        poster_image_url: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=900&q=80',
+        poster_credit: 'Design by Velvet Crypt',
+        organizer_name_override: 'Northern Crypt Collective',
+        is_verified: true,
+        verified_by: 'Admin (Verified via artist broadcast)',
+        last_verified_at: '2026-10-17T11:20:00Z',
+        featured_gig_fit_ids: ['tp-5', 'tp-2'],
+        lineups: [
+          { performer_name: 'Velvet Crypt', set_time: '9:45 PM', is_headliner: true },
+          { performer_name: 'DJ Hexenwerk (Dark 80s Synth Set)', set_time: '8:15 PM', is_headliner: false }
+        ]
+      },
+      {
+        id: 'e-5',
+        slug: 'secondhand-frequency-cassette-flea',
+        title: 'SECONDHAND FREQUENCY: THRIFT & CASSETTE SWAP',
+        tagline: 'Physical media preservation and 50-peso vintage clothing racks.',
+        description: 'Swap tape cassettes, VHS bootlegs, zines, and curated secondhand thrift jackets. Live acoustic busking and local coffee pop-up.',
+        event_type: 'thrift_market',
+        genre_tags: ['Thrift Markets and Clothing Swaps', 'Alternative and Indie', 'Zine Fairs and Art Markets'],
+        status: 'upcoming',
+        start_time: new Date(Date.now() + 20 * 24 * 3600 * 1000).toISOString(),
+        doors_open_time: '1:00 PM',
+        venue_name: 'Artisan Alley Carmen',
+        venue_address: 'Vamenta Blvd., Carmen',
+        city: 'Cagayan de Oro City',
+        barangay: 'Carmen',
+        ticket_price_php: 0,
+        is_free_entry: true,
+        poster_image_url: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80',
+        poster_credit: 'Photo courtesy of Secondhand Frequency',
+        organizer_name_override: 'Carmen Vinyl & Thrift Guild',
+        is_verified: true,
+        verified_by: 'Admin (Verified via venue announcement)',
+        last_verified_at: '2026-10-16T16:00:00Z',
+        featured_gig_fit_ids: ['tp-3', 'tp-4'],
+        lineups: [
+          { performer_name: 'Various CDO Buskers', set_time: '2:00 PM', is_headliner: false }
+        ]
+      },
+      {
+        id: 'e-6',
+        slug: 'northern-mindanao-zine-union-fair-2',
+        title: 'NORTHERN MINDANAO ZINE UNION: FAIR & FLEA #2',
+        tagline: 'Photocopied manifestos, cassette demos, and 50-peso thrift racks.',
+        description: 'Historic gathering of northern Mindanao visual artists, cassette label owners, and underground thrift scavengers. Over 20 tables of original zines, stickers, screenprinted patches, and local bands performing acoustic raw sets.',
+        event_type: 'zine_fair',
+        genre_tags: ['Zine Fairs and Art Markets', 'Thrift Markets and Clothing Swaps', 'Alternative and Indie'],
+        status: 'completed',
+        start_time: '2025-11-15T13:00:00Z',
+        end_time: '2025-11-15T21:00:00Z',
+        doors_open_time: '1:00 PM',
+        venue_name: 'Kagay-an Heritage Yard',
+        venue_address: 'Velez St. near City Hall, CDO',
+        city: 'Cagayan de Oro City',
+        barangay: 'Poblacion',
+        ticket_price_php: 0,
+        is_free_entry: true,
+        poster_image_url: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80',
+        poster_credit: 'Archival scan from Pungko-Pungko Press',
+        organizer_name_override: 'Pungko-Pungko Press & Zine Union',
+        is_verified: true,
+        verified_by: 'Admin (Preserved in CDO Scene Archive)',
+        last_verified_at: '2025-11-16T10:00:00Z',
+        lineups: [
+          { performer_name: 'Stitched Lips Society (Unplugged)', set_time: '5:00 PM', is_headliner: true },
+          { performer_name: 'Poetry & Acoustic Sets', set_time: '2:00 PM', is_headliner: false }
+        ],
+        recaps: [
+          {
+            author_name: 'Kiko "Shutter" Almonte',
+            author_role: 'Photographer',
+            recap_text: 'Over 250 people passed through the heritage yard between 1 PM and 9 PM. All zine tables completely sold out by sunset. The acoustic sets were intimate, emotional, and proved CDO has one of the most dedicated DIY crowds in the south.',
+            photo_urls: [
+              'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80',
+              'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80'
+            ]
+          }
+        ]
+      }
+    ];
+
+    const GENRE_LIST = [
+      'Punk and Hardcore',
+      'Emo and Pop-Punk',
+      'Metal and Extreme Music',
+      'Alternative and Indie',
+      'Goth and Darkwave',
+      'DIY Workshops and Customization',
+      'Thrift Markets and Clothing Swaps',
+      'Zine Fairs and Art Markets',
+      'Open Mics and Community Meetups'
+    ];
+
+    const BANDS_DATA = [
+      {
+        id: 'b-1',
+        name: 'Blackwater Divide',
+        slug: 'blackwater-divide',
+        genre_tags: ['Punk and Hardcore', 'Metal and Extreme Music'],
+        location: 'Nazareth, Cagayan de Oro City',
+        short_bio: 'Ferocious metallic hardcore tearing up local garages with d-beat rhythms and raw political screams.',
+        full_bio: 'Formed in 2021 behind an auto repair shop in Nazareth, Blackwater Divide blends raw 90s Swedish death metal tone with aggressive American hardcore punk. Known for intense mosh etiquette and uncompromising DIY ethos.',
+        image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
+        spotify: 'https://open.spotify.com',
+        bandcamp: 'https://bandcamp.com',
+        booking: 'blackwaterdivide@gmail.com',
+        members: ['Dante V. (Vocals)', 'Renz C. (Guitar)', 'Paolo S. (Bass)', 'Mico T. (Drums)']
+      },
+      {
+        id: 'b-2',
+        name: 'Stitched Lips Society',
+        slug: 'stitched-lips-society',
+        genre_tags: ['Emo and Pop-Punk', 'Alternative and Indie'],
+        location: 'Divisoria, Cagayan de Oro City',
+        short_bio: 'Twin-guitar twinkly midwest emo and heartfelt post-hardcore catharsis from the heart of Divisoria.',
+        full_bio: 'Stitched Lips Society channels the melancholic spirit of American Football, Mineral, and Title Fight into songs about humid CDO typhoons, heartbreak, and thrift shop nostalgia.',
+        image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80',
+        spotify: 'https://open.spotify.com',
+        bandcamp: 'https://bandcamp.com',
+        booking: 'stitchedlips@gmail.com',
+        members: ['Gabe M. (Guitar/Vocals)', 'Leo K. (Guitar)', 'Aris R. (Bass)', 'Jun P. (Drums)']
+      },
+      {
+        id: 'b-3',
+        name: 'Calamity Routine',
+        slug: 'calamity-routine',
+        genre_tags: ['Alternative and Indie', 'Punk and Hardcore'],
+        location: 'Macasandig, Cagayan de Oro City',
+        short_bio: 'Heavy 90s grunge and noise rock duo driven by blown-out tube amplifiers and feedback loops.',
+        full_bio: 'A guitar-and-drum two-piece operating out of an abandoned Macasandig woodshop. Unrelenting fuzz, sludgy riffs, and dynamic quiet-loud structures.',
+        image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
+        bandcamp: 'https://bandcamp.com',
+        booking: 'calamityroutine@outlook.com',
+        members: ['Kael N. (Guitar/Vocals)', 'Sam D. (Drums)']
+      },
+      {
+        id: 'b-4',
+        name: 'Velvet Crypt',
+        slug: 'velvet-crypt',
+        genre_tags: ['Goth and Darkwave'],
+        location: 'Carmen, Cagayan de Oro City',
+        short_bio: 'Subterranean analog synthesizer darkwave and haunting baritone vocals for stormy Mindanao nights.',
+        full_bio: 'The solo darkwave project of sound artist Alyssa Soriano. Vintage Korg synths, drum machines, and echoes of The Cure and Clan of Xymox.',
+        image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
+        spotify: 'https://open.spotify.com',
+        booking: 'velvetcrypt@proton.me',
+        members: ['Alyssa S. (Synths, Vocals, Sequencer)']
+      },
+      {
+        id: 'b-5',
+        name: 'Thread & Resist Collective',
+        slug: 'thread-and-resist-collective',
+        genre_tags: ['DIY Workshops and Customization', 'Thrift Markets and Clothing Swaps'],
+        location: 'Nazareth, Cagayan de Oro City',
+        short_bio: 'Anti-fast-fashion crew teaching screenprinting, denim studding, and zero-waste garment reconstruction.',
+        full_bio: 'A passionate group of artisans, thrift hunters, and punk crafters running free weekend repair clinics and clothing swaps to keep garments out of landfills.',
+        image: 'https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?auto=format&fit=crop&w=800&q=80',
+        booking: 'threadandresist@gmail.com',
+        members: ['Bea T. (Textile Mentor)', 'Joms L. (Hardware/Studs)', 'Mira C. (Pattern Cutter)']
+      },
+      {
+        id: 'b-6',
+        name: 'Pungko-Pungko Zine Press',
+        slug: 'pungko-pungko-press',
+        genre_tags: ['Zine Fairs and Art Markets'],
+        location: 'Poblacion, Cagayan de Oro City',
+        short_bio: 'Grassroots self-publishing union printing underground music reviews, poetry, and linocuts on recycled newsprint.',
+        full_bio: 'Active since 2019, Pungko Press produces micro-editions of local punk essays, photography rolls, and activist flyers using mimeograph and photocopy technology.',
+        image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+        booking: 'press@pungkoxpress.com',
+        members: ['Reden K. (Editor)', 'Yna M. (Linocut Artist)']
+      }
+    ];
+
+    const THRIFT_PRODUCTS = [
+      {
+        id: 'tp-1',
+        title: 'Custom Studded Vintage Battle Vest',
+        price_php: 850,
+        condition: 'Upcycled Rework',
+        size: 'Unisex L',
+        image: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80',
+        tags: 'Punk / Metal',
+        desc: 'Heavyweight 90s acid-wash denim hand-studded with cone rivets and raw canvas back patch.'
+      },
+      {
+        id: 'tp-2',
+        title: 'Faded Distressed Black Denim Jacket',
+        price_php: 720,
+        condition: 'Distressed Vintage',
+        size: 'M',
+        image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80',
+        tags: 'Grunge / Metal',
+        desc: 'Naturally frayed cuffs, heavy metal hardware, ideal canvas for local gig pins.'
+      },
+      {
+        id: 'tp-3',
+        title: 'Heavyweight Flannel (Blood Tartan)',
+        price_php: 450,
+        condition: 'Thrift Grade A',
+        size: 'Oversized XL',
+        image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80',
+        tags: 'Emo / 90s Grunge',
+        desc: 'Ultra-soft washed cotton flannel. Classic silhouette for cold basement shows.'
+      },
+      {
+        id: 'tp-4',
+        title: 'DIY Screenprinted Canvas Patch 5-Pack',
+        price_php: 180,
+        condition: 'DIY Handprinted',
+        size: 'Assorted 3"-6"',
+        image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80',
+        tags: 'DIY Craft',
+        desc: 'Hand-pulled textile ink on raw duck canvas. Includes dental floss & curved upholstery needle.'
+      },
+      {
+        id: 'tp-5',
+        title: 'Vintage Velvet Choker & O-Ring Chain',
+        price_php: 220,
+        condition: 'Upcycled Rework',
+        size: 'Adjustable',
+        image: 'https://images.unsplash.com/photo-1611591475152-47354c033c89?auto=format&fit=crop&w=600&q=80',
+        tags: 'Goth / Darkwave',
+        desc: 'Salvaged plush velvet ribbon with stainless steel ring connector.'
+      },
+      {
+        id: 'tp-6',
+        title: 'Lug-Sole Vintage Military Combat Boots',
+        price_php: 1250,
+        condition: 'Distressed Vintage',
+        size: 'EU 42 / US 9',
+        image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80',
+        tags: 'Hardcore Punk',
+        desc: 'Heavy full-grain leather, steel reinforced toe, deep tread for muddy venue yards.'
+      }
+    ];
+
+    // --- HELPER ICONS ---
+    const IconCalendar = () => <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeWidth="2"/><line x1="16" y1="2" x2="16" y2="6" strokeWidth="2"/><line x1="8" y1="2" x2="8" y2="6" strokeWidth="2"/><line x1="3" y1="10" x2="21" y2="10" strokeWidth="2"/></svg>;
+    const IconPin = () => <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>;
+    const IconShield = () => <svg className="w-3.5 h-3.5 inline-block mr-1 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>;
+    const IconTicket = () => <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg>;
+    const IconBookmark = ({ filled }) => <svg className="w-4 h-4 inline-block" fill={filled ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>;
+    const IconShare = () => <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>;
+
+    // --- MAIN APP COMPONENT ---
+    function App() {
+      // Navigation state
+      const [route, setRoute] = useState('events'); // 'home', 'events', 'event-detail', 'bands', 'calendar', 'archive', 'submit', 'shop', 'admin'
+      const [currentSlug, setCurrentSlug] = useState('noise-disruption-vol-4');
+      const [isAdmin, setIsAdmin] = useState(false);
+      const [toastMessage, setToastMessage] = useState(null);
+
+      // Data state
+      const [events, setEvents] = useState(() => {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          return stored ? JSON.parse(stored) : INITIAL_EVENTS;
+        } catch {
+          return INITIAL_EVENTS;
+        }
+      });
+
+      const [submissions, setSubmissions] = useState(() => {
+        try {
+          const stored = localStorage.getItem(SUBS_KEY);
+          return stored ? JSON.parse(stored) : [];
+        } catch {
+          return [];
+        }
+      });
+
+      const [savedIds, setSavedIds] = useState(() => {
+        try {
+          const stored = localStorage.getItem(SAVED_KEY);
+          return stored ? JSON.parse(stored) : [];
+        } catch {
+          return [];
+        }
+      });
+
+      // Filter state
+      const [selectedGenre, setSelectedGenre] = useState('All');
+      const [timeFilter, setTimeFilter] = useState('all'); // 'all', 'upcoming', 'this_week', 'this_month', 'past'
+      const [searchQuery, setSearchQuery] = useState('');
+      const [calendarView, setCalendarView] = useState('calendar'); // 'calendar' or 'list'
+      const [archiveYear, setArchiveYear] = useState('All');
+
+      // Sync state with storage
+      useEffect(() => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
+      }, [events]);
+
+      useEffect(() => {
+        localStorage.setItem(SUBS_KEY, JSON.stringify(submissions));
+      }, [submissions]);
+
+      useEffect(() => {
+        localStorage.setItem(SAVED_KEY, JSON.stringify(savedIds));
+      }, [savedIds]);
+
+      // URL Hash listener for browser back/forward and deep linking
+      useEffect(() => {
+        const handleHash = () => {
+          const hash = window.location.hash.replace('#', '') || 'events';
+          if (hash.startsWith('events/')) {
+            const slug = hash.replace('events/', '');
+            setCurrentSlug(slug);
+            setRoute('event-detail');
+          } else if (['home', 'events', 'bands', 'calendar', 'archive', 'submit', 'shop', 'admin'].includes(hash)) {
+            setRoute(hash);
+          } else {
+            setRoute('events');
+          }
+        };
+
+        window.addEventListener('hashchange', handleHash);
+        handleHash();
+        return () => window.removeEventListener('hashchange', handleHash);
+      }, []);
+
+      const navigateTo = (newRoute, slug = null) => {
+        if (slug) {
+          window.location.hash = `events/${slug}`;
+        } else {
+          window.location.hash = newRoute;
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      const showToast = (msg) => {
+        setToastMessage(msg);
+        setTimeout(() => setToastMessage(null), 3500);
+      };
+
+      const toggleSave = (id, e) => {
+        if (e) e.stopPropagation();
+        setSavedIds(prev => {
+          const exists = prev.includes(id);
+          const next = exists ? prev.filter(x => x !== id) : [...prev, id];
+          showToast(exists ? "Removed from your gig booklet" : "Stamped to your gig booklet!");
+          return next;
+        });
+      };
+
+      // Filter logic
+      const filteredEvents = useMemo(() => {
+        const now = new Date();
+        const startOfWeek = new Date(now);
+        startOfWeek.setDate(now.getDate() - now.getDay());
+        const endOfWeek = new Date(startOfWeek);
+        endOfWeek.setDate(startOfWeek.getDate() + 7);
+        const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+
+        return events.filter(e => {
+          const eventDate = new Date(e.start_time);
+          
+          // Time filter
+          if (timeFilter === 'upcoming' && (eventDate < now || e.status === 'completed')) return false;
+          if (timeFilter === 'this_week' && (eventDate < now || eventDate > endOfWeek || e.status === 'completed')) return false;
+          if (timeFilter === 'this_month' && (eventDate < now || eventDate > endOfMonth || e.status === 'completed')) return false;
+          if (timeFilter === 'past' && e.status !== 'completed' && eventDate >= now) return false;
+
+          // Genre filter
+          if (selectedGenre !== 'All') {
+            if (!e.genre_tags.some(g => g.toLowerCase() === selectedGenre.toLowerCase())) return false;
+          }
+
+          // Search query
+          if (searchQuery.trim()) {
+            const q = searchQuery.toLowerCase();
+            const matchTitle = e.title.toLowerCase().includes(q);
+            const matchVenue = e.venue_name.toLowerCase().includes(q);
+            const matchCity = e.city.toLowerCase().includes(q);
+            const matchOrganizer = (e.organizer_name_override || '').toLowerCase().includes(q);
+            const matchGenre = e.genre_tags.some(g => g.toLowerCase().includes(q));
+            const matchBands = e.lineups?.some(l => l.performer_name.toLowerCase().includes(q));
+            if (!matchTitle && !matchVenue && !matchCity && !matchOrganizer && !matchGenre && !matchBands) {
+              return false;
+            }
+          }
+
+          return true;
+        });
+      }, [events, selectedGenre, timeFilter, searchQuery]);
+
+      // --- SUBMISSION HANDLER ---
+      const handleSubmission = (formData) => {
+        // Honeypot spam test
+        if (formData.honeypot) {
+          showToast("Spam detected. Discarded.");
+          return;
+        }
+
+        // Duplicate check
+        const isDuplicate = events.some(e => 
+          e.title.toLowerCase() === formData.title.trim().toLowerCase() &&
+          e.venue_name.toLowerCase() === formData.venue.trim().toLowerCase()
+        );
+
+        if (isDuplicate) {
+          showToast("Warning: A gig with this name and venue is already on record.");
+          return;
+        }
+
+        const newSub = {
+          id: `sub-${Date.now()}`,
+          title: formData.title,
+          genre_tags: formData.genres,
+          event_type: formData.event_type || 'gig',
+          description: formData.description,
+          start_time: formData.date_time,
+          venue_name: formData.venue,
+          city: formData.city || 'Cagayan de Oro City',
+          venue_address: formData.address,
+          poster_image_url: formData.poster_url || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80',
+          band_lineup_text: formData.lineup,
+          ticket_price_php: Number(formData.price) || 0,
+          is_free_entry: formData.is_free,
+          ticket_link: formData.ticket_link,
+          organizer_name: formData.organizer,
+          contact_email: formData.email,
+          contact_social: formData.social,
+          age_restriction: formData.age || 'All Ages',
+          accessibility_notes: formData.accessibility,
+          status: 'pending',
+          created_at: new Date().toISOString()
+        };
+
+        setSubmissions(prev => [newSub, ...prev]);
+        showToast("SUBMISSION RECEIVED! Awaiting admin review.");
+        navigateTo('events');
+      };
+
+      // --- ADMIN APPROVAL HANDLER ---
+      const handleApproveSub = (sub) => {
+        const slug = sub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Math.floor(Math.random() * 900 + 100);
+        const published = {
+          id: `e-${Date.now()}`,
+          slug,
+          title: sub.title,
+          tagline: sub.description.slice(0, 95) + '...',
+          description: sub.description,
+          event_type: sub.event_type,
+          genre_tags: sub.genre_tags.length ? sub.genre_tags : ['Alternative and Indie'],
+          status: 'upcoming',
+          start_time: sub.start_time,
+          doors_open_time: '7:00 PM',
+          venue_name: sub.venue_name,
+          venue_address: sub.venue_address,
+          city: sub.city,
+          ticket_price_php: sub.ticket_price_php,
+          is_free_entry: sub.is_free_entry,
+          ticket_link: sub.ticket_link,
+          poster_image_url: sub.poster_image_url,
+          organizer_name_override: sub.organizer_name,
+          is_verified: true,
+          verified_by: 'Admin (Verified Community Submission)',
+          last_verified_at: new Date().toISOString(),
+          age_restriction: sub.age_restriction,
+          accessibility_info: sub.accessibility_notes,
+          lineups: sub.band_lineup_text ? sub.band_lineup_text.split(',').map(name => ({
+            performer_name: name.trim(),
+            set_time: 'TBA',
+            is_headliner: false
+          })) : []
+        };
+
+        setEvents(prev => [published, ...prev]);
+        setSubmissions(prev => prev.map(s => s.id === sub.id ? { ...s, status: 'approved' } : s));
+        showToast(`Approved "${sub.title}" and published to verified feed!`);
+      };
+
+      const handleRejectSub = (id) => {
+        setSubmissions(prev => prev.map(s => s.id === id ? { ...s, status: 'rejected' } : s));
+        showToast("Submission marked as rejected.");
+      };
+
+      const handleUpdateStatus = (eventId, newStatus) => {
+        setEvents(prev => prev.map(e => e.id === eventId ? { ...e, status: newStatus, last_verified_at: new Date().toISOString() } : e));
+        showToast(`Status updated to ${newStatus}`);
+      };
+
+      // Selected event for detail view
+      const selectedEvent = events.find(e => e.slug === currentSlug) || events[0];
+
+      return (
+        <div className="min-h-screen text-paper flex flex-col font-sans">
+          {/* TOAST NOTIFICATION */}
+          {toastMessage && (
+            <div className="fixed bottom-6 right-6 z-50 bg-oxblood text-paper px-6 py-3 border-2 border-paper shadow-brutal font-typewriter text-sm tracking-wide animate-bounce">
+              ★ {toastMessage}
+            </div>
+          )}
+
+          {/* TOP UTILITY BAR / THRIFT SOLIDARITY */}
+          <header className="bg-ink border-b-2 border-stone-800 text-xs text-stone-300 py-2 px-4">
+            <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+              <div className="flex items-center space-x-3">
+                <span className="bg-oxblood text-paper px-2 py-0.5 font-bold uppercase tracking-wider text-[10px]">
+                  CAGAYAN DE ORO DIY UNION
+                </span>
+                <span className="font-typewriter text-stone-400 hidden sm:inline">
+                  "BUY SECONDHAND. MAKE YOUR OWN. SUPPORT THE SCENE."
+                </span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <button 
+                  onClick={() => setIsAdmin(!isAdmin)}
+                  className={`text-[11px] font-typewriter underline ${isAdmin ? 'text-amber-400 font-bold' : 'text-stone-400 hover:text-paper'}`}>
+                  {isAdmin ? '★ Mode: ADMIN ACTIVE' : 'Switch to Admin Access'}
+                </button>
+                <span className="text-stone-600">|</span>
+                <button onClick={() => navigateTo('shop')} className="hover:text-amber-300 font-bold">
+                  Thrift Racks & Custom Fits
+                </button>
+              </div>
+            </div>
+          </header>
+
+          {/* MAIN BRAND HEADER & NAV */}
+          <nav className="bg-ink-light border-b-4 border-oxblood sticky top-0 z-40 shadow-2xl">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap justify-between items-center gap-4">
+              <div className="cursor-pointer" onClick={() => navigateTo('home')}>
+                <div className="flex items-center space-x-2">
+                  <span className="text-4xl sm:text-5xl font-poster tracking-tighter text-paper leading-none hover:text-oxblood-bright transition">
+                    CDO UNDERGROUND
+                  </span>
+                  <span className="rubber-stamp text-[10px] hidden md:inline-block">OFFICIAL SCENE REGISTRY</span>
+                </div>
+                <p className="text-[11px] font-typewriter text-stone-400 tracking-wider">
+                  NORTHERN MINDANAO NOISE ARCHIVE • THRIFT SHOP DIY HUB
+                </p>
+              </div>
+
+              {/* NAV LINKS */}
+              <div className="flex items-center flex-wrap gap-1 sm:gap-2 text-sm font-bold tracking-wide">
+                {[
+                  { id: 'events', label: 'GIGS & EVENTS' },
+                  { id: 'bands', label: 'BAND DIRECTORY' },
+                  { id: 'calendar', label: 'DIY CALENDAR' },
+                  { id: 'archive', label: 'GIG ARCHIVE' },
+                  { id: 'shop', label: 'GIG FITS & MERCH' }
+                ].map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => navigateTo(tab.id)}
+                    className={`px-3 py-1.5 transition uppercase text-xs sm:text-sm font-poster tracking-wider ${
+                      route === tab.id 
+                        ? 'bg-paper text-ink shadow-brutal border-2 border-ink' 
+                        : 'text-stone-300 hover:text-paper hover:bg-stone-800'
+                    }`}>
+                    {tab.label}
+                  </button>
+                ))}
+
+                {isAdmin && (
+                  <button
+                    onClick={() => navigateTo('admin')}
+                    className={`px-3 py-1.5 uppercase text-xs sm:text-sm font-poster tracking-wider border-2 border-amber-400 ${
+                      route === 'admin' ? 'bg-amber-400 text-ink' : 'text-amber-400 hover:bg-amber-400/20'
+                    }`}>
+                    MODERATION ({submissions.filter(s => s.status === 'pending').length})
+                  </button>
+                )}
+
+                <button
+                  onClick={() => navigateTo('submit')}
+                  className="bg-oxblood hover:bg-oxblood-bright text-paper px-4 py-1.5 font-poster text-sm sm:text-base tracking-wider border-2 border-paper shadow-brutal transition transform active:scale-95 ml-2">
+                  + SUBMIT A GIG
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          {/* MAIN CONTENT ROUTING */}
+          <main className="flex-grow">
+            {route === 'home' && (
+              <HomeSection navigateTo={navigateTo} events={events} products={THRIFT_PRODUCTS} />
+            )}
+
+            {route === 'events' && (
+              <EventsListSection 
+                events={filteredEvents}
+                allEvents={events}
+                selectedGenre={selectedGenre}
+                setSelectedGenre={setSelectedGenre}
+                timeFilter={timeFilter}
+                setTimeFilter={setTimeFilter}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                navigateTo={navigateTo}
+                toggleSave={toggleSave}
+                savedIds={savedIds}
+              />
+            )}
+
+            {route === 'event-detail' && (
+              <EventDetailSection 
+                event={selectedEvent}
+                allEvents={events}
+                navigateTo={navigateTo}
+                toggleSave={toggleSave}
+                isSaved={savedIds.includes(selectedEvent.id)}
+                showToast={showToast}
+                products={THRIFT_PRODUCTS}
+              />
+            )}
+
+            {route === 'bands' && (
+              <BandsSection 
+                bands={BANDS_DATA} 
+                events={events}
+                navigateTo={navigateTo}
+                showToast={showToast}
+              />
+            )}
+
+            {route === 'calendar' && (
+              <CalendarSection 
+                events={events}
+                view={calendarView}
+                setView={setCalendarView}
+                navigateTo={navigateTo}
+              />
+            )}
+
+            {route === 'archive' && (
+              <ArchiveSection 
+                events={events.filter(e => e.status === 'completed' || new Date(e.start_time) < new Date())}
+                archiveYear={archiveYear}
+                setArchiveYear={setArchiveYear}
+                navigateTo={navigateTo}
+                showToast={showToast}
+              />
+            )}
+
+            {route === 'submit' && (
+              <SubmitEventSection 
+                onSubmit={handleSubmission}
+                navigateTo={navigateTo}
+              />
+            )}
+
+            {route === 'shop' && (
+              <ShopSection 
+                products={THRIFT_PRODUCTS}
+                events={events}
+                navigateTo={navigateTo}
+                showToast={showToast}
+              />
+            )}
+
+            {route === 'admin' && (
+              <AdminSection 
+                submissions={submissions}
+                events={events}
+                onApprove={handleApproveSub}
+                onReject={handleRejectSub}
+                onUpdateStatus={handleUpdateStatus}
+                navigateTo={navigateTo}
+              />
+            )}
+          </main>
+
+          {/* FOOTER */}
+          <footer className="bg-ink border-t-4 border-oxblood text-stone-400 py-12 px-4 mt-20">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="col-span-1 md:col-span-2">
+                <span className="text-3xl font-poster text-paper">CDO UNDERGROUND</span>
+                <p className="font-typewriter text-xs text-stone-400 mt-2 max-w-md leading-relaxed">
+                  Dedicated to the DIY emo, punk, hardcore, metal, alternative, grunge, and goth scenes of Cagayan de Oro City. 
+                  Preserving local gig flyers, supporting independent live spaces, and clothing the scene in authentic secondhand garments.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="rubber-stamp text-[10px]">100% DIY</span>
+                  <span className="rubber-stamp text-[10px] rubber-stamp-black text-stone-300 border-stone-500">NO SCALPERS</span>
+                  <span className="rubber-stamp text-[10px] border-emerald-600 text-emerald-400">SAFE MOSH PITS</span>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-poster text-lg text-paper tracking-wider mb-3">SCENE DIRECTORY</h4>
+                <ul className="text-xs space-y-2 font-mono">
+                  <li><button onClick={() => navigateTo('events')} className="hover:text-paper">→ Gig Poster Wall</button></li>
+                  <li><button onClick={() => navigateTo('bands')} className="hover:text-paper">→ CDO Band Roster</button></li>
+                  <li><button onClick={() => navigateTo('calendar')} className="hover:text-paper">→ DIY Workshops & Swaps</button></li>
+                  <li><button onClick={() => navigateTo('archive')} className="hover:text-paper">→ Underground Gig Archive</button></li>
+                  <li><button onClick={() => navigateTo('submit')} className="hover:text-paper">→ Submit Your Gig Announcement</button></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-poster text-lg text-paper tracking-wider mb-3">THRIFT SOLIDARITY</h4>
+                <p className="text-xs font-typewriter text-stone-400 mb-2">
+                  "BUY SECONDHAND. MAKE YOUR OWN. SUPPORT THE SCENE."
+                </p>
+                <p className="text-[11px] text-stone-500 leading-normal">
+                  Band names and flyer credits remain the intellectual property of the respective artists and organizers. Unofficial community tribute page.
+                </p>
+                <div className="mt-4 pt-4 border-t border-stone-800 text-[10px] font-mono text-stone-600">
+                  © 2026 CDO Underground Scene Hub • Powered by React & Supabase
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 1. HOME SECTION (INTEGRATION HUB)
+    // ============================================================================
+    function HomeSection({ navigateTo, events, products }) {
+      const upcoming = events.filter(e => e.status !== 'completed').slice(0, 3);
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          {/* HERO BANNER */}
+          <div className="relative border-4 border-paper bg-stone-900 shadow-brutal-lg overflow-hidden mb-12">
+            <div className="absolute top-2 right-4 z-20 tape-strip-alt px-4 py-1 text-ink font-typewriter text-xs font-bold">
+              CAGAYAN DE ORO CITY • ISSUE #2026
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+              <div className="lg:col-span-7 p-6 sm:p-12 flex flex-col justify-center">
+                <span className="text-oxblood font-poster text-2xl tracking-widest uppercase">UNDERGROUND BULLETIN</span>
+                <h1 className="text-5xl sm:text-7xl font-poster text-paper tracking-tight leading-none my-3">
+                  THE SCENE IS ALIVE.
+                </h1>
+                <p className="font-typewriter text-stone-300 text-sm sm:text-base leading-relaxed mb-6 max-w-xl">
+                  Local noise. Independent art. Secondhand fits. Find your people in CDO. From sweaty Nazareth garage moshpits to Divisoria midnight zine swaps.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <button 
+                    onClick={() => navigateTo('events')}
+                    className="bg-paper text-ink hover:bg-stone-200 px-6 py-3 font-poster text-xl tracking-wider shadow-brutal border-2 border-ink">
+                    EXPLORE UPCOMING GIGS →
+                  </button>
+                  <button 
+                    onClick={() => navigateTo('submit')}
+                    className="bg-oxblood hover:bg-oxblood-bright text-paper px-6 py-3 font-poster text-xl tracking-wider shadow-brutal border-2 border-paper">
+                    SUBMIT A GIG
+                  </button>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 bg-stone-950 p-6 flex flex-col justify-center border-t-4 lg:border-t-0 lg:border-l-4 border-paper">
+                <div className="border-2 border-dashed border-stone-600 p-4 relative paper-texture text-ink shadow-brutal">
+                  <div className="rubber-stamp absolute -top-3 right-2 text-xs">NEXT HEAVY SESSION</div>
+                  <span className="font-poster text-2xl text-oxblood">FEATURED FLYER</span>
+                  <h3 className="font-poster text-3xl leading-none text-ink mt-1">NOISE DISRUPTION VOL. 4</h3>
+                  <p className="font-typewriter text-xs text-stone-700 my-2">
+                    Nazareth Concrete Garage • 4 Bands • Pure D-Beat Hardcore
+                  </p>
+                  <div className="flex justify-between items-center text-xs font-mono pt-2 border-t border-stone-400">
+                    <span className="font-bold">ENTRY: ₱150 (FREE EARPLUGS)</span>
+                    <button 
+                      onClick={() => navigateTo('event-detail', 'noise-disruption-vol-4')}
+                      className="bg-ink text-paper px-3 py-1 font-poster tracking-wider">
+                      VIEW FLYER
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 PILLARS CAROUSEL / HIGHLIGHTS */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="border-2 border-paper p-6 bg-ink-light shadow-brutal flex flex-col justify-between">
+              <div>
+                <span className="font-typewriter text-xs text-oxblood font-bold">01 / LOCAL NOISE</span>
+                <h3 className="font-poster text-3xl text-paper mt-1">GIG FLYER ARCHIVE</h3>
+                <p className="text-xs font-mono text-stone-400 mt-2 leading-relaxed">
+                  Every legitimate punk, metal, emo, and alternative flyer in CDO documented with verified dates and ticket policies.
+                </p>
+              </div>
+              <button onClick={() => navigateTo('events')} className="mt-4 text-xs font-poster text-amber-300 hover:underline">
+                BROWSE GIGS →
+              </button>
+            </div>
+
+            <div className="border-2 border-paper p-6 bg-ink-light shadow-brutal flex flex-col justify-between">
+              <div>
+                <span className="font-typewriter text-xs text-oxblood font-bold">02 / MAKE YOUR OWN</span>
+                <h3 className="font-poster text-3xl text-paper mt-1">DIY LAB & CALENDAR</h3>
+                <p className="text-xs font-mono text-stone-400 mt-2 leading-relaxed">
+                  Patch sewing circles, denim bleaching, cassette swaps, and linocut zine-making workshops across the city.
+                </p>
+              </div>
+              <button onClick={() => navigateTo('calendar')} className="mt-4 text-xs font-poster text-amber-300 hover:underline">
+                SEE WORKSHOPS →
+              </button>
+            </div>
+
+            <div className="border-2 border-paper p-6 bg-ink-light shadow-brutal flex flex-col justify-between">
+              <div>
+                <span className="font-typewriter text-xs text-oxblood font-bold">03 / SECONDHAND FITS</span>
+                <h3 className="font-poster text-3xl text-paper mt-1">GIG-READY THRIFT</h3>
+                <p className="text-xs font-mono text-stone-400 mt-2 leading-relaxed">
+                  Battle vests, weathered flannels, oversized band shirts, and upcycled combat boots curated from local racks.
+                </p>
+              </div>
+              <button onClick={() => navigateTo('shop')} className="mt-4 text-xs font-poster text-amber-300 hover:underline">
+                SHOP THRIFTS →
+              </button>
+            </div>
+          </div>
+
+          {/* UPCOMING SHOWS PREVIEW */}
+          <div className="mb-12">
+            <div className="flex justify-between items-end border-b-2 border-stone-800 pb-3 mb-6">
+              <div>
+                <span className="font-typewriter text-xs text-oxblood">FLYERS ON THE WALL</span>
+                <h2 className="font-poster text-4xl text-paper">UPCOMING CDO GATHERINGS</h2>
+              </div>
+              <button onClick={() => navigateTo('events')} className="text-xs font-poster text-amber-300 hover:underline">
+                VIEW ALL ({events.length}) →
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {upcoming.map(event => (
+                <div key={event.id} onClick={() => navigateTo('event-detail', event.slug)} className="cursor-pointer group">
+                  <div className="border-2 border-paper bg-ink p-4 shadow-brutal group-hover:border-oxblood transition">
+                    <div className="relative aspect-[3/4] bg-stone-900 overflow-hidden mb-3">
+                      <img src={event.poster_image_url} alt={event.title} className="w-full h-full object-cover filter contrast-125 grayscale group-hover:grayscale-0 transition duration-300" />
+                      <div className="absolute top-2 right-2 rubber-stamp text-[10px] bg-paper text-ink">
+                        {event.is_free_entry ? 'FREE ENTRY' : `₱${event.ticket_price_php}`}
+                      </div>
+                    </div>
+                    <span className="font-typewriter text-[10px] text-oxblood font-bold">
+                      {new Date(event.start_time).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} • {event.venue_name}
+                    </span>
+                    <h3 className="font-poster text-2xl text-paper leading-none mt-1 group-hover:text-oxblood-bright">
+                      {event.title}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 2. EVENTS LIST SECTION (THE DISTRESSED POSTER WALL)
+    // ============================================================================
+    function EventsListSection({ 
+      events, 
+      allEvents,
+      selectedGenre, 
+      setSelectedGenre, 
+      timeFilter, 
+      setTimeFilter, 
+      searchQuery, 
+      setSearchQuery, 
+      navigateTo,
+      toggleSave,
+      savedIds
+    }) {
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          {/* SECTION HEADLINE */}
+          <div className="border-b-4 border-oxblood pb-6 mb-8">
+            <div className="flex flex-wrap justify-between items-end gap-4">
+              <div>
+                <span className="text-oxblood font-typewriter text-xs tracking-widest uppercase font-bold">
+                  ROUTE: /community/events • CAGAYAN DE ORO NOISE LOG
+                </span>
+                <h1 className="text-5xl sm:text-7xl font-poster text-paper tracking-tight leading-none mt-1">
+                  THE SCENE IS ALIVE.
+                </h1>
+                <p className="font-typewriter text-stone-300 text-sm sm:text-base mt-2 max-w-2xl">
+                  Local noise. Independent art. Secondhand fits. Find your people in CDO.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => navigateTo('submit')}
+                  className="bg-oxblood hover:bg-oxblood-bright text-paper px-5 py-2.5 font-poster text-lg tracking-wider border-2 border-paper shadow-brutal transition transform active:scale-95">
+                  + SUBMIT A GIG
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* SEARCH & FILTER CONTROLS */}
+          <div className="bg-ink-light border-2 border-paper p-4 shadow-brutal mb-8 space-y-4">
+            {/* SEARCH ROW */}
+            <div className="flex flex-col md:flex-row gap-3">
+              <div className="flex-grow relative">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="SEARCH BY GIG NAME, VENUE, ORGANIZER, OR BAND..."
+                  className="w-full bg-stone-900 border-2 border-stone-700 text-paper px-4 py-2 text-sm font-mono focus:border-oxblood focus:outline-none placeholder:text-stone-500"
+                />
+                {searchQuery && (
+                  <button onClick={() => setSearchQuery('')} className="absolute right-3 top-2.5 text-xs text-stone-400 hover:text-paper font-mono">
+                    CLEAR ✕
+                  </button>
+                )}
+              </div>
+
+              {/* TIME FILTER BUTTONS */}
+              <div className="flex flex-wrap gap-1">
+                {[
+                  { id: 'all', label: 'ALL DATES' },
+                  { id: 'upcoming', label: 'UPCOMING' },
+                  { id: 'this_week', label: 'THIS WEEK' },
+                  { id: 'this_month', label: 'THIS MONTH' },
+                  { id: 'past', label: 'PAST ARCHIVE' }
+                ].map(t => (
+                  <button
+                    key={t.id}
+                    onClick={() => setTimeFilter(t.id)}
+                    className={`px-3 py-2 text-xs font-poster tracking-wider transition ${
+                      timeFilter === t.id 
+                        ? 'bg-oxblood text-paper border border-paper' 
+                        : 'bg-stone-900 text-stone-300 hover:bg-stone-800 border border-stone-800'
+                    }`}>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* GENRE FILTER PILLS */}
+            <div>
+              <div className="text-[11px] font-typewriter text-stone-400 mb-2 uppercase tracking-wider">
+                FILTER BY UNDERGROUND GENRE:
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                <button
+                  onClick={() => setSelectedGenre('All')}
+                  className={`px-3 py-1 text-xs font-mono transition ${
+                    selectedGenre === 'All' 
+                      ? 'bg-paper text-ink font-bold shadow-sm' 
+                      : 'bg-stone-900 text-stone-400 hover:text-paper hover:bg-stone-800'
+                  }`}>
+                  All ({allEvents.length})
+                </button>
+                {GENRE_LIST.map(g => {
+                  const count = allEvents.filter(e => e.genre_tags.includes(g)).length;
+                  return (
+                    <button
+                      key={g}
+                      onClick={() => setSelectedGenre(g)}
+                      className={`px-2.5 py-1 text-xs font-mono transition ${
+                        selectedGenre === g 
+                          ? 'bg-oxblood text-paper font-bold' 
+                          : 'bg-stone-900 text-stone-400 hover:text-paper hover:bg-stone-800'
+                      }`}>
+                      {g} ({count})
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* ACTIVE FILTER STATUS */}
+          <div className="flex justify-between items-center text-xs font-mono text-stone-400 mb-6">
+            <span>
+              SHOWING <strong className="text-paper">{events.length}</strong> GIGS & WORKSHOPS
+              {selectedGenre !== 'All' && <span> • GENRE: <span className="text-oxblood font-bold">{selectedGenre}</span></span>}
+              {searchQuery && <span> • QUERY: "{searchQuery}"</span>}
+            </span>
+            {(selectedGenre !== 'All' || searchQuery || timeFilter !== 'all') && (
+              <button 
+                onClick={() => { setSelectedGenre('All'); setSearchQuery(''); setTimeFilter('all'); }}
+                className="text-amber-400 underline hover:text-paper">
+                Reset All Filters
+              </button>
+            )}
+          </div>
+
+          {/* EVENT CARDS GRID (FLYER WALL) */}
+          {events.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {events.map((event, idx) => (
+                <PosterCard 
+                  key={event.id} 
+                  event={event} 
+                  idx={idx}
+                  navigateTo={navigateTo}
+                  toggleSave={toggleSave}
+                  isSaved={savedIds.includes(event.id)}
+                />
+              ))}
+            </div>
+          ) : (
+            /* EMPTY STATE REQUIREMENT */
+            <div className="border-4 border-dashed border-stone-700 bg-stone-950 p-10 text-center shadow-brutal my-8">
+              <div className="rubber-stamp text-xs mb-4">SCENE DISPATCH</div>
+              <h2 className="text-4xl sm:text-5xl font-poster text-paper tracking-wider mb-2">
+                NOTHING ON THE BILL YET?
+              </h2>
+              <p className="font-typewriter text-stone-300 text-sm max-w-xl mx-auto mb-8 leading-relaxed">
+                Know a gig, workshop, or underground gathering happening in CDO? Send it our way and help keep the scene connected.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <button
+                  onClick={() => navigateTo('submit')}
+                  className="bg-oxblood hover:bg-oxblood-bright text-paper px-6 py-2.5 font-poster text-lg tracking-wider border-2 border-paper shadow-brutal">
+                  Submit an Event
+                </button>
+                <button
+                  onClick={() => navigateTo('bands')}
+                  className="bg-paper text-ink hover:bg-stone-200 px-6 py-2.5 font-poster text-lg tracking-wider border-2 border-ink shadow-brutal">
+                  Browse the Band Directory
+                </button>
+                <button
+                  onClick={() => navigateTo('calendar')}
+                  className="bg-stone-800 text-paper hover:bg-stone-700 px-6 py-2.5 font-poster text-lg tracking-wider border-2 border-stone-600 shadow-brutal">
+                  Explore the DIY Lab
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // POSTER CARD COMPONENT (UNDERGROUND GIG FLYER DESIGN)
+    // ============================================================================
+    function PosterCard({ event, idx, navigateTo, toggleSave, isSaved }) {
+      const isAltRot = idx % 2 === 0;
+      const isPast = event.status === 'completed' || new Date(event.start_time) < new Date();
+
+      return (
+        <div 
+          onClick={() => navigateTo('event-detail', event.slug)}
+          className="cursor-pointer group flex flex-col justify-between border-4 border-ink paper-texture text-ink shadow-brutal transition-all duration-200 hover:-translate-y-1 hover:shadow-brutal-lg relative">
+          
+          {/* TAPE DETAILS */}
+          <div className={`absolute -top-3 ${isAltRot ? 'left-4 tape-strip' : 'right-4 tape-strip-alt'} z-20 px-3 py-0.5 text-[10px] font-typewriter text-ink font-bold`}>
+            CDO FLYER #{event.id.slice(-4)}
+          </div>
+
+          <div className="p-4 sm:p-5">
+            {/* POSTER IMAGE CONTAINER */}
+            <div className="relative aspect-[4/5] bg-stone-900 border-2 border-ink overflow-hidden mb-4 shadow-sm">
+              <img 
+                src={event.poster_image_url} 
+                alt={event.title} 
+                className={`w-full h-full object-cover filter contrast-125 ${isPast ? 'grayscale' : 'grayscale group-hover:grayscale-0'} transition duration-300`}
+              />
+              
+              {/* STAMPS & STATUS OVERLAYS */}
+              <div className="absolute top-2 left-2 flex flex-col gap-1 items-start">
+                {event.is_verified && (
+                  <span className="rubber-stamp bg-paper text-[10px] text-oxblood border-oxblood">
+                    VERIFIED GIG
+                  </span>
+                )}
+                {event.status === 'sold_out' && (
+                  <span className="rubber-stamp bg-paper text-[10px] text-red-600 border-red-600">
+                    SOLD OUT
+                  </span>
+                )}
+                {event.status === 'postponed' && (
+                  <span className="rubber-stamp bg-paper text-[10px] text-amber-600 border-amber-600">
+                    POSTPONED
+                  </span>
+                )}
+                {isPast && (
+                  <span className="rubber-stamp bg-paper text-[10px] rubber-stamp-black">
+                    ARCHIVED GIG
+                  </span>
+                )}
+              </div>
+
+              {/* SAVE / BOOKMARK BUTTON */}
+              <button 
+                onClick={(e) => toggleSave(event.id, e)}
+                title="Save flyer to booklet"
+                className={`absolute bottom-2 right-2 p-2 border-2 border-ink ${isSaved ? 'bg-oxblood text-paper' : 'bg-paper text-ink'} shadow-sm hover:scale-110 transition`}>
+                <IconBookmark filled={isSaved} />
+              </button>
+            </div>
+
+            {/* GENRE TAGS */}
+            <div className="flex flex-wrap gap-1 mb-2">
+              {event.genre_tags.map(g => (
+                <span key={g} className="bg-ink text-paper text-[10px] font-mono px-2 py-0.5 uppercase tracking-wider font-bold">
+                  {g}
+                </span>
+              ))}
+            </div>
+
+            {/* TITLE & TAGLINE */}
+            <h2 className="font-poster text-3xl sm:text-4xl leading-none text-ink tracking-tight group-hover:text-oxblood transition">
+              {event.title}
+            </h2>
+            
+            {event.tagline && (
+              <p className="font-typewriter text-xs text-stone-700 italic mt-1 line-clamp-2">
+                "{event.tagline}"
+              </p>
+            )}
+
+            {/* ESSENTIAL GIG LOGISTICS */}
+            <div className="mt-4 pt-3 border-t-2 border-dashed border-stone-400 text-xs font-mono space-y-1.5">
+              <div className="flex items-center text-stone-900 font-bold">
+                <IconCalendar />
+                <span>
+                  {new Date(event.start_time).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })}
+                  {event.doors_open_time && ` • DOORS: ${event.doors_open_time}`}
+                </span>
+              </div>
+
+              <div className="flex items-center text-stone-800">
+                <IconPin />
+                <span className="truncate">{event.venue_name}, {event.city}</span>
+              </div>
+
+              <div className="flex justify-between items-center pt-1 text-stone-700">
+                <span>ORG: <strong className="text-ink">{event.organizer_name_override || 'CDO Noise Union'}</strong></span>
+                <span className="font-bold text-oxblood">
+                  {event.is_free_entry ? 'FREE ENTRY' : `₱${event.ticket_price_php}`}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* CARD FOOTER */}
+          <div className="bg-ink text-paper px-4 py-2 text-xs font-poster tracking-wider flex justify-between items-center">
+            <span>TAP TO INSPECT FLYER</span>
+            <span className="group-hover:translate-x-1 transition">→</span>
+          </div>
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 3. EVENT DETAIL SECTION (FLYER INSPECTOR & TICKETING)
+    // ============================================================================
+    function EventDetailSection({ event, allEvents, navigateTo, toggleSave, isSaved, showToast, products }) {
+      if (!event) return null;
+
+      const isPast = event.status === 'completed' || new Date(event.start_time) < new Date();
+      const related = allEvents.filter(e => e.id !== event.id && e.genre_tags.some(g => event.genre_tags.includes(g))).slice(0, 3);
+      
+      // Matched thrift pieces for "Build Your Gig Fit"
+      const gigFits = products.filter(p => event.featured_gig_fit_ids?.includes(p.id) || p.underground_tag === event.curated_thrift_tag).slice(0, 3);
+
+      // Download .ICS calendar file
+      const downloadIcs = () => {
+        const start = new Date(event.start_time).toISOString().replace(/-|:|\.\d\d\d/g, "");
+        const end = new Date(new Date(event.start_time).getTime() + 4 * 3600 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "");
+        const icsData = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//CDO Underground//Event Flyer//EN',
+          'BEGIN:VEVENT',
+          `SUMMARY:${event.title}`,
+          `DESCRIPTION:${event.description.replace(/\n/g, ' ')}`,
+          `LOCATION:${event.venue_name}, ${event.venue_address}, ${event.city}`,
+          `DTSTART:${start}`,
+          `DTEND:${end}`,
+          'STATUS:CONFIRMED',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+
+        const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute('download', `${event.slug}.ics`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast("Calendar event file (.ics) downloaded!");
+      };
+
+      // Share Event
+      const handleShare = () => {
+        if (navigator.share) {
+          navigator.share({
+            title: event.title,
+            text: `CDO Underground Gig: ${event.title} at ${event.venue_name}`,
+            url: window.location.href
+          }).catch(() => {});
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+          showToast("Gig link copied to clipboard!");
+        }
+      };
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          {/* BREADCRUMB */}
+          <div className="flex items-center space-x-2 text-xs font-mono text-stone-400 mb-6">
+            <button onClick={() => navigateTo('events')} className="hover:text-paper">← BACK TO ALL FLYERS</button>
+            <span>/</span>
+            <span className="text-oxblood font-bold">{event.title}</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            {/* LEFT COLUMN: LARGE GIG POSTER */}
+            <div className="lg:col-span-5">
+              <div className="paper-texture p-4 border-4 border-ink shadow-brutal-lg relative">
+                <div className="tape-strip absolute -top-3 left-6 px-4 py-0.5 text-xs font-typewriter text-ink font-bold">
+                  OFFICIAL CDO FLYER SCAN
+                </div>
+
+                <div className="aspect-[3/4] bg-stone-900 border-2 border-ink overflow-hidden mb-3">
+                  <img 
+                    src={event.poster_image_url} 
+                    alt={event.title} 
+                    className="w-full h-full object-cover filter contrast-125 grayscale hover:grayscale-0 transition duration-300"
+                  />
+                </div>
+
+                {event.poster_credit && (
+                  <p className="font-typewriter text-[11px] text-stone-600 text-center italic">
+                    ★ {event.poster_credit}
+                  </p>
+                )}
+
+                {/* VERIFICATION BADGE */}
+                <div className="mt-4 pt-3 border-t-2 border-dashed border-stone-400 bg-stone-100 p-3 text-ink text-xs font-mono">
+                  <div className="flex items-center text-emerald-800 font-bold mb-1">
+                    <IconShield />
+                    <span>LAST VERIFIED: {new Date(event.last_verified_at || event.start_time).toLocaleDateString()}</span>
+                  </div>
+                  <p className="text-[11px] text-stone-600">
+                    Source: {event.verified_by || 'Admin verified via official promoter announcement'}
+                  </p>
+                </div>
+              </div>
+
+              {/* ACTION TOOLBAR */}
+              <div className="flex gap-2 mt-4">
+                <button
+                  onClick={downloadIcs}
+                  className="flex-1 bg-ink text-paper hover:bg-stone-800 border-2 border-paper py-2.5 font-poster tracking-wider text-sm shadow-brutal">
+                  <IconCalendar /> ADD TO CALENDAR (.ICS)
+                </button>
+                <button
+                  onClick={handleShare}
+                  className="bg-oxblood hover:bg-oxblood-bright text-paper px-4 py-2.5 border-2 border-paper font-poster tracking-wider text-sm shadow-brutal">
+                  <IconShare /> SHARE
+                </button>
+                <button
+                  onClick={() => toggleSave(event.id)}
+                  className={`px-4 py-2.5 border-2 border-paper font-poster tracking-wider text-sm shadow-brutal ${isSaved ? 'bg-amber-400 text-ink font-bold' : 'bg-stone-900 text-paper'}`}>
+                  <IconBookmark filled={isSaved} /> {isSaved ? 'SAVED' : 'SAVE'}
+                </button>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: GIG SPECS & LINEUP */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                {/* GENRE PILLS & STAMPS */}
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  {event.genre_tags.map(g => (
+                    <span key={g} className="bg-oxblood text-paper px-2.5 py-1 text-xs font-mono uppercase font-bold tracking-wider">
+                      {g}
+                    </span>
+                  ))}
+                  <span className="rubber-stamp text-xs">{event.status.replace('_', ' ')}</span>
+                  {event.age_restriction && (
+                    <span className="bg-stone-800 text-stone-300 text-xs font-mono px-2 py-0.5 border border-stone-600">
+                      AGE: {event.age_restriction}
+                    </span>
+                  )}
+                </div>
+
+                <h1 className="text-4xl sm:text-6xl font-poster text-paper tracking-tight leading-none mb-3">
+                  {event.title}
+                </h1>
+
+                {event.tagline && (
+                  <p className="font-typewriter text-amber-300 text-sm sm:text-base italic mb-6">
+                    "{event.tagline}"
+                  </p>
+                )}
+
+                {/* LOGISTICS CARD */}
+                <div className="bg-ink-light border-2 border-paper p-5 shadow-brutal mb-6 space-y-3 font-mono text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <span className="text-xs text-stone-400 uppercase block font-typewriter">DATE & TIME</span>
+                      <strong className="text-paper text-base">
+                        {new Date(event.start_time).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+                      </strong>
+                      <span className="text-xs text-oxblood font-bold block">
+                        DOORS: {event.doors_open_time || '7:00 PM'}
+                      </span>
+                    </div>
+
+                    <div>
+                      <span className="text-xs text-stone-400 uppercase block font-typewriter">VENUE & MAP</span>
+                      <strong className="text-paper text-base">{event.venue_name}</strong>
+                      <p className="text-xs text-stone-300">{event.venue_address}, {event.city}</p>
+                      {event.google_maps_url && (
+                        <a 
+                          href={event.google_maps_url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-xs text-amber-400 underline hover:text-paper inline-block mt-1">
+                          View on Google Maps ↗
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-stone-700 flex flex-wrap justify-between items-center">
+                    <div>
+                      <span className="text-xs text-stone-400 uppercase font-typewriter">TICKET / ADMISSION: </span>
+                      <span className="text-lg font-poster text-amber-300 ml-1">
+                        {event.is_free_entry ? 'FREE ENTRY / NO COVER' : `₱${event.ticket_price_php} AT THE DOOR`}
+                      </span>
+                    </div>
+                    {event.ticket_link && (
+                      <a
+                        href={event.ticket_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-oxblood hover:bg-oxblood-bright text-paper px-4 py-1.5 font-poster text-sm tracking-wider border border-paper shadow-sm">
+                        OFFICIAL BOOKING LINK ↗
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* DESCRIPTION */}
+                <div className="mb-6">
+                  <h3 className="font-poster text-xl text-paper tracking-wider mb-2">ABOUT THIS SESSION</h3>
+                  <div className="font-typewriter text-sm text-stone-300 leading-relaxed space-y-3 bg-stone-900/60 p-4 border border-stone-800">
+                    <p>{event.description}</p>
+                    {event.accessibility_info && (
+                      <div className="pt-2 border-t border-stone-800 text-xs text-stone-400">
+                        <strong className="text-stone-300">ACCESSIBILITY & VENUE NOTES:</strong> {event.accessibility_info}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* BAND LINEUP / PERFORMERS */}
+                {event.lineups && event.lineups.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="font-poster text-xl text-paper tracking-wider mb-2">OFFICIAL BILL & LINEUP</h3>
+                    <div className="border-2 border-paper bg-stone-950 divide-y divide-stone-800 font-mono text-sm">
+                      {event.lineups.map((lineup, i) => (
+                        <div key={i} className="p-3 flex justify-between items-center hover:bg-stone-900 transition">
+                          <div className="flex items-center space-x-3">
+                            <span className="text-xs font-poster bg-oxblood text-paper px-2 py-0.5">#{i + 1}</span>
+                            <div>
+                              <strong className="text-paper text-base">{lineup.performer_name}</strong>
+                              {lineup.is_headliner && (
+                                <span className="rubber-stamp text-[9px] ml-2 text-amber-400 border-amber-400">HEADLINER</span>
+                              )}
+                            </div>
+                          </div>
+                          <span className="text-xs text-stone-400 font-typewriter">{lineup.set_time || 'SET TIME TBA'}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ORGANIZER CREDENTIALS */}
+              <div className="bg-stone-900 border-2 border-stone-700 p-4 flex justify-between items-center">
+                <div>
+                  <span className="text-[10px] font-typewriter text-stone-400 uppercase">OFFICIAL ORGANIZER</span>
+                  <div className="font-poster text-xl text-paper">
+                    {event.organizer_name_override || 'CDO Underground Noise Coalition'}
+                  </div>
+                </div>
+                {event.official_announcement_url && (
+                  <a 
+                    href={event.official_announcement_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-xs font-mono text-amber-400 underline hover:text-paper">
+                    Organizer Dispatch ↗
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* CONNECT WITH THE THRIFT SHOP: BUILD YOUR GIG FIT */}
+          {gigFits.length > 0 && (
+            <div className="border-4 border-oxblood bg-stone-950 p-6 shadow-brutal mb-12">
+              <div className="flex flex-wrap justify-between items-end border-b-2 border-oxblood pb-3 mb-6">
+                <div>
+                  <span className="font-typewriter text-xs text-oxblood font-bold uppercase">
+                    THRIFT SHOP X UNDERGROUND COLLABORATION
+                  </span>
+                  <h3 className="font-poster text-3xl sm:text-4xl text-paper">
+                    BUILD YOUR GIG FIT FOR THIS SHOW
+                  </h3>
+                  <p className="font-typewriter text-xs text-stone-400 mt-1">
+                    Pre-loved denim, battle-ready vests, and DIY canvas accessories tailored for CDO pit culture.
+                  </p>
+                </div>
+                <button 
+                  onClick={() => navigateTo('shop')}
+                  className="text-xs font-poster text-amber-300 hover:underline">
+                  VIEW FULL THRIFT COLLECTION →
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {gigFits.map(item => (
+                  <div key={item.id} className="border-2 border-stone-700 bg-stone-900 p-3 flex flex-col justify-between">
+                    <div>
+                      <div className="aspect-square bg-stone-950 overflow-hidden mb-2 border border-stone-800">
+                        <img src={item.image} alt={item.title} className="w-full h-full object-cover filter contrast-125 hover:scale-105 transition duration-300" />
+                      </div>
+                      <span className="text-[10px] font-mono text-oxblood font-bold">{item.condition}</span>
+                      <h4 className="font-poster text-xl text-paper leading-tight">{item.title}</h4>
+                      <p className="text-xs text-stone-400 font-mono mt-1">Size: {item.size}</p>
+                    </div>
+                    <div className="flex justify-between items-center mt-3 pt-2 border-t border-stone-800">
+                      <span className="font-poster text-xl text-amber-300">₱{item.price_php}</span>
+                      <button 
+                        onClick={() => { showToast(`Added "${item.title}" to thrift fitting cart!`); }}
+                        className="bg-paper text-ink px-3 py-1 font-poster text-xs hover:bg-stone-300">
+                        RESERVE FIT
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* RELATED EVENTS */}
+          {related.length > 0 && (
+            <div>
+              <h3 className="font-poster text-3xl text-paper tracking-wider mb-4">MORE SESSIONS IN THIS GENRE</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {related.map(rel => (
+                  <div 
+                    key={rel.id} 
+                    onClick={() => navigateTo('event-detail', rel.slug)}
+                    className="border-2 border-paper bg-stone-900 p-4 cursor-pointer hover:border-oxblood transition">
+                    <span className="font-typewriter text-[10px] text-oxblood font-bold">
+                      {new Date(rel.start_time).toLocaleDateString()} • {rel.venue_name}
+                    </span>
+                    <h4 className="font-poster text-2xl text-paper leading-none mt-1">{rel.title}</h4>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 4. BAND & COLLECTIVE DIRECTORY
+    // ============================================================================
+    function BandsSection({ bands, events, navigateTo, showToast }) {
+      const [search, setSearch] = useState('');
+      const [selectedGenre, setSelectedGenre] = useState('All');
+      const [showJoinModal, setShowJoinModal] = useState(false);
+
+      const filtered = bands.filter(b => {
+        if (selectedGenre !== 'All' && !b.genre_tags.includes(selectedGenre)) return false;
+        if (search.trim()) {
+          const q = search.toLowerCase();
+          return b.name.toLowerCase().includes(q) || b.location.toLowerCase().includes(q) || b.short_bio.toLowerCase().includes(q);
+        }
+        return true;
+      });
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border-b-4 border-oxblood pb-6 mb-8 flex flex-wrap justify-between items-end gap-4">
+            <div>
+              <span className="text-oxblood font-typewriter text-xs uppercase tracking-widest font-bold">
+                ROUTE: /community/bands • LOCAL & VISITING CREATORS
+              </span>
+              <h1 className="text-5xl sm:text-7xl font-poster text-paper tracking-tight leading-none mt-1">
+                BAND & COLLECTIVE DIRECTORY
+              </h1>
+              <p className="font-typewriter text-stone-300 text-sm max-w-2xl mt-2">
+                Discover independent bands, noise collectives, DIY screenprinters, and zine unions based in Cagayan de Oro City.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setShowJoinModal(true)}
+              className="bg-oxblood hover:bg-oxblood-bright text-paper px-5 py-2 font-poster text-lg border-2 border-paper shadow-brutal">
+              + REQUEST A BAND PROFILE
+            </button>
+          </div>
+
+          {/* SEARCH & FILTERS */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="SEARCH BANDS, CREATIVES, COLLECTIVES..."
+              className="flex-grow bg-stone-900 border-2 border-stone-700 px-4 py-2 text-sm font-mono text-paper focus:border-oxblood focus:outline-none"
+            />
+            <select
+              value={selectedGenre}
+              onChange={(e) => setSelectedGenre(e.target.value)}
+              className="bg-stone-900 border-2 border-stone-700 px-4 py-2 text-sm font-mono text-paper focus:border-oxblood focus:outline-none">
+              <option value="All">All Styles ({bands.length})</option>
+              {GENRE_LIST.map(g => (
+                <option key={g} value={g}>{g}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* DIRECTORY GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filtered.map(band => {
+              // Find upcoming gigs featuring this band
+              const upcomingGigs = events.filter(e => 
+                e.lineups?.some(l => l.performer_name.toLowerCase().includes(band.name.toLowerCase()))
+              );
+
+              return (
+                <div key={band.id} className="paper-texture border-4 border-ink p-5 text-ink shadow-brutal flex flex-col justify-between">
+                  <div>
+                    <div className="aspect-[4/3] bg-stone-900 border-2 border-ink overflow-hidden mb-3">
+                      <img src={band.image} alt={band.name} className="w-full h-full object-cover filter contrast-125 grayscale hover:grayscale-0 transition duration-300" />
+                    </div>
+
+                    <div className="flex flex-wrap gap-1 mb-2">
+                      {band.genre_tags.map(g => (
+                        <span key={g} className="bg-ink text-paper text-[9px] font-mono px-2 py-0.5 uppercase font-bold">
+                          {g}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h3 className="font-poster text-3xl text-ink leading-tight">{band.name}</h3>
+                    <p className="font-typewriter text-xs text-oxblood font-bold mb-2">📍 {band.location}</p>
+                    <p className="font-mono text-xs text-stone-800 leading-relaxed mb-4">{band.short_bio}</p>
+
+                    {band.members && (
+                      <div className="text-[11px] font-mono text-stone-700 mb-3 pt-2 border-t border-dashed border-stone-400">
+                        <strong className="text-ink">MEMBERS:</strong> {band.members.join(' • ')}
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    {/* UPCOMING GIGS BY THIS BAND */}
+                    {upcomingGigs.length > 0 && (
+                      <div className="mb-4 bg-stone-200 border border-stone-400 p-2 text-xs font-mono">
+                        <span className="font-bold text-oxblood block">NEXT GIG:</span>
+                        {upcomingGigs.map(g => (
+                          <div key={g.id} onClick={() => navigateTo('event-detail', g.slug)} className="hover:underline cursor-pointer font-poster text-sm text-ink truncate">
+                            → {g.title} ({new Date(g.start_time).toLocaleDateString()})
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* STREAMING & CONTACT */}
+                    <div className="pt-3 border-t-2 border-ink flex justify-between items-center text-xs font-mono">
+                      <div className="space-x-2">
+                        {band.spotify && <a href={band.spotify} target="_blank" rel="noopener noreferrer" className="text-oxblood font-bold hover:underline">Spotify ↗</a>}
+                        {band.bandcamp && <a href={band.bandcamp} target="_blank" rel="noopener noreferrer" className="text-oxblood font-bold hover:underline">Bandcamp ↗</a>}
+                      </div>
+                      <span className="text-[10px] text-stone-600 truncate max-w-[120px]">{band.booking}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* REQUEST PROFILE MODAL */}
+          {showJoinModal && (
+            <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+              <div className="paper-texture border-4 border-ink p-6 max-w-lg w-full text-ink shadow-brutal relative">
+                <button 
+                  onClick={() => setShowJoinModal(false)}
+                  className="absolute top-3 right-4 font-poster text-2xl hover:text-oxblood">
+                  ✕
+                </button>
+                <div className="rubber-stamp text-xs mb-2">ARTIST APPLICATION</div>
+                <h3 className="font-poster text-3xl text-ink mb-1">REQUEST A BAND / CREATIVE PROFILE</h3>
+                <p className="font-typewriter text-xs text-stone-700 mb-4">
+                  For CDO & Northern Mindanao acts, zine creators, and DIY spaces. All requests are verified by admins.
+                </p>
+
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  showToast("Profile request submitted! Admins will verify your music links.");
+                  setShowJoinModal(false);
+                }} className="space-y-3 font-mono text-xs">
+                  <div>
+                    <label className="block font-bold">BAND / COLLECTIVE NAME *</label>
+                    <input required className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="e.g. Broken Glass Syndicate" />
+                  </div>
+                  <div>
+                    <label className="block font-bold">GENRE / CREATIVE INTEREST *</label>
+                    <input required className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="e.g. Screamo / Post-Hardcore" />
+                  </div>
+                  <div>
+                    <label className="block font-bold">LOCATION IN CDO *</label>
+                    <input required className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="e.g. Nazareth, CDO" />
+                  </div>
+                  <div>
+                    <label className="block font-bold">STREAMING / SOCIAL / BANDCAMP LINK *</label>
+                    <input required className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="https://bandcamp.com/..." />
+                  </div>
+                  <div>
+                    <label className="block font-bold">CONTACT EMAIL *</label>
+                    <input required type="email" className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="band@gmail.com" />
+                  </div>
+                  <div className="pt-2">
+                    <button type="submit" className="w-full bg-oxblood text-paper font-poster text-lg py-2 border-2 border-ink shadow-brutal">
+                      SUBMIT PROFILE REQUEST
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 5. DIY COMMUNITY CALENDAR (MUSIC + NON-MUSIC ACTIVITIES)
+    // ============================================================================
+    function CalendarSection({ events, view, setView, navigateTo }) {
+      const [filterType, setFilterType] = useState('all'); // 'all', 'music', 'workshop', 'thrift'
+
+      const calendarEvents = events.filter(e => {
+        if (filterType === 'music' && e.event_type !== 'gig') return false;
+        if (filterType === 'workshop' && e.event_type !== 'diy_workshop') return false;
+        if (filterType === 'thrift' && e.event_type !== 'thrift_market' && e.event_type !== 'zine_fair') return false;
+        return true;
+      });
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border-b-4 border-oxblood pb-6 mb-8 flex flex-wrap justify-between items-end gap-4">
+            <div>
+              <span className="text-oxblood font-typewriter text-xs uppercase tracking-widest font-bold">
+                ROUTE: /community/calendar • CDO DIY CULTURE LOG
+              </span>
+              <h1 className="text-5xl sm:text-7xl font-poster text-paper tracking-tight leading-none mt-1">
+                DIY COMMUNITY CALENDAR
+              </h1>
+              <p className="font-typewriter text-stone-300 text-sm max-w-2xl mt-2">
+                Bringing together music gigs and non-music underground activities: patch-making, screen-printing, clothing repair, thrift swaps, and zine sessions.
+              </p>
+            </div>
+
+            <div className="flex gap-2">
+              <button
+                onClick={() => setView('calendar')}
+                className={`px-4 py-2 font-poster text-base border-2 border-paper tracking-wider ${
+                  view === 'calendar' ? 'bg-paper text-ink shadow-brutal' : 'bg-stone-900 text-stone-300'
+                }`}>
+                CALENDAR GRID
+              </button>
+              <button
+                onClick={() => setView('list')}
+                className={`px-4 py-2 font-poster text-base border-2 border-paper tracking-wider ${
+                  view === 'list' ? 'bg-paper text-ink shadow-brutal' : 'bg-stone-900 text-stone-300'
+                }`}>
+                CHRONO LIST VIEW
+              </button>
+            </div>
+          </div>
+
+          {/* ACTIVITY TYPE FILTERS */}
+          <div className="flex flex-wrap gap-2 mb-8 font-mono text-xs">
+            {[
+              { id: 'all', label: 'All Activities' },
+              { id: 'music', label: 'Live Gigs & Noise Shows' },
+              { id: 'workshop', label: 'Patch & Customization Labs' },
+              { id: 'thrift', label: 'Thrift Swaps & Zine Fairs' }
+            ].map(f => (
+              <button
+                key={f.id}
+                onClick={() => setFilterType(f.id)}
+                className={`px-3 py-1.5 transition ${
+                  filterType === f.id ? 'bg-oxblood text-paper font-bold' : 'bg-stone-900 text-stone-400 hover:text-paper'
+                }`}>
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          {/* CALENDAR VIEW */}
+          {view === 'calendar' ? (
+            <div className="border-4 border-paper bg-stone-950 p-6 shadow-brutal">
+              <div className="text-center font-poster text-3xl text-paper mb-4">
+                OCTOBER / NOVEMBER 2026 SCHEDULE
+              </div>
+              
+              {/* DAYS HEADER */}
+              <div className="grid grid-cols-7 gap-2 mb-2 text-center font-typewriter text-xs text-stone-400 font-bold border-b border-stone-800 pb-2">
+                <div>SUN</div><div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div>
+              </div>
+
+              {/* MONTH MATRIX PREVIEW */}
+              <div className="grid grid-cols-7 gap-2">
+                {Array.from({ length: 31 }).map((_, i) => {
+                  const day = i + 1;
+                  // Match events on this day
+                  const dayEvents = calendarEvents.filter(e => new Date(e.start_time).getDate() === day);
+
+                  return (
+                    <div 
+                      key={day} 
+                      className={`min-h-[100px] border border-stone-800 p-2 flex flex-col justify-between transition ${
+                        dayEvents.length > 0 ? 'bg-stone-900/90 border-stone-600' : 'bg-stone-950/40 text-stone-600'
+                      }`}>
+                      <span className="font-mono text-xs font-bold">{day}</span>
+                      <div className="space-y-1 mt-1">
+                        {dayEvents.map(ev => (
+                          <div 
+                            key={ev.id}
+                            onClick={() => navigateTo('event-detail', ev.slug)}
+                            className="text-[10px] font-poster bg-oxblood text-paper p-1 truncate cursor-pointer hover:bg-oxblood-bright leading-tight shadow-sm"
+                            title={ev.title}>
+                            {ev.title}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            /* LIST VIEW FOR MOBILE / QUICK SCAN */
+            <div className="space-y-4">
+              {calendarEvents.map(ev => (
+                <div 
+                  key={ev.id}
+                  onClick={() => navigateTo('event-detail', ev.slug)}
+                  className="border-2 border-paper bg-stone-900 p-4 shadow-brutal flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer hover:border-oxblood transition gap-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-oxblood text-paper text-center p-2 min-w-[70px]">
+                      <span className="font-poster text-2xl block leading-none">
+                        {new Date(ev.start_time).getDate()}
+                      </span>
+                      <span className="text-[10px] font-mono uppercase">
+                        {new Date(ev.start_time).toLocaleDateString('en-US', { month: 'short' })}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-oxblood uppercase font-bold">
+                        {ev.event_type.replace('_', ' ')} • {ev.venue_name}
+                      </span>
+                      <h3 className="font-poster text-2xl text-paper leading-none mt-1">{ev.title}</h3>
+                      <p className="font-typewriter text-xs text-stone-400 mt-1">{ev.tagline}</p>
+                    </div>
+                  </div>
+
+                  <div className="text-right font-mono text-xs">
+                    <span className="text-amber-300 font-bold block">{ev.is_free_entry ? 'FREE ENTRY' : `₱${ev.ticket_price_php}`}</span>
+                    <span className="text-stone-400">DOORS: {ev.doors_open_time || 'TBA'}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 6. THE GIG ARCHIVE
+    // ============================================================================
+    function ArchiveSection({ events, archiveYear, setArchiveYear, navigateTo, showToast }) {
+      const [showRecapModal, setShowRecapModal] = useState(false);
+      const [selectedArchiveEvent, setSelectedArchiveEvent] = useState(null);
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border-b-4 border-oxblood pb-6 mb-8 flex flex-wrap justify-between items-end gap-4">
+            <div>
+              <span className="text-oxblood font-typewriter text-xs uppercase tracking-widest font-bold">
+                ROUTE: /community/archive • HISTORICAL CDO SCENE RECORD
+              </span>
+              <h1 className="text-5xl sm:text-7xl font-poster text-paper tracking-tight leading-none mt-1">
+                THE GIG ARCHIVE
+              </h1>
+              <p className="font-typewriter text-stone-300 text-sm max-w-2xl mt-2">
+                A permanent historical record of Cagayan de Oro's independent noise, punk shows, zine fairs, and DIY culture. Past events never disappear here.
+              </p>
+            </div>
+
+            <div className="flex gap-2">
+              {['All', '2026', '2025', '2024'].map(year => (
+                <button
+                  key={year}
+                  onClick={() => setArchiveYear(year)}
+                  className={`px-3 py-1 font-mono text-xs border border-stone-700 ${
+                    archiveYear === year ? 'bg-oxblood text-paper font-bold' : 'bg-stone-900 text-stone-400 hover:text-paper'
+                  }`}>
+                  {year}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* ARCHIVE GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {events.map((ev, idx) => (
+              <div key={ev.id} className="border-4 border-stone-800 bg-stone-950 p-5 shadow-brutal flex flex-col justify-between">
+                <div>
+                  <div className="aspect-[4/5] bg-stone-900 border-2 border-stone-800 overflow-hidden mb-3 relative">
+                    <img src={ev.poster_image_url} alt={ev.title} className="w-full h-full object-cover filter grayscale contrast-125 hover:filter-none transition duration-300" />
+                    <div className="absolute top-2 right-2 rubber-stamp rubber-stamp-black bg-paper text-[10px]">
+                      ARCHIVED {new Date(ev.start_time).getFullYear()}
+                    </div>
+                  </div>
+
+                  <span className="text-[10px] font-mono text-oxblood uppercase font-bold">
+                    {new Date(ev.start_time).toLocaleDateString()} • {ev.venue_name}
+                  </span>
+                  <h3 className="font-poster text-3xl text-paper leading-tight mt-1">{ev.title}</h3>
+                  <p className="font-mono text-xs text-stone-400 mt-2 leading-relaxed">{ev.description}</p>
+
+                  {/* RECAP IF AVAILABLE */}
+                  {ev.recaps && ev.recaps.length > 0 && (
+                    <div className="mt-4 p-3 bg-stone-900 border border-stone-800 text-xs font-typewriter text-stone-300">
+                      <strong className="text-amber-300 block mb-1">★ RECAP BY {ev.recaps[0].author_name} ({ev.recaps[0].author_role}):</strong>
+                      "{ev.recaps[0].recap_text}"
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-stone-800 flex justify-between items-center text-xs font-mono">
+                  <button 
+                    onClick={() => navigateTo('event-detail', ev.slug)}
+                    className="text-amber-400 hover:underline">
+                    Inspect Flyer Record →
+                  </button>
+                  <button 
+                    onClick={() => { setSelectedArchiveEvent(ev); setShowRecapModal(true); }}
+                    className="text-stone-400 hover:text-paper underline">
+                    Submit Photo/Recap
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* RECAP SUBMISSION MODAL */}
+          {showRecapModal && (
+            <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+              <div className="paper-texture border-4 border-ink p-6 max-w-lg w-full text-ink shadow-brutal relative">
+                <button 
+                  onClick={() => setShowRecapModal(false)}
+                  className="absolute top-3 right-4 font-poster text-2xl hover:text-oxblood">
+                  ✕
+                </button>
+                <div className="rubber-stamp text-xs mb-2">ARCHIVAL SUBMISSION</div>
+                <h3 className="font-poster text-3xl text-ink mb-1">SUBMIT RECAP / PHOTOS</h3>
+                <p className="font-typewriter text-xs text-stone-700 mb-4">
+                  For: <strong className="text-oxblood">{selectedArchiveEvent?.title}</strong>. Photographers and gig attendees are invited to preserve their memories.
+                </p>
+
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  showToast("Recap submitted for admin moderation!");
+                  setShowRecapModal(false);
+                }} className="space-y-3 font-mono text-xs">
+                  <div>
+                    <label className="block font-bold">YOUR NAME / HANDLE *</label>
+                    <input required className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="e.g. Mike Photography" />
+                  </div>
+                  <div>
+                    <label className="block font-bold">ROLE *</label>
+                    <select className="w-full bg-stone-100 border-2 border-ink p-2 text-ink">
+                      <option>Photographer</option>
+                      <option>Attendee / Fan</option>
+                      <option>Performer / Band Member</option>
+                      <option>Organizer</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block font-bold">EVENT RECAP / MEMORY *</label>
+                    <textarea required rows={4} className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="Describe the atmosphere, pit energy, best songs, or crowd turnout..." />
+                  </div>
+                  <div>
+                    <label className="block font-bold">PHOTO URL (DRIVE / CLOUD / INSTA) *</label>
+                    <input required className="w-full bg-stone-100 border-2 border-ink p-2 text-ink" placeholder="https://..." />
+                  </div>
+                  <div className="pt-2">
+                    <button type="submit" className="w-full bg-oxblood text-paper font-poster text-lg py-2 border-2 border-ink shadow-brutal">
+                      SUBMIT TO ARCHIVE
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 7. SUBMIT AN EVENT SECTION (COMMUNITY SUBMISSIONS)
+    // ============================================================================
+    function SubmitEventSection({ onSubmit, navigateTo }) {
+      const [title, setTitle] = useState('');
+      const [selectedGenres, setSelectedGenres] = useState(['Punk and Hardcore']);
+      const [eventType, setEventType] = useState('gig');
+      const [description, setDescription] = useState('');
+      const [dateTime, setDateTime] = useState('');
+      const [venue, setVenue] = useState('');
+      const [city, setCity] = useState('Cagayan de Oro City');
+      const [address, setAddress] = useState('');
+      const [posterUrl, setPosterUrl] = useState('');
+      const [lineup, setLineup] = useState('');
+      const [price, setPrice] = useState('150');
+      const [isFree, setIsFree] = useState(false);
+      const [ticketLink, setTicketLink] = useState('');
+      const [organizer, setOrganizer] = useState('');
+      const [email, setEmail] = useState('');
+      const [social, setSocial] = useState('');
+      const [age, setAge] = useState('All Ages');
+      const [accessibility, setAccessibility] = useState('');
+      
+      // Anti-spam honeypot
+      const [honeypot, setHoneypot] = useState('');
+
+      const toggleGenre = (genre) => {
+        if (selectedGenres.includes(genre)) {
+          if (selectedGenres.length > 1) {
+            setSelectedGenres(selectedGenres.filter(g => g !== genre));
+          }
+        } else {
+          setSelectedGenres([...selectedGenres, genre]);
+        }
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit({
+          title,
+          genres: selectedGenres,
+          event_type: eventType,
+          description,
+          date_time: dateTime || new Date(Date.now() + 14 * 24 * 3600 * 1000).toISOString(),
+          venue,
+          city,
+          address,
+          poster_url: posterUrl,
+          lineup,
+          price: isFree ? 0 : price,
+          is_free: isFree,
+          ticket_link: ticketLink,
+          organizer,
+          email,
+          social,
+          age,
+          accessibility,
+          honeypot
+        });
+      };
+
+      return (
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+          <div className="paper-texture border-4 border-ink p-6 sm:p-10 text-ink shadow-brutal relative">
+            <div className="tape-strip absolute -top-3 left-10 px-4 py-0.5 text-xs font-typewriter text-ink font-bold">
+              CAGAYAN DE ORO DIY UNION DISPATCH
+            </div>
+
+            <div className="border-b-4 border-ink pb-4 mb-6">
+              <span className="rubber-stamp text-xs mb-2">COMMUNITY REVIEW FORM</span>
+              <h1 className="text-4xl sm:text-6xl font-poster text-ink tracking-tight leading-none mt-1">
+                SUBMIT YOUR EVENT
+              </h1>
+              <p className="font-typewriter text-stone-700 text-xs sm:text-sm mt-1">
+                Bands, organizers, venues, and DIY collectives: Submit your upcoming gig or workshop. 
+                All submissions enter a moderation queue and are verified by administrators before publication.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6 font-mono text-xs">
+              {/* HONEYPOT ANTI-SPAM (HIDDEN) */}
+              <input 
+                type="text" 
+                value={honeypot} 
+                onChange={(e) => setHoneypot(e.target.value)} 
+                tabIndex="-1" 
+                autoComplete="off" 
+                className="hidden" 
+              />
+
+              {/* 1. BASIC DETAILS */}
+              <div className="bg-stone-100 p-4 border-2 border-ink space-y-4">
+                <span className="font-poster text-xl text-oxblood uppercase tracking-wider block">
+                  01 / GIG IDENTITY
+                </span>
+
+                <div>
+                  <label className="block font-bold mb-1">EVENT NAME *</label>
+                  <input
+                    required
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="e.g. SOUNDS OF DISTORTION VOL. 1"
+                    className="w-full bg-white border-2 border-ink p-2 text-ink text-sm focus:outline-none focus:border-oxblood"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold mb-1">EVENT CATEGORY *</label>
+                    <select
+                      value={eventType}
+                      onChange={(e) => setEventType(e.target.value)}
+                      className="w-full bg-white border-2 border-ink p-2 text-ink">
+                      <option value="gig">Live Underground Gig</option>
+                      <option value="diy_workshop">DIY Workshop / Mending</option>
+                      <option value="thrift_market">Thrift Market / Clothing Swap</option>
+                      <option value="zine_fair">Zine Fair / Art Market</option>
+                      <option value="meetup">Open Mic / Meetup</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block font-bold mb-1">DATE & TIME *</label>
+                    <input
+                      required
+                      type="datetime-local"
+                      value={dateTime}
+                      onChange={(e) => setDateTime(e.target.value)}
+                      className="w-full bg-white border-2 border-ink p-2 text-ink"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-bold mb-2">GENRE TAGS (SELECT ALL THAT APPLY) *</label>
+                  <div className="flex flex-wrap gap-1.5">
+                    {GENRE_LIST.map(g => (
+                      <button
+                        type="button"
+                        key={g}
+                        onClick={() => toggleGenre(g)}
+                        className={`px-2.5 py-1 text-[11px] border border-ink transition ${
+                          selectedGenres.includes(g) 
+                            ? 'bg-ink text-paper font-bold' 
+                            : 'bg-white text-stone-700 hover:bg-stone-200'
+                        }`}>
+                        {selectedGenres.includes(g) ? '✓ ' : '+ '} {g}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-bold mb-1">EVENT DESCRIPTION & ETHOS *</label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Describe the atmosphere, lineup intentions, venue rules, and ethos..."
+                    className="w-full bg-white border-2 border-ink p-2 text-ink text-xs focus:outline-none focus:border-oxblood"
+                  />
+                </div>
+              </div>
+
+              {/* 2. VENUE & LOCATION */}
+              <div className="bg-stone-100 p-4 border-2 border-ink space-y-4">
+                <span className="font-poster text-xl text-oxblood uppercase tracking-wider block">
+                  02 / LOCATION & VENUE
+                </span>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold mb-1">VENUE NAME *</label>
+                    <input
+                      required
+                      type="text"
+                      value={venue}
+                      onChange={(e) => setVenue(e.target.value)}
+                      placeholder="e.g. Nazareth Concrete Garage, Divisoria Basement"
+                      className="w-full bg-white border-2 border-ink p-2 text-ink"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold mb-1">CITY / MUNICIPALITY *</label>
+                    <input
+                      required
+                      type="text"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      placeholder="Cagayan de Oro City"
+                      className="w-full bg-white border-2 border-ink p-2 text-ink"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-bold mb-1">EXACT ADDRESS / DIRECTIONS *</label>
+                  <input
+                    required
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    placeholder="e.g. 12th-21st St. Corner, Nazareth, CDO"
+                    className="w-full bg-white border-2 border-ink p-2 text-ink"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold mb-1">AGE RESTRICTIONS</label>
+                    <select
+                      value={age}
+                      onChange={(e) => setAge(e.target.value)}
+                      className="w-full bg-white border-2 border-ink p-2 text-ink">
+                      <option value="All Ages">All Ages</option>
+                      <option value="18+">18+ Only</option>
+                      <option value="Strictly 18+">Strictly 18+ (ID required)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block font-bold mb-1">ACCESSIBILITY NOTES (OPTIONAL)</label>
+                    <input
+                      type="text"
+                      value={accessibility}
+                      onChange={(e) => setAccessibility(e.target.value)}
+                      placeholder="e.g. Wheelchair accessible, stairs only, quiet patio"
+                      className="w-full bg-white border-2 border-ink p-2 text-ink"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. FLYER & TICKETS */}
+              <div className="bg-stone-100 p-4 border-2 border-ink space-y-4">
+                <span className="font-poster text-xl text-oxblood uppercase tracking-wider block">
+                  03 / FLYER ARTWORK & ADMISSION
+                </span>
+
+                <div>
+                  <label className="block font-bold mb-1">POSTER IMAGE URL *</label>
+                  <input
+                    required
+                    type="url"
+                    value={posterUrl}
+                    onChange={(e) => setPosterUrl(e.target.value)}
+                    placeholder="https://images.unsplash.com/... or cloud image URL"
+                    className="w-full bg-white border-2 border-ink p-2 text-ink"
+                  />
+                  <p className="text-[10px] text-stone-500 mt-1">
+                    * Please only submit original flyer artwork or images the organizer has permission to publish.
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block font-bold mb-1">BAND LINEUP / PERFORMERS (COMMA-SEPARATED)</label>
+                  <input
+                    type="text"
+                    value={lineup}
+                    onChange={(e) => setLineup(e.target.value)}
+                    placeholder="e.g. Blackwater Divide, Calamity Routine, Gutter Sludge"
+                    className="w-full bg-white border-2 border-ink p-2 text-ink"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                  <div>
+                    <label className="block font-bold mb-1">TICKET PRICE (PHP)</label>
+                    <input
+                      disabled={isFree}
+                      type="number"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                      className="w-full bg-white border-2 border-ink p-2 text-ink disabled:bg-stone-200"
+                    />
+                  </div>
+
+                  <div className="pt-4">
+                    <label className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={isFree}
+                        onChange={(e) => setIsFree(e.target.checked)}
+                        className="w-4 h-4 text-oxblood border-2 border-ink"
+                      />
+                      <span className="font-bold text-ink">FREE ENTRY / DONATION ONLY</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-bold mb-1">OFFICIAL EVENT / TICKET LINK</label>
+                  <input
+                    type="url"
+                    value={ticketLink}
+                    onChange={(e) => setTicketLink(e.target.value)}
+                    placeholder="https://instagram.com/..."
+                    className="w-full bg-white border-2 border-ink p-2 text-ink"
+                  />
+                </div>
+              </div>
+
+              {/* 4. ORGANIZER VERIFICATION CONTACT */}
+              <div className="bg-stone-100 p-4 border-2 border-ink space-y-4">
+                <span className="font-poster text-xl text-oxblood uppercase tracking-wider block">
+                  04 / ORGANIZER CONTACT & VERIFICATION
+                </span>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold mb-1">ORGANIZER / COLLECTIVE NAME *</label>
+                    <input
+                      required
+                      type="text"
+                      value={organizer}
+                      onChange={(e) => setOrganizer(e.target.value)}
+                      placeholder="e.g. CDO Noise Coalition"
+                      className="w-full bg-white border-2 border-ink p-2 text-ink"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold mb-1">CONTACT EMAIL *</label>
+                    <input
+                      required
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="organizer@gmail.com"
+                      className="w-full bg-white border-2 border-ink p-2 text-ink"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-bold mb-1">SOCIAL HANDLE / PROFILE</label>
+                  <input
+                    type="text"
+                    value={social}
+                    onChange={(e) => setSocial(e.target.value)}
+                    placeholder="@cdo_noise"
+                    className="w-full bg-white border-2 border-ink p-2 text-ink"
+                  />
+                </div>
+              </div>
+
+              {/* SUBMIT BUTTON */}
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  className="w-full bg-oxblood hover:bg-oxblood-bright text-paper py-4 font-poster text-2xl tracking-wider border-2 border-ink shadow-brutal transition transform active:scale-98">
+                  SUBMIT GIG FOR REVIEW →
+                </button>
+                <p className="font-typewriter text-[11px] text-stone-600 text-center mt-2">
+                  Only administrators can verify and publish listings into the official live stream.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 8. THRIFT SHOP INTEGRATION SECTION
+    // ============================================================================
+    function ShopSection({ products, events, navigateTo, showToast }) {
+      const [filter, setFilter] = useState('All');
+
+      const filtered = products.filter(p => {
+        if (filter === 'All') return true;
+        return p.tags.toLowerCase().includes(filter.toLowerCase());
+      });
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border-b-4 border-oxblood pb-6 mb-8 flex flex-wrap justify-between items-end gap-4">
+            <div>
+              <span className="text-oxblood font-typewriter text-xs uppercase tracking-widest font-bold">
+                ROUTE: /shop • THRIFT SOLIDARITY & DIY CLOTHING
+              </span>
+              <h1 className="text-5xl sm:text-7xl font-poster text-paper tracking-tight leading-none mt-1">
+                GIG FITS & SECONDHAND RACKS
+              </h1>
+              <p className="font-typewriter text-stone-300 text-sm max-w-2xl mt-2">
+                "BUY SECONDHAND. MAKE YOUR OWN. SUPPORT THE SCENE." Curated pieces ready for sweat, pit survival, and stage noise.
+              </p>
+            </div>
+
+            <div className="flex gap-2 font-mono text-xs">
+              {['All', 'Punk', 'Metal', 'Emo', 'Goth', 'DIY'].map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`px-3 py-1 border border-stone-700 ${
+                    filter === cat ? 'bg-oxblood text-paper font-bold' : 'bg-stone-900 text-stone-400 hover:text-paper'
+                  }`}>
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filtered.map(item => (
+              <div key={item.id} className="border-4 border-ink paper-texture text-ink p-4 shadow-brutal flex flex-col justify-between">
+                <div>
+                  <div className="aspect-square bg-stone-900 border-2 border-ink overflow-hidden mb-3">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover filter contrast-125 hover:scale-105 transition duration-300" />
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-[10px] font-mono bg-ink text-paper px-2 py-0.5 font-bold uppercase">{item.tags}</span>
+                    <span className="rubber-stamp text-[9px]">{item.condition}</span>
+                  </div>
+                  <h3 className="font-poster text-2xl text-ink leading-tight mt-1">{item.title}</h3>
+                  <p className="font-mono text-xs text-stone-700 mt-2">{item.desc}</p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t-2 border-ink flex justify-between items-center">
+                  <span className="font-poster text-3xl text-oxblood">₱{item.price_php}</span>
+                  <button
+                    onClick={() => showToast(`Added "${item.title}" to fitting reserve!`)}
+                    className="bg-ink text-paper hover:bg-oxblood px-4 py-2 font-poster text-sm tracking-wider transition">
+                    CLAIM FIT
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* RESPECTFUL DISCLAIMER */}
+          <div className="mt-12 p-4 border border-stone-800 bg-stone-950 text-stone-400 text-xs font-mono">
+            <strong>THRIFT INTEGRITY DISCLAIMER:</strong> These curated garments are thrifted and reworked by local artisans. Independent clothing items do not imply unverified band endorsements. All proceeds support local mending circles and independent venue spaces in CDO.
+          </div>
+        </div>
+      );
+    }
+
+    // ============================================================================
+    // 9. ADMIN MODERATION & VERIFICATION DASHBOARD
+    // ============================================================================
+    function AdminSection({ submissions, events, onApprove, onReject, onUpdateStatus, navigateTo }) {
+      const pending = submissions.filter(s => s.status === 'pending');
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border-b-4 border-amber-400 pb-6 mb-8 flex justify-between items-end">
+            <div>
+              <span className="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">
+                ADMIN ACCESS ONLY • DATABASE SOURCE OF TRUTH
+              </span>
+              <h1 className="text-5xl sm:text-6xl font-poster text-paper tracking-tight leading-none mt-1">
+                MODERATION & VERIFICATION QUEUE
+              </h1>
+              <p className="font-mono text-xs text-stone-400 mt-1">
+                Only verified administrator accounts can publish, edit, or adjust event statuses.
+              </p>
+            </div>
+            <span className="rubber-stamp rubber-stamp-green text-xs">ADMIN MODE ACTIVE</span>
+          </div>
+
+          {/* PENDING SUBMISSIONS QUEUE */}
+          <div className="mb-12">
+            <h2 className="font-poster text-3xl text-paper mb-4 flex items-center space-x-2">
+              <span>PENDING COMMUNITY GIGS ({pending.length})</span>
+            </h2>
+
+            {pending.length > 0 ? (
+              <div className="space-y-4">
+                {pending.map(sub => (
+                  <div key={sub.id} className="border-2 border-amber-400 bg-stone-900 p-5 shadow-brutal flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <span className="rubber-stamp text-[9px] text-amber-400 border-amber-400">NEEDS VERIFICATION</span>
+                        <span className="text-xs font-mono text-stone-400">{new Date(sub.created_at).toLocaleString()}</span>
+                      </div>
+                      <h3 className="font-poster text-3xl text-paper mt-1">{sub.title}</h3>
+                      <p className="text-xs font-mono text-stone-300">
+                        Venue: <strong>{sub.venue_name}</strong> • City: {sub.city} • Org: {sub.organizer_name} ({sub.contact_email})
+                      </p>
+                      <p className="text-xs font-typewriter text-stone-400 mt-1 italic">
+                        "{sub.description}"
+                      </p>
+                      {sub.band_lineup_text && (
+                        <p className="text-xs font-mono text-amber-300 mt-1">Lineup: {sub.band_lineup_text}</p>
+                      )}
+                    </div>
+
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => onApprove(sub)}
+                        className="bg-emerald-700 hover:bg-emerald-600 text-paper px-4 py-2 font-poster text-base border border-paper shadow-sm">
+                        ✓ VERIFY & PUBLISH
+                      </button>
+                      <button
+                        onClick={() => onReject(sub.id)}
+                        className="bg-red-800 hover:bg-red-700 text-paper px-4 py-2 font-poster text-base border border-paper shadow-sm">
+                        ✕ REJECT
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="p-8 border-2 border-dashed border-stone-800 text-center font-typewriter text-xs text-stone-500">
+                ★ Moderation queue is empty. No pending submissions awaiting review.
+              </div>
+            )}
+          </div>
+
+          {/* LIVE PUBLISHED EVENTS MANAGER */}
+          <div>
+            <h2 className="font-poster text-3xl text-paper mb-4">LIVE PUBLISHED EVENTS MANAGER ({events.length})</h2>
+            <div className="border-2 border-stone-800 bg-stone-950 divide-y divide-stone-800 font-mono text-xs">
+              {events.map(ev => (
+                <div key={ev.id} className="p-4 flex flex-wrap justify-between items-center gap-3">
+                  <div>
+                    <h4 className="font-poster text-2xl text-paper">{ev.title}</h4>
+                    <span className="text-stone-400">{new Date(ev.start_time).toLocaleDateString()} • {ev.venue_name}</span>
+                  </div>
+
+                  <div className="flex items-center space-x-2">
+                    <span className="text-stone-400">STATUS:</span>
+                    <select
+                      value={ev.status}
+                      onChange={(e) => onUpdateStatus(ev.id, e.target.value)}
+                      className="bg-stone-900 border border-stone-700 text-paper px-2 py-1 font-mono text-xs">
+                      <option value="upcoming">Upcoming</option>
+                      <option value="sold_out">Sold Out</option>
+                      <option value="postponed">Postponed</option>
+                      <option value="cancelled">Cancelled</option>
+                      <option value="completed">Completed / Archive</option>
+                    </select>
+                    <button
+                      onClick={() => navigateTo('event-detail', ev.slug)}
+                      className="text-amber-400 underline hover:text-paper ml-2">
+                      Inspect
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Mount React App
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
